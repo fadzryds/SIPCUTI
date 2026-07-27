@@ -1,0 +1,351 @@
+/* ===========================================================
+   HRD SIDEBAR
+=========================================================== */
+
+:root{
+
+    --sidebar-width:280px;
+
+    --primary:#2563eb;
+    --primary-light:#3b82f6;
+
+    --dark:#0f172a;
+
+    --white:#ffffff;
+
+    --text:#334155;
+    --text-light:#94a3b8;
+
+    --border:#e2e8f0;
+
+    --bg:#f8fafc;
+
+    --success:#22c55e;
+    --danger:#ef4444;
+
+    --shadow:
+        0 18px 45px rgba(15,23,42,.08);
+
+}
+
+/* ===========================================================
+SIDEBAR
+=========================================================== */
+
+.sidebar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:var(--sidebar-width);
+
+    height:100vh;
+
+    background:#ffffff;
+
+    border-right:1px solid var(--border);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    box-shadow:var(--shadow);
+
+    z-index:999;
+
+}
+
+/* ===========================================================
+HEADER
+=========================================================== */
+
+.sidebar-header{
+
+    padding:32px 28px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+/* ===========================================================
+LOGO
+=========================================================== */
+
+.logo{
+
+    width:62px;
+
+    height:62px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#e2e8f0;
+
+    color:white;
+
+    font-size:24px;
+
+    flex-shrink:0;
+
+    box-shadow:
+        0 10px 28px rgba(3, 83, 255, 0.362);
+
+}
+
+.sidebar-header h2{
+
+    margin:0;
+
+    font-size:22px;
+
+    color:var(--dark);
+
+    font-weight:700;
+
+}
+
+.sidebar-header span{
+
+    display:block;
+
+    margin-top:4px;
+
+    color:var(--text-light);
+
+    font-size:13px;
+
+    letter-spacing:.6px;
+
+}
+
+/* ===========================================================
+MENU
+=========================================================== */
+
+.sidebar-menu{
+
+    padding:30px 18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    flex:1;
+
+}
+
+.sidebar-menu a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:15px 18px;
+
+    border-radius:16px;
+
+    text-decoration:none;
+
+    color:var(--text);
+
+    font-weight:500;
+
+    transition:.30s;
+
+    position:relative;
+
+}
+
+.sidebar-menu a i{
+
+    width:24px;
+
+    text-align:center;
+
+    font-size:18px;
+
+}
+
+/* Hover */
+
+.sidebar-menu a:hover{
+
+    background:#eff6ff;
+
+    color:var(--primary);
+
+    transform:translateX(5px);
+
+}
+
+/* Active */
+
+.sidebar-menu a.active{
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-light)
+    );
+
+    color:white;
+
+    box-shadow:
+        0 12px 30px rgba(37,99,235,.28);
+
+}
+
+.sidebar-menu a.active i{
+
+    color:white;
+
+}
+
+/* garis kiri */
+
+.sidebar-menu a.active::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:5px;
+
+    height:60%;
+
+    border-radius:20px;
+
+    background:var(--primary);
+
+}
+
+/* ===========================================================
+FOOTER
+=========================================================== */
+
+.sidebar-footer{
+
+    padding:25px;
+
+    border-top:1px solid var(--border);
+
+}
+
+/* ===========================================================
+LOGOUT BUTTON
+=========================================================== */
+
+.logout-btn{
+
+    width:100%;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#fee2e2;
+
+    color:var(--danger);
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    transition:.30s;
+
+}
+
+.logout-btn:hover{
+
+    background:var(--danger);
+
+    color:white;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(239,68,68,.25);
+
+}
+
+.logout-btn i{
+
+    font-size:17px;
+
+}
+
+/* ===========================================================
+RESPONSIVE
+=========================================================== */
+
+@media(max-width:992px){
+
+    .sidebar{
+
+        transform:translateX(-100%);
+
+        transition:.35s;
+
+    }
+
+    .sidebar.show{
+
+        transform:translateX(0);
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .sidebar{
+
+        width:260px;
+
+    }
+
+    .sidebar-header{
+
+        padding:24px;
+
+    }
+
+}

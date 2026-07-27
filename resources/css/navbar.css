@@ -1,0 +1,523 @@
+/* ===========================================================
+   NAVBAR
+=========================================================== */
+
+:root{
+
+    --primary:#F97316;
+    --primary-light:#FB923C;
+    --primary-dark:#EA580C;
+
+    --bg:#F8FAFC;
+
+    --text:#0F172A;
+    --text-light:#64748B;
+
+    --border:#E2E8F0;
+
+    --white:#FFFFFF;
+
+    --shadow:
+        0 10px 35px rgba(15,23,42,.08);
+
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:
+        Inter,
+        Segoe UI,
+        sans-serif;
+
+    background:var(--bg);
+
+}
+
+/* ===========================================================
+    NAVBAR
+=========================================================== */
+
+.navbar{
+
+    position:sticky;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    z-index:999;
+
+    backdrop-filter:blur(25px);
+
+    background:
+    rgba(255,255,255,.90);
+
+    border-bottom:
+
+    1px solid rgba(255,255,255,.5);
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ===========================================================
+    CONTAINER
+=========================================================== */
+
+.navbar-container{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:
+
+    18px 40px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+/* ===========================================================
+    LOGO
+=========================================================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    text-decoration:none;
+
+}
+
+.logo-icon{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:18px;
+
+    background: linear-gradient(135deg, #FFFFFF 0%, #ffffffff 100%);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#fff;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    box-shadow:
+
+    0 10px 30px rgba(249,115,22,.35);
+
+}
+
+.logo img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
+.logo-text h3{
+
+    color:var(--text);
+
+    font-size:20px;
+
+}
+
+.logo-text span{
+
+    color:var(--text-light);
+
+    font-size:13px;
+
+}
+
+/* ===========================================================
+    MENU
+=========================================================== */
+
+.nav-menu{
+
+    display:flex;
+
+    gap:12px;
+
+    list-style:none;
+
+}
+
+.nav-menu a{
+
+    color:var(--text-light);
+
+    text-decoration:none;
+
+    padding:
+
+    12px 18px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:.30s;
+
+}
+
+.nav-menu a:hover{
+
+    background:
+
+    rgba(249,115,22,.08);
+
+    color:var(--primary);
+
+}
+
+.nav-menu a.active{
+
+    background:
+
+    linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-light));
+
+    color:white;
+
+}
+
+/* ===========================================================
+    RIGHT
+=========================================================== */
+
+.nav-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+/* ===========================================================
+    NOTIFICATION
+=========================================================== */
+
+.notification-btn{
+
+    position:relative;
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    background:#fff;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    box-shadow:
+
+    0 5px 20px rgba(15,23,42,.05);
+
+    transition:.3s;
+
+}
+
+.notification-btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.notification-dot{
+
+    position:absolute;
+
+    top:10px;
+
+    right:10px;
+
+    width:10px;
+
+    height:10px;
+
+    background:red;
+
+    border-radius:50%;
+
+}
+
+/* ===========================================================
+    USER
+=========================================================== */
+
+.user-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    cursor:pointer;
+
+}
+
+.user-menu img{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.user-menu strong{
+
+    display:block;
+
+    color:var(--text);
+
+}
+
+.user-menu small{
+
+    color:var(--text-light);
+
+}
+
+/* ===========================================================
+    HAMBURGER
+=========================================================== */
+
+.hamburger{
+
+    display:none;
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    background:white;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+}
+
+.hamburger span{
+
+    display:block;
+
+    width:24px;
+
+    height:3px;
+
+    background:var(--text);
+
+    margin:5px auto;
+
+    transition:.3s;
+
+    border-radius:50px;
+
+}
+
+/* animation */
+
+.hamburger.active span:nth-child(1){
+
+    transform:
+
+    rotate(45deg)
+
+    translateY(8px);
+
+}
+
+.hamburger.active span:nth-child(2){
+
+    opacity:0;
+
+}
+
+.hamburger.active span:nth-child(3){
+
+    transform:
+
+    rotate(-45deg)
+
+    translateY(-8px);
+
+}
+
+/* ===========================================================
+    MOBILE MENU
+=========================================================== */
+
+.mobile-menu{
+
+    display:none;
+
+    flex-direction:column;
+
+    background:white;
+
+    overflow:hidden;
+
+    max-height:0;
+
+    transition:.35s;
+
+    box-shadow:
+
+    0 20px 40px rgba(0,0,0,.08);
+
+}
+
+.mobile-menu.show{
+
+    display:flex;
+
+    max-height:500px;
+
+}
+
+.mobile-menu a{
+
+    padding:18px 30px;
+
+    text-decoration:none;
+
+    color:var(--text);
+
+    font-weight:600;
+
+    border-bottom:
+
+    1px solid #eee;
+
+}
+
+.mobile-menu button{
+
+    padding:18px;
+
+    border:none;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-light));
+
+    color:white;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+}
+
+/* ===========================================================
+    TABLET
+=========================================================== */
+
+@media(max-width:992px){
+
+.nav-menu{
+
+display:none;
+
+}
+
+.hamburger{
+
+display:block;
+
+}
+
+.logo-text span{
+
+display:none;
+
+}
+
+}
+
+/* ===========================================================
+    MOBILE
+=========================================================== */
+
+@media(max-width:768px){
+
+.navbar-container{
+
+padding:15px 18px;
+
+}
+
+.logo-icon{
+
+width:46px;
+
+height:46px;
+
+}
+
+.logo-text h3{
+
+font-size:18px;
+
+}
+
+.user-menu div{
+
+display:none;
+
+}
+
+.notification-btn{
+
+display:none;
+
+}
+
+}

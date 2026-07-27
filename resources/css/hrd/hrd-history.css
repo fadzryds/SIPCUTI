@@ -1,0 +1,618 @@
+/* ===========================================================
+   HRD HISTORY
+=========================================================== */
+
+.hrd-history-page{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+    animation:fadeIn .4s ease;
+}
+
+/* ===========================================================
+   HERO
+=========================================================== */
+
+.history-hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:40px;
+
+    padding:45px 50px;
+
+    border-radius:28px;
+
+    background:linear-gradient(135deg,#0f766e,#0ea5a4);
+
+    color:#fff;
+
+    overflow:hidden;
+
+    position:relative;
+
+    box-shadow:0 20px 40px rgba(15,118,110,.20);
+}
+
+.history-hero::before{
+
+    content:'';
+
+    position:absolute;
+
+    width:380px;
+    height:380px;
+
+    right:-120px;
+    top:-120px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+}
+
+.history-hero-left{
+
+    position:relative;
+    z-index:2;
+}
+
+.hero-badge{
+
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(10px);
+
+    font-size:.85rem;
+    font-weight:600;
+
+    margin-bottom:20px;
+}
+
+.history-hero h1{
+
+    font-size:2.3rem;
+    font-weight:800;
+
+    margin-bottom:15px;
+}
+
+.history-hero p{
+
+    max-width:650px;
+
+    line-height:1.8;
+
+    color:rgba(255,255,255,.9);
+}
+
+.history-hero-right{
+
+    position:relative;
+
+    z-index:2;
+}
+
+.hero-icon{
+
+    width:140px;
+    height:140px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    font-size:60px;
+}
+
+/* ===========================================================
+   SUMMARY
+=========================================================== */
+
+.history-summary{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:25px;
+}
+
+.summary-card{
+
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+    padding:28px;
+
+    background:#fff;
+
+    border-radius:22px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.06);
+
+    transition:.3s;
+}
+
+.summary-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 20px 35px rgba(0,0,0,.08);
+}
+
+.summary-icon{
+
+    width:70px;
+    height:70px;
+
+    border-radius:18px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:#fff;
+
+    font-size:28px;
+}
+
+.summary-card.approved .summary-icon{
+
+    background:#10b981;
+}
+
+.summary-card.rejected .summary-icon{
+
+    background:#ef4444;
+}
+
+.summary-card.total .summary-icon{
+
+    background:#3b82f6;
+}
+
+.summary-card small{
+
+    color:#64748b;
+
+    font-weight:600;
+}
+
+.summary-card h2{
+
+    margin:5px 0;
+
+    font-size:34px;
+
+    color:#1e293b;
+}
+
+.summary-card span{
+
+    color:#94a3b8;
+}
+
+/* ===========================================================
+   TOOLBAR
+=========================================================== */
+
+.history-toolbar{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+}
+
+.search-form{
+
+    flex:1;
+}
+
+.search-box{
+
+    display:flex;
+    align-items:center;
+
+    background:#fff;
+
+    border-radius:15px;
+
+    padding:0 18px;
+
+    height:56px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+}
+
+.search-box i{
+
+    color:#94a3b8;
+
+    margin-right:12px;
+}
+
+.search-box input{
+
+    border:none;
+
+    outline:none;
+
+    width:100%;
+
+    font-size:15px;
+
+    background:none;
+}
+
+.history-toolbar select{
+
+    height:56px;
+
+    border:none;
+
+    border-radius:15px;
+
+    padding:0 18px;
+
+    background:#fff;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+
+    cursor:pointer;
+}
+
+/* ===========================================================
+   TABLE
+=========================================================== */
+
+.history-table-card{
+
+    background:#fff;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+}
+
+.table-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:30px;
+
+    border-bottom:1px solid #f1f5f9;
+}
+
+.table-header h3{
+
+    font-size:22px;
+
+    color:#0f172a;
+
+    margin-bottom:6px;
+}
+
+.table-header p{
+
+    color:#64748b;
+}
+
+.table-responsive{
+
+    overflow:auto;
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+}
+
+thead{
+
+    background:#f8fafc;
+}
+
+thead th{
+
+    padding:18px;
+
+    text-align:left;
+
+    color:#475569;
+
+    font-size:14px;
+
+    font-weight:700;
+}
+
+tbody td{
+
+    padding:18px;
+
+    border-top:1px solid #f1f5f9;
+
+    vertical-align:middle;
+}
+
+tbody tr{
+
+    transition:.25s;
+}
+
+tbody tr:hover{
+
+    background:#f8fafc;
+}
+
+/* ===========================================================
+   EMPLOYEE
+=========================================================== */
+
+.employee-cell{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+.employee-avatar{
+
+    width:50px;
+    height:50px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#0f766e,#14b8a6);
+
+    color:#fff;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-weight:700;
+}
+
+.employee-cell strong{
+
+    display:block;
+
+    color:#0f172a;
+}
+
+.employee-cell span{
+
+    color:#94a3b8;
+
+    font-size:13px;
+}
+
+/* ===========================================================
+   STATUS
+=========================================================== */
+
+.status-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:110px;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:700;
+}
+
+.status-badge.approved{
+
+    color:#047857;
+
+    background:#d1fae5;
+}
+
+.status-badge.rejected{
+
+    color:#b91c1c;
+
+    background:#fee2e2;
+}
+
+/* ===========================================================
+   BUTTON
+=========================================================== */
+
+.btn-detail{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    background:#0f766e;
+
+    padding:10px 18px;
+
+    border-radius:12px;
+
+    transition:.25s;
+}
+
+.btn-detail:hover{
+
+    background:#115e59;
+
+    transform:translateY(-2px);
+}
+
+/* ===========================================================
+   EMPTY
+=========================================================== */
+
+.empty-state{
+
+    padding:70px 20px;
+
+    text-align:center;
+}
+
+.empty-state i{
+
+    font-size:65px;
+
+    color:#cbd5e1;
+
+    margin-bottom:18px;
+}
+
+.empty-state h3{
+
+    color:#334155;
+
+    margin-bottom:8px;
+}
+
+.empty-state p{
+
+    color:#94a3b8;
+}
+
+/* ===========================================================
+   PAGINATION
+=========================================================== */
+
+.pagination-wrapper{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:15px;
+}
+
+/* ===========================================================
+   ANIMATION
+=========================================================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+    }
+
+}
+
+/* ===========================================================
+   RESPONSIVE
+=========================================================== */
+
+@media(max-width:992px){
+
+.history-hero{
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:35px;
+}
+
+.hero-icon{
+
+    width:110px;
+    height:110px;
+
+    font-size:45px;
+}
+
+.history-toolbar{
+
+    flex-direction:column;
+
+    align-items:stretch;
+}
+
+.history-toolbar form{
+
+    width:100%;
+}
+
+}
+
+@media(max-width:768px){
+
+.history-summary{
+
+    grid-template-columns:1fr;
+}
+
+.history-hero h1{
+
+    font-size:30px;
+}
+
+thead th,
+tbody td{
+
+    white-space:nowrap;
+}
+
+.table-header{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:10px;
+}
+
+}

@@ -1,0 +1,200 @@
+/* ===========================================================
+   GLOBAL
+=========================================================== */
+
+*,
+*::before,
+*::after{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#f8fafc;
+
+    color:#1e293b;
+
+    overflow-x:hidden;
+
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+button{
+
+    font-family:inherit;
+
+}
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+/* ===========================================================
+LAYOUT
+=========================================================== */
+
+.dashboard-layout{
+
+    min-height:100vh;
+
+    background:#f8fafc;
+
+}
+
+.dashboard-content{
+
+    margin-left:280px;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+/* ===========================================================
+MAIN
+=========================================================== */
+
+.dashboard-main{
+
+    flex:1;
+
+    margin-top:80px;
+
+    padding:35px;
+
+}
+
+/* ===========================================================
+ALERT
+=========================================================== */
+
+.alert-success{
+
+    background:#dcfce7;
+
+    color:#166534;
+
+    border-left:5px solid #22c55e;
+
+    padding:16px 20px;
+
+    border-radius:14px;
+
+    margin-bottom:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.alert-danger{
+
+    background:#fee2e2;
+
+    color:#991b1b;
+
+    border-left:5px solid #ef4444;
+
+    padding:16px 20px;
+
+    border-radius:14px;
+
+    margin-bottom:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+/* ===========================================================
+CARD
+=========================================================== */
+
+.card{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:28px;
+
+    box-shadow:
+
+        0 15px 40px rgba(15,23,42,.05);
+
+}
+
+/* ===========================================================
+RESPONSIVE
+=========================================================== */
+
+@media(max-width:992px){
+
+    .dashboard-content{
+
+        margin-left:0;
+
+    }
+
+    .dashboard-main{
+
+        padding:25px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .dashboard-main{
+
+        margin-top:72px;
+
+        padding:20px;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .dashboard-main{
+
+        padding:15px;
+
+    }
+
+}

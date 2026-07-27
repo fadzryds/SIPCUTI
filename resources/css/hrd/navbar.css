@@ -1,0 +1,284 @@
+/* ===========================================================
+   HRD TOPBAR
+=========================================================== */
+
+:root{
+
+    --navbar-height:80px;
+
+    --primary:#2563eb;
+    --primary-light:#3b82f6;
+
+    --dark:#0f172a;
+
+    --text:#334155;
+    --text-light:#94a3b8;
+
+    --border:#e2e8f0;
+
+    --white:#ffffff;
+
+    --shadow:
+        0 8px 25px rgba(15,23,42,.05);
+
+}
+
+/* ===========================================================
+TOPBAR
+=========================================================== */
+
+.topbar{
+
+    position:fixed;
+
+    top:0;
+    left:280px;
+    right:0;
+
+    height:var(--navbar-height);
+
+    background:rgba(255,255,255,.95);
+
+    backdrop-filter:blur(15px);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 35px;
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+    z-index:998;
+
+}
+
+/* ===========================================================
+LEFT
+=========================================================== */
+
+.topbar-left{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.topbar-left h1{
+
+    margin:0;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:var(--dark);
+
+    line-height:1.2;
+
+}
+
+.topbar-left p{
+
+    margin-top:6px;
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+}
+
+/* ===========================================================
+RIGHT
+=========================================================== */
+
+.topbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+/* ===========================================================
+USER INFO
+=========================================================== */
+
+.user-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    background:#ffffff;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:10px 18px;
+
+    transition:.30s;
+
+}
+
+.user-info:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(15,23,42,.08);
+
+}
+
+/* ===========================================================
+AVATAR
+=========================================================== */
+
+.user-avatar{
+
+    width:36px;
+
+    height:36px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-light)
+    );
+
+    color:#fff;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    flex-shrink:0;
+
+    box-shadow:
+        0 8px 18px rgba(37,99,235,.25);
+
+}
+
+/* ===========================================================
+USER TEXT
+=========================================================== */
+
+.user-info strong{
+
+    display:block;
+
+    color:var(--dark);
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.user-info span{
+
+    display:block;
+
+    margin-top:3px;
+
+    color:var(--text-light);
+
+    font-size:13px;
+
+}
+
+/* ===========================================================
+RESPONSIVE
+=========================================================== */
+
+@media(max-width:992px){
+
+    .topbar{
+
+        left:0;
+
+        padding:0 20px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .topbar{
+
+        height:72px;
+
+    }
+
+    .topbar-left h1{
+
+        font-size:22px;
+
+    }
+
+    .topbar-left p{
+
+        display:none;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .topbar{
+
+        padding:0 15px;
+
+    }
+
+    .user-info{
+
+        padding:8px 12px;
+
+        gap:10px;
+
+    }
+
+    .user-avatar{
+
+        width:42px;
+
+        height:42px;
+
+        font-size:16px;
+
+    }
+
+    .user-info strong{
+
+        font-size:14px;
+
+    }
+
+    .user-info span{
+
+        font-size:12px;
+
+    }
+
+}

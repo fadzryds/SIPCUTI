@@ -1,0 +1,1566 @@
+/* =========================================================
+   HRD APPROVAL SHOW
+   PART 1
+========================================================= */
+
+:root{
+    --primary:#2563eb;
+    --primary-dark:#1d4ed8;
+    --success:#10b981;
+    --warning:#f59e0b;
+    --danger:#ef4444;
+    --dark:#0f172a;
+    --text:#334155;
+    --muted:#64748b;
+    --border:#e2e8f0;
+    --bg:#f8fafc;
+    --white:#ffffff;
+
+    --radius:22px;
+    --shadow:
+        0 12px 30px rgba(15,23,42,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.hrd-approval-detail{
+
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+
+    width:100%;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.approval-hero{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:40px;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #1e40af
+    );
+
+    color:#fff;
+
+    padding:45px;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    box-shadow:
+        0 20px 45px rgba(37,99,235,.22);
+
+}
+
+.approval-hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    right:-80px;
+    top:-80px;
+
+    width:260px;
+    height:260px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+}
+
+.approval-hero-left{
+
+    flex:1;
+
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+
+    z-index:2;
+
+}
+
+.approval-hero-left h1{
+
+    font-size:36px;
+
+    font-weight:700;
+
+    line-height:1.25;
+
+}
+
+.approval-hero-left p{
+
+    max-width:650px;
+
+    line-height:1.8;
+
+    color:rgba(255,255,255,.90);
+
+}
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.approval-back{
+
+    width:max-content;
+
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    padding:11px 20px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    background:rgba(255,255,255,.12);
+
+    color:#fff;
+
+    backdrop-filter:blur(10px);
+
+    transition:.30s;
+
+    font-weight:600;
+
+}
+
+.approval-back:hover{
+
+    background:#fff;
+
+    color:#2563eb;
+
+    transform:translateY(-2px);
+
+}
+
+/* =========================================================
+   HERO BADGE
+========================================================= */
+
+.hero-badge{
+
+    width:max-content;
+
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    padding:10px 18px;
+
+    border-radius:40px;
+
+    background:rgba(255,255,255,.16);
+
+    color:#fff;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+/* =========================================================
+   HERO RIGHT
+========================================================= */
+
+.approval-hero-right{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    z-index:2;
+
+}
+
+.hero-avatar{
+
+    width:130px;
+    height:130px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    color:#2563eb;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:48px;
+
+    font-weight:700;
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.18);
+
+}
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.approval-summary{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(250px,1fr));
+
+    gap:24px;
+
+}
+
+.summary-card{
+
+    background:#fff;
+
+    border-radius:24px;
+
+    padding:28px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+    border:1px solid transparent;
+
+}
+
+.summary-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.summary-icon{
+
+    width:72px;
+    height:72px;
+
+    border-radius:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:28px;
+
+    color:#fff;
+
+    flex-shrink:0;
+
+}
+
+.summary-card.info .summary-icon{
+
+    background:#2563eb;
+
+}
+
+.summary-card.success .summary-icon{
+
+    background:#10b981;
+
+}
+
+.summary-card.warning .summary-icon{
+
+    background:#f59e0b;
+
+}
+
+.summary-card.danger .summary-icon{
+
+    background:#ef4444;
+
+}
+
+.summary-card small{
+
+    display:block;
+
+    color:#64748b;
+
+    margin-bottom:8px;
+
+    font-size:13px;
+
+}
+
+.summary-card h2{
+
+    font-size:26px;
+
+    color:#0f172a;
+
+    margin-bottom:5px;
+
+    word-break:break-word;
+
+}
+
+.summary-card span{
+
+    color:#94a3b8;
+
+    font-size:14px;
+
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:992px){
+
+    .approval-hero{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        padding:35px;
+
+    }
+
+    .approval-hero-left{
+
+        align-items:center;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .approval-summary{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .approval-hero{
+
+        padding:28px;
+
+    }
+
+    .approval-hero-left h1{
+
+        font-size:28px;
+
+    }
+
+    .hero-avatar{
+
+        width:95px;
+        height:95px;
+
+        font-size:36px;
+
+    }
+
+}
+
+/* =========================================================
+   APPROVAL CARD
+========================================================= */
+
+.approval-card{
+
+    background:#ffffff;
+
+    border-radius:24px;
+
+    padding:32px;
+
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.06);
+
+    border:1px solid #edf2f7;
+
+}
+
+.approval-card + .approval-card{
+
+    margin-top:30px;
+
+}
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.approval-card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    margin-bottom:28px;
+
+    gap:20px;
+
+    padding-bottom:18px;
+
+    border-bottom:1px solid #edf2f7;
+
+}
+
+.approval-card-header h2{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#0f172a;
+
+}
+
+.approval-card-header h2 i{
+
+    color:#2563eb;
+
+    font-size:22px;
+
+}
+
+.approval-card-header p{
+
+    margin-top:10px;
+
+    color:#64748b;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+}
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.approval-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(auto-fit,minmax(260px,1fr));
+
+    gap:22px;
+
+}
+
+/* =========================================================
+   ITEM
+========================================================= */
+
+.approval-item{
+
+    background:#f8fafc;
+
+    border:1px solid #e2e8f0;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    transition:.30s;
+
+}
+
+.approval-item:hover{
+
+    transform:translateY(-3px);
+
+    border-color:#2563eb;
+
+    box-shadow:
+
+        0 12px 24px rgba(37,99,235,.08);
+
+}
+
+.approval-item label{
+
+    display:block;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:#64748b;
+
+    margin-bottom:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+
+}
+
+.approval-item strong{
+
+    display:block;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#0f172a;
+
+    word-break:break-word;
+
+    line-height:1.6;
+
+}
+
+/* =========================================================
+   FULL WIDTH
+========================================================= */
+
+.approval-full{
+
+    grid-column:1/-1;
+
+}
+
+/* =========================================================
+   REASON
+========================================================= */
+
+.approval-reason{
+
+    margin-top:12px;
+
+    background:#ffffff;
+
+    border:1px solid #dbeafe;
+
+    border-left:5px solid #2563eb;
+
+    border-radius:16px;
+
+    padding:20px;
+
+    font-size:15px;
+
+    color:#334155;
+
+    line-height:1.9;
+
+    white-space:pre-wrap;
+
+}
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.approval-empty{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:70px 30px;
+
+    border:2px dashed #dbe4ef;
+
+    border-radius:20px;
+
+    background:#fafcff;
+
+}
+
+.approval-empty i{
+
+    font-size:64px;
+
+    color:#94a3b8;
+
+    margin-bottom:20px;
+
+}
+
+.approval-empty h3{
+
+    font-size:24px;
+
+    color:#0f172a;
+
+    margin-bottom:10px;
+
+}
+
+.approval-empty p{
+
+    color:#64748b;
+
+    max-width:480px;
+
+    line-height:1.8;
+
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:992px){
+
+    .approval-card{
+
+        padding:25px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .approval-card{
+
+        padding:20px;
+
+        border-radius:20px;
+
+    }
+
+    .approval-card-header{
+
+        flex-direction:column;
+
+        gap:12px;
+
+    }
+
+    .approval-card-header h2{
+
+        font-size:21px;
+
+    }
+
+    .approval-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .approval-item strong{
+
+        font-size:16px;
+
+    }
+
+}
+
+/* =========================================================
+   ATTACHMENT
+========================================================= */
+
+.approval-attachment{
+
+    margin-top:25px;
+
+    border:1px solid #e2e8f0;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    background:#f8fafc;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    min-height:280px;
+
+}
+
+.attachment-image{
+
+    width:100%;
+
+    max-height:700px;
+
+    object-fit:contain;
+
+    display:block;
+
+    background:#fff;
+
+}
+
+.attachment-pdf{
+
+    width:100%;
+
+    height:700px;
+
+    border:none;
+
+    background:#fff;
+
+}
+
+.attachment-file{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:16px;
+
+    color:#64748b;
+
+    padding:70px;
+
+    font-size:17px;
+
+}
+
+.attachment-file i{
+
+    font-size:70px;
+
+    color:#2563eb;
+
+}
+
+.attachment-action{
+
+    margin-top:25px;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+}
+
+/* =========================================================
+   BUTTON PRIMARY
+========================================================= */
+
+.btn-primary{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:14px 24px;
+
+    border-radius:14px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    color:#fff;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    transition:.30s;
+
+    box-shadow:
+
+        0 12px 24px rgba(37,99,235,.25);
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+        0 18px 30px rgba(37,99,235,.35);
+
+}
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.approval-timeline{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:35px;
+
+    padding-left:32px;
+
+}
+
+.approval-timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:18px;
+
+    top:0;
+
+    bottom:0;
+
+    width:3px;
+
+    background:#dbeafe;
+
+}
+
+.timeline-item{
+
+    position:relative;
+
+    display:flex;
+
+    gap:22px;
+
+    align-items:flex-start;
+
+}
+
+.timeline-circle{
+
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#fff;
+
+    font-size:15px;
+
+    flex-shrink:0;
+
+    position:absolute;
+
+    left:-32px;
+
+    top:5px;
+
+    border:4px solid #fff;
+
+    box-shadow:
+
+        0 8px 18px rgba(0,0,0,.12);
+
+}
+
+.timeline-circle.success{
+
+    background:#10b981;
+
+}
+
+.timeline-circle.warning{
+
+    background:#f59e0b;
+
+}
+
+.timeline-circle.danger{
+
+    background:#ef4444;
+
+}
+
+.timeline-circle.waiting{
+
+    background:#94a3b8;
+
+}
+
+.timeline-content{
+
+    flex:1;
+
+    background:#f8fafc;
+
+    border:1px solid #e2e8f0;
+
+    border-radius:18px;
+
+    padding:22px;
+
+}
+
+.timeline-content h4{
+
+    font-size:18px;
+
+    color:#0f172a;
+
+    margin-bottom:6px;
+
+}
+
+.timeline-content span{
+
+    display:block;
+
+    color:#64748b;
+
+    margin-bottom:12px;
+
+}
+
+.timeline-content p{
+
+    color:#334155;
+
+    margin-bottom:10px;
+
+}
+
+.timeline-content small{
+
+    display:block;
+
+    color:#94a3b8;
+
+    margin-bottom:15px;
+
+}
+
+.timeline-note{
+
+    margin-top:15px;
+
+    background:#fff;
+
+    border-left:4px solid #2563eb;
+
+    border-radius:10px;
+
+    padding:15px;
+
+    color:#475569;
+
+    line-height:1.8;
+
+}
+
+/* =========================================================
+   SIGNATURE
+========================================================= */
+
+.signature-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:24px;
+
+}
+
+.signature-card{
+
+    text-align:center;
+
+}
+
+.signature-image{
+
+    width:100%;
+
+    max-width:260px;
+
+    height:120px;
+
+    margin:auto;
+
+    object-fit:contain;
+
+    display:block;
+
+    background:#fff;
+
+    border:1px solid #dbeafe;
+
+    border-radius:14px;
+
+    padding:12px;
+
+}
+
+.signature-empty{
+
+    width:260px;
+
+    max-width:100%;
+
+    height:120px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:2px dashed #d1d5db;
+
+    border-radius:14px;
+
+    background:#fff;
+
+    color:#94a3b8;
+
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:768px){
+
+    .attachment-pdf{
+
+        height:500px;
+
+    }
+
+    .approval-timeline{
+
+        padding-left:22px;
+
+    }
+
+    .timeline-circle{
+
+        left:-22px;
+
+    }
+
+    .signature-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+/* =========================================================
+   APPROVAL FORM
+========================================================= */
+
+.approval-form{
+
+    display:flex;
+    flex-direction:column;
+    gap:32px;
+
+    margin-top:15px;
+
+}
+
+/*=========================================================
+    SIGNATURE PAD
+=========================================================*/
+
+.signature-pad-wrapper{
+
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+
+}
+
+.signature-pad-wrapper label{
+
+    font-size:15px;
+
+    font-weight:700;
+
+    color:#0f172a;
+
+}
+
+.signature-container{
+
+    width:100%;
+
+    max-width:760px;
+
+    margin:auto;
+
+    background:#fff;
+
+    border:2px dashed #cbd5e1;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    transition:.3s;
+
+}
+
+.signature-container:hover{
+
+    border-color:#2563eb;
+
+}
+
+.signature-container canvas{
+
+    width:100% !important;
+
+    height:180px !important;
+
+    display:block;
+
+    cursor:crosshair;
+
+    border-radius:12px;
+
+}
+
+.btn-clear{
+
+    align-self:flex-end;
+
+    padding:12px 22px;
+
+}
+
+/* =========================================================
+   NOTES
+========================================================= */
+
+.approval-note{
+
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+
+}
+
+.approval-note label{
+
+    font-weight:700;
+
+    color:#0f172a;
+
+}
+
+.approval-note textarea{
+
+    width:100%;
+
+    min-height:170px;
+
+    resize:vertical;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    border:1px solid #dbe4ef;
+
+    background:#ffffff;
+
+    font-family:inherit;
+
+    font-size:15px;
+
+    color:#334155;
+
+    transition:.3s;
+
+}
+
+.approval-note textarea:focus{
+
+    outline:none;
+
+    border-color:#2563eb;
+
+    box-shadow:
+        0 0 0 4px rgba(37,99,235,.12);
+
+}
+
+/* =========================================================
+   ACTION BUTTON
+========================================================= */
+
+.approval-action{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+}
+
+.btn-approve,
+.btn-reject{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    border:none;
+
+    cursor:pointer;
+
+    min-width:180px;
+
+    padding:16px 28px;
+
+    border-radius:16px;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    transition:.30s;
+
+}
+
+.btn-approve{
+
+    color:#ffffff;
+
+    background:linear-gradient(
+        135deg,
+        #10b981,
+        #059669
+    );
+
+    box-shadow:
+        0 15px 25px rgba(16,185,129,.25);
+
+}
+
+.btn-approve:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 22px 35px rgba(16,185,129,.35);
+
+}
+
+.btn-reject{
+
+    color:#ffffff;
+
+    background:linear-gradient(
+        135deg,
+        #ef4444,
+        #dc2626
+    );
+
+    box-shadow:
+        0 15px 25px rgba(239,68,68,.25);
+
+}
+
+.btn-reject:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 22px 35px rgba(239,68,68,.35);
+
+}
+
+/* =========================================================
+   APPROVAL FINISHED
+========================================================= */
+
+.approval-finished{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:70px 30px;
+
+}
+
+.approval-finished i{
+
+    width:90px;
+    height:90px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:50%;
+
+    background:#dcfce7;
+
+    color:#10b981;
+
+    font-size:42px;
+
+    margin-bottom:25px;
+
+}
+
+.approval-finished h3{
+
+    font-size:28px;
+
+    color:#0f172a;
+
+    margin-bottom:12px;
+
+}
+
+.approval-finished p{
+
+    max-width:520px;
+
+    color:#64748b;
+
+    line-height:1.8;
+
+}
+
+/* =========================================================
+   ALERT
+========================================================= */
+
+.alert-success,
+.alert-danger{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:18px 24px;
+
+    border-radius:16px;
+
+    margin-bottom:25px;
+
+    font-weight:600;
+
+}
+
+.alert-success{
+
+    background:#ecfdf5;
+
+    color:#047857;
+
+    border:1px solid #a7f3d0;
+
+}
+
+.alert-danger{
+
+    background:#fef2f2;
+
+    color:#b91c1c;
+
+    border:1px solid #fecaca;
+
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#cbd5e1;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#94a3b8;
+
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width:992px){
+
+    .approval-action{
+
+        justify-content:center;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .approval-form{
+
+        gap:25px;
+
+    }
+
+    .signature-pad-wrapper canvas{
+
+        min-height:220px;
+
+    }
+
+    .btn-approve,
+    .btn-reject{
+
+        width:100%;
+
+        min-width:unset;
+
+    }
+
+    .approval-action{
+
+        flex-direction:column;
+
+    }
+
+    .btn-clear{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    .approval-finished{
+
+        padding:45px 20px;
+
+    }
+
+    .approval-finished h3{
+
+        font-size:22px;
+
+    }
+
+}
+
+@media (max-width:576px){
+
+    .signature-pad-wrapper canvas{
+
+        min-height:180px;
+
+    }
+
+    .approval-card{
+
+        padding:18px;
+
+    }
+
+    .approval-card-header h2{
+
+        font-size:20px;
+
+    }
+
+}
