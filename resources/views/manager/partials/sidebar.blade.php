@@ -1,9 +1,8 @@
 <aside class="sidebar">
 
-    {{-- Logo --}}
     <div class="sidebar-header">
 
-        <div class="logo-box">
+        <div class="logo">
 
             <img
                 src="{{ asset('assets/images/logo.png') }}"
@@ -13,15 +12,14 @@
 
         <div>
 
-            <h2>SIPCUTI</h2>
+            <h2>SIP CUTI</h2>
 
-            <small>Manager Panel</small>
+            <span>MANAGER PANEL</span>
 
         </div>
 
     </div>
 
-    {{-- Menu --}}
     <nav class="sidebar-menu">
 
         <a
@@ -66,26 +64,7 @@
 
     </nav>
 
-    {{-- Footer --}}
     <div class="sidebar-footer">
-
-        <div class="manager-card">
-
-            <div class="avatar">
-
-                {{ strtoupper(substr(Auth::user()->name,0,1)) }}
-
-            </div>
-
-            <div>
-
-                <strong>{{ Auth::user()->name }}</strong>
-
-                <small>Manager</small>
-
-            </div>
-
-        </div>
 
         <form
             action="{{ route('logout') }}"

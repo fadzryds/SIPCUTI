@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class LeaveBalance extends Model
 {
@@ -15,16 +16,34 @@ class LeaveBalance extends Model
         'year',
         'quota',
         'used',
-        'remaining'
+        'remaining',
+        'carry_forward',
+        'is_active',
     ];
 
-    public function employee()
+    protected function casts(): array
     {
-        return $this->belongsTo(Employee::class);
+        return [
+            'year' => 'integer',
+            'quota' => 'integer',
+            'used' => 'integer',
+            'remaining' => 'integer',
+            'carry_forward' => 'integer',
+            'is_active' => 'boolean',
+        ];
     }
 
-    public function leaveType()
+    public function employee(): BelongsTo
     {
-        return $this->belongsTo(LeaveType::class);
+        return $this->belongsTo(
+            Employee::class
+        );
+    }
+
+    public function leaveType(): BelongsTo
+    {
+        return $this->belongsTo(
+            LeaveType::class
+        );
     }
 }

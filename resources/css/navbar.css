@@ -388,75 +388,6 @@ body{
 }
 
 /* ===========================================================
-    MOBILE MENU
-=========================================================== */
-
-.mobile-menu{
-
-    display:none;
-
-    flex-direction:column;
-
-    background:white;
-
-    overflow:hidden;
-
-    max-height:0;
-
-    transition:.35s;
-
-    box-shadow:
-
-    0 20px 40px rgba(0,0,0,.08);
-
-}
-
-.mobile-menu.show{
-
-    display:flex;
-
-    max-height:500px;
-
-}
-
-.mobile-menu a{
-
-    padding:18px 30px;
-
-    text-decoration:none;
-
-    color:var(--text);
-
-    font-weight:600;
-
-    border-bottom:
-
-    1px solid #eee;
-
-}
-
-.mobile-menu button{
-
-    padding:18px;
-
-    border:none;
-
-    background:
-
-    linear-gradient(
-    135deg,
-    var(--primary),
-    var(--primary-light));
-
-    color:white;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-}
-
-/* ===========================================================
     TABLET
 =========================================================== */
 
@@ -519,5 +450,160 @@ display:none;
 display:none;
 
 }
+
+}
+
+/* ======================================================
+   MOBILE NAVBAR
+====================================================== */
+
+.menu-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(15,23,42,.45);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s;
+
+    z-index:998;
+
+    backdrop-filter:blur(4px);
+
+}
+
+.menu-overlay.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+/* ===========================================================
+   MOBILE SIDEBAR
+=========================================================== */
+
+.menu-overlay{
+
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(4px);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.35s;
+
+    z-index:998;
+}
+
+.menu-overlay.show{
+
+    opacity:1;
+    visibility:visible;
+
+}
+
+.mobile-menu{
+
+    position:fixed;
+
+    top:0;
+    right:-320px;
+
+    width:300px;
+    max-width:82%;
+
+    height:100vh;
+
+    background:#fff;
+
+    display:flex;
+    flex-direction:column;
+
+    padding:90px 24px 24px;
+
+    transition:right .35s ease;
+
+    z-index:999;
+
+    box-shadow:
+    -15px 0 50px rgba(0,0,0,.12);
+
+}
+
+.mobile-menu.show{
+
+    right:0;
+
+}
+
+.mobile-menu a{
+
+    display:flex;
+    align-items:center;
+
+    padding:16px 0;
+
+    text-decoration:none;
+
+    color:#334155;
+
+    font-weight:600;
+
+    border-bottom:1px solid #edf2f7;
+
+    transition:.25s;
+
+}
+
+.mobile-menu a:hover{
+
+    color:var(--primary);
+
+    padding-left:8px;
+
+}
+
+.mobile-menu form{
+
+    margin-top:auto;
+
+}
+
+.mobile-menu button{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:14px;
+
+    background:linear-gradient(
+        135deg,
+        #ef4444,
+        #dc2626
+    );
+
+    color:#fff;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+body.menu-open{
+
+    overflow:hidden;
 
 }

@@ -1,84 +1,215 @@
-<aside class="sidebar">
+<aside class="hrd-sidebar">
 
-    <div class="sidebar-header">
+    {{-- LOGO --}}
+    <div class="hrd-sidebar-brand">
 
-        <div class="logo">
-
-            <img
-                src="{{ asset('assets/images/logo.png') }}"
-                alt="Logo">
-
+        <div class="hrd-brand-icon">
+            <i class="fas fa-building"></i>
         </div>
 
-        <div>
+        <div class="hrd-brand-text">
 
-            <h2>SIP CUTI</h2>
+            <strong>
+                HRD SYSTEM
+            </strong>
 
-            <span>HRD PANEL</span>
+            <span>
+                Human Resources
+            </span>
 
         </div>
 
     </div>
 
-    <nav class="sidebar-menu">
+
+    {{-- USER --}}
+    <div class="hrd-user-box">
+
+        <div class="hrd-user-avatar">
+
+            <i class="fas fa-user-tie"></i>
+
+        </div>
+
+        <div class="hrd-user-info">
+
+            <strong>
+                {{ auth()->user()->name }}
+            </strong>
+
+            <span>
+                HRD
+            </span>
+
+        </div>
+
+    </div>
+
+
+    {{-- NAVIGATION --}}
+    <nav class="hrd-navigation">
+
+        <span class="hrd-nav-label">
+            UTAMA
+        </span>
 
         <a
             href="{{ route('hrd.dashboard') }}"
-            class="{{ request()->routeIs('hrd.dashboard') ? 'active' : '' }}">
+            class="hrd-nav-item
+                {{ request()->routeIs('hrd.dashboard') ? 'active' : '' }}"
+        >
 
-            <i class="fa-solid fa-house"></i>
+            <i class="fas fa-chart-pie"></i>
 
-            Dashboard
+            <span>
+                Dashboard
+            </span>
+
+        </a>
+
+
+        <span class="hrd-nav-label">
+            DATA MASTER
+        </span>
+
+        <a
+            href="{{ route('hrd.employees.index') }}"
+            class="hrd-nav-item
+                {{ request()->routeIs('hrd.employees.*') ? 'active' : '' }}"
+        >
+        
+            <i class="fas fa-users"></i>
+        
+            <span>
+                Employees
+            </span>
+        
+        </a>
+
+
+        {{-- Department --}}
+        <a
+            href="{{ route('hrd.departments.index') }}"
+            class="hrd-nav-item
+                {{ request()->routeIs('hrd.departments.*') ? 'active' : '' }}"
+        >
+
+            <i class="fas fa-building"></i>
+
+            <span>
+                Departments
+            </span>
+
+        </a>
+
+
+        {{-- Position --}}
+        <a
+            href="{{ route('hrd.positions.index') }}"
+            class="hrd-nav-item
+                {{ request()->routeIs('hrd.positions.*') ? 'active' : '' }}"
+        >
+
+            <i class="fas fa-briefcase"></i>
+
+            <span>
+                Positions
+            </span>
+
+        </a>
+
+
+        <span class="hrd-nav-label">
+            CUTI
+        </span>
+
+
+        {{-- Leave --}}
+        <a
+            href="{{ route('hrd.leave-requests.index') }}"
+            class="hrd-nav-item
+                {{ request()->routeIs('hrd.leave-requests.*') ? 'active' : '' }}"
+        >
+
+            <i class="fas fa-calendar-check"></i>
+
+            <span>
+                Pengajuan Cuti
+            </span>
+
+        </a>
+
+
+        {{-- Leave Report --}}
+        <a
+            href="{{ route('hrd.reports.leave') }}"
+            class="hrd-nav-item
+                {{ request()->routeIs('hrd.reports.*') ? 'active' : '' }}"
+        >
+
+            <i class="fas fa-file-lines"></i>
+
+            <span>
+                Laporan Cuti
+            </span>
 
         </a>
 
         <a
-            href="{{ route('hrd.approval.index') }}"
-            class="{{ request()->routeIs('hrd.approval.*') ? 'active' : '' }}">
+            href="{{ route('hrd.leave-balances.index') }}"
+            class="hrd-nav-item {{ request()->routeIs('hrd.leave-balances.*') ? 'active' : '' }}"
+        >
+            <i class="fas fa-wallet"></i>
 
-            <i class="fa-solid fa-file-signature"></i>
-
-            Approval Cuti
-
+            <span>
+                Saldo Cuti
+            </span>
         </a>
 
-        <a
-            href="{{ route('hrd.history.index') }}"
-            class="{{ request()->routeIs('hrd.history.*') ? 'active' : '' }}">
 
-            <i class="fa-solid fa-clock-rotate-left"></i>
+        <span class="hrd-nav-label">
+            AKUN
+        </span>
 
-            Riwayat Approval
 
-        </a>
-
+        {{-- Profile --}}
         <a
             href="{{ route('hrd.profile') }}"
-            class="{{ request()->routeIs('hrd.profile') ? 'active' : '' }}">
+            class="hrd-nav-item
+                {{ request()->routeIs('hrd.profile') ? 'active' : '' }}"
+        >
 
-            <i class="fa-solid fa-user"></i>
+            <i class="fas fa-user-circle"></i>
 
-            Profile
+            <span>
+                Profile
+            </span>
 
         </a>
 
     </nav>
 
-    <div class="sidebar-footer">
+
+    {{-- LOGOUT --}}
+    <div class="hrd-sidebar-footer">
 
         <form
+            method="POST"
             action="{{ route('logout') }}"
-            method="POST">
+        >
 
             @csrf
 
             <button
                 type="submit"
-                class="logout-btn">
+                class="hrd-logout"
+            >
 
-                <i class="fa-solid fa-right-from-bracket"></i>
+                <i class="fas fa-right-from-bracket"></i>
 
-                Logout
+                <span>
+                    Logout
+                </span>
 
             </button>
 

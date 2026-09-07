@@ -81,12 +81,15 @@
             </div>
 
             {{-- Hamburger --}}
-            <button id="hamburger" class="hamburger">
+            <button
+                id="hamburger"
+                class="hamburger"
+                type="button"
+                aria-label="Toggle Navigation">
 
                 <span></span>
                 <span></span>
                 <span></span>
-
             </button>
 
         </div>
@@ -94,6 +97,8 @@
     </div>
 
 </nav>
+
+<div id="menuOverlay" class="menu-overlay"></div>
 
 {{-- Mobile Navigation --}}
 

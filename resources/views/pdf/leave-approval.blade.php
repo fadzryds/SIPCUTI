@@ -3,996 +3,1004 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<title>Surat Persetujuan Cuti</title>
+    <title>Formulir Pengajuan Cuti</title>
 
-<style>
+    <style>
 
-body{
+        /* =========================================================
+           PAGE
+        ========================================================= */
 
-    font-family: DejaVu Sans, sans-serif;
+        @page {
+            size: A4;
+            margin: 4cm 5.5cm 2.8cm 4cm;
+        }
 
-    color:#222;
+        * {
+            box-sizing: border-box;
+        }
 
-    font-size:13px;
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
 
-    line-height:1.6;
+        body {
+            font-family: "Times New Roman", Times, serif;
+            color: #000;
+            background: #fff;
+            font-size: 12pt;
+            line-height: 2;
+        }
 
-}
 
-.header{
+        /* =========================================================
+           INNER PAGE
+        ========================================================= */
 
-    width:100%;
+        .page {
+            width: 70%;
+            margin: 0 auto;
+            padding-top: 1.8cm;
+        }
 
-    border-bottom:3px solid #1e40af;
 
-    padding-bottom:18px;
+        /* =========================================================
+           HEADER
+        ========================================================= */
 
-    margin-bottom:25px;
+        .header {
+            width: 100%;
+            height: 78px;
+            position: relative;
+            margin-bottom: 22px;
+        }
 
-}
 
-.logo{
+        /* =========================================================
+           LOGO
+        ========================================================= */
 
-    width:70px;
+        .logo-area {
+            position: absolute;
+            left: 0;
+            top: 2px;
 
-    float:left;
+            width: 60px;
+            height: 60px;
 
-}
+            text-align: left;
+        }
 
-.company{
+        .logo {
+            display: block;
 
-    margin-left:90px;
+            width: 69px;
+            height: 64px;
 
-}
+            filter: grayscale(100%);
+            -webkit-filter: grayscale(100%);
+        }
 
-.company h2{
 
-    margin:0;
+        /* =========================================================
+           COMPANY
+        ========================================================= */
 
-    color:#1e40af;
+        .company-area {
+            position: absolute;
 
-    font-size:24px;
+            left: 70px;
+            padding-top: 10px;
 
-}
+            margin: 0;
 
-.company h4{
+            line-height: 1.05;
 
-    margin:4px 0;
+            text-align: left;
+        }
 
-    font-size:16px;
+        .company-name {
+            margin: 0;
 
-    font-weight:600;
+            font-size: 10.5pt;
+            font-weight: bold;
 
-}
+            text-transform: uppercase;
 
-.company p{
+            text-decoration: underline;
 
-    margin:0;
+            white-space: nowrap;
+        }
 
-    font-size:12px;
+        .company-location {
+            margin-top: 2px;
 
-}
+            font-size: 10.5pt;
+            font-weight: bold;
 
-.clear{
+            white-space: nowrap;
+            text-align: center;
+        }
 
-    clear:both;
 
-}
+        /* =========================================================
+           DOCUMENT NUMBER
+        ========================================================= */
 
-.title{
+        .document-number {
+            position: absolute;
 
-    text-align:center;
+            top: 4px;
+            right: 0;
 
-    margin:30px 0;
+            font-size: 8.5pt;
 
-}
+            white-space: nowrap;
+        }
 
-.title h2{
 
-    margin:0;
+        /* =========================================================
+           TITLE
+        ========================================================= */
 
-    font-size:22px;
+        .document-title {
+            text-align: center;
 
-}
+            line-height: 1.05;
+            margin-top: 18px;
+            margin-bottom: 23px;
+        }
 
-.title p{
+        .document-title .main-title {
+            font-size: 14pt;
+            font-weight: bold;
 
-    margin-top:8px;
+            letter-spacing: 1.5px;
 
-    color:#666;
+            text-decoration: underline;
 
-}
+            margin: 0;
+        }
 
-.section{
+        .document-title .subtitle {
+            font-size: 12pt;
+            font-weight: bold;
 
-    margin-top:25px;
+            margin-top: 3px;
+        }
 
-}
 
-.section-title{
+        /* =========================================================
+           RECIPIENT
+        ========================================================= */
 
-    background:#1e40af;
+        .recipient {
+            margin-bottom: 21px;
 
-    color:#fff;
+            line-height: 1.25;
+        }
 
-    padding:8px 12px;
+        .recipient p {
+            margin: 0;
+        }
 
-    font-size:14px;
 
-    font-weight:bold;
+        /* =========================================================
+           OPENING
+        ========================================================= */
 
-}
+        .opening {
+            margin-bottom: 15px;
+        }
 
-table{
+        .opening p {
+            margin: 0 0 12px 0;
+        }
 
-    width:100%;
 
-    border-collapse:collapse;
+        /* =========================================================
+           FORM TABLE
+        ========================================================= */
 
-}
+        .form-table {
+            width: 100%;
 
-.info td{
+            border-collapse: collapse;
 
-    padding:7px 5px;
+            table-layout: fixed;
+        }
 
-    vertical-align:top;
+        .form-table td {
+            vertical-align: top;
 
-}
+            padding: 3px 0;
 
-.info td:first-child{
+            font-size: 11.5pt;
+        }
 
-    width:180px;
+        .form-label {
+            width: 30%;
 
-    font-weight:bold;
+            padding-right: 8px !important;
 
-}
+            white-space: nowrap;
+        }
 
-.reason{
+        .form-colon {
+            width: 4%;
 
-    margin-top:15px;
+            text-align: center;
+        }
 
-    border:1px solid #dcdcdc;
+        .form-value {
+            width: 66%;
 
-    padding:15px;
+            padding-left: 8px !important;
+        }
 
-    border-radius:5px;
+        .dotted-value {
+            display: block;
 
-    background:#fafafa;
+            width: 70%;
 
-}
+            min-height: 18px;
 
-.approval-table{
+            border-bottom: 1px dotted #000;
 
-    margin-top:15px;
+            padding-bottom: 1px;
+        }
 
-}
+        .normal-value {
+            display: block;
 
-.approval-table th{
+            width: 100%;
 
-    background:#f3f4f6;
+            min-height: 18px;
 
-    border:1px solid #dcdcdc;
+            padding-bottom: 1px;
+        }
 
-    padding:8px;
+        .leave-request {
+            width: 100%;
 
-}
+            margin-top: 5px;
+            margin-bottom: 8px;
 
-.approval-table td{
+            font-size: 11.5pt;
 
-    border:1px solid #dcdcdc;
+            line-height: 1.35;
 
-    padding:10px;
+            white-space: nowrap;
+        }
 
-}
+        .leave-request-text {
+            display: inline;
+        }
 
-.status-approved{
+        .leave-days {
+            display: inline-block;
 
-    color:#16a34a;
+            width: 105px;
 
-    font-weight:bold;
+            margin-left: 3px;
+            margin-right: 3px;
 
-}
+            border-bottom: 1px dotted #000;
 
-.status-rejected{
+            text-align: center;
 
-    color:#dc2626;
+            line-height: 18px;
+            height: 19px;
 
-    font-weight:bold;
+            vertical-align: baseline;
+        }
 
-}
+        .leave-days-value {
+            display: inline-block;
 
-.status-pending{
+            min-width: 35px;
 
-    color:#f59e0b;
+            text-align: center;
+        }
 
-    font-weight:bold;
 
-}
+        /* =========================================================
+           DETAIL CUTI
+        ========================================================= */
 
-.signature{
+        .leave-detail-table {
+            width: 100%;
 
-    margin-top:12px;
+            border-collapse: collapse;
 
-    text-align:center;
+            table-layout: fixed;
+        }
 
-}
+        .leave-detail-table td {
+            vertical-align: top;
 
-.signature img{
+            padding: 4px 0;
 
-    height:70px;
+            font-size: 11.5pt;
+        }
 
-}
+        .leave-detail-label {
+            width: 30%;
 
-.footer{
+            white-space: nowrap;
 
-    margin-top:50px;
+            padding-right: 8px !important;
+        }
 
-    text-align:center;
+        .leave-detail-colon {
+            width: 4%;
 
-    font-size:11px;
+            text-align: center;
+        }
 
-    color:#777;
+        .leave-detail-value {
+            width: 66%;
 
-}
+            padding-left: 8px !important;
+        }
 
-hr{
+        .leave-detail-line {
+            display: block;
 
-    border:none;
+            width: 70%;
 
-    border-top:1px solid #ddd;
+            min-height: 18px;
 
-    margin:25px 0;
+            border-bottom: 1px dotted #000;
 
-}
+            padding-bottom: 1px;
+        }
 
-.section{
 
-    margin-top:20px;
+        /* =========================================================
+           CLOSING
+        ========================================================= */
 
-}
+        .closing {
+            margin-top: 12px;
+            margin-bottom: 13px;
 
-.section-title{
+            line-height: 1.4;
+        }
 
-    font-size:15px;
 
-    font-weight:bold;
+        /* =========================================================
+           SIGNATURE
+        ========================================================= */
 
-    background:#0f4c81;
+        .signature-section {
+            width: 100%;
 
-    color:#fff;
+            margin-top: 30px;
+        }
 
-    padding:8px 12px;
+        .signature-date {
+            width: 100%;
 
-    margin-bottom:12px;
+            margin-bottom: 7px;
 
-}
+            border-collapse: collapse;
+        }
 
-.info{
+        .signature-date td {
+            font-size: 11pt;
+        }
 
-    width:100%;
+        .signature-table {
+            width: 100%;
 
-    border-collapse:collapse;
+            border-collapse: collapse;
 
-}
+            table-layout: fixed;
+        }
 
-.info td{
+        .signature-table td {
+            width: 25%;
 
-    padding:6px 4px;
+            text-align: center;
 
-    vertical-align:top;
+            vertical-align: top;
 
-}
+            padding: 0 5px;
+        }
 
-.reason{
+        /* =========================================================
+           SIGNATURE HEADER
+           ========================================================= */
 
-    border:1px solid #dcdcdc;
+        .signature-approval-heading {
+            height: 20px;
 
-    padding:15px;
+            padding: 0 5px !important;
 
-    background:#fafafa;
+            text-align: center;
+            vertical-align: top;
 
-    line-height:1.8;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 10.5pt;
+            font-weight: normal;
 
-}
+            line-height: 20px;
+        }
 
-.approval-table{
 
-    width:100%;
+        /* =========================================================
+           SIGNATURE ROLE
+           ========================================================= */
 
-    border-collapse:collapse;
+        .signature-role {
+            height: 20px;
 
-    margin-top:10px;
+            padding: 0 5px;
 
-}
+            text-align: center;
+            vertical-align: top;
 
-.approval-table th{
+            font-family: "Times New Roman", Times, serif;
+            font-size: 10.5pt;
+            font-weight: normal;
 
-    background:#0f4c81;
+            line-height: 20px;
+        }
 
-    color:white;
 
-    border:1px solid #cfcfcf;
+        /* =========================================================
+           MANAGER / SNR MANAGER
+           ========================================================= */
 
-    padding:8px;
+        .signature-name.manager-name {
+            white-space: nowrap;
+            font-size: 10pt;
+        }
 
-    font-size:12px;
+        .signature-space {
+            height: 72px;
 
-}
+            position: relative;
+        }
 
-.approval-table td{
+        .signature-image {
+            display: block;
 
-    border:1px solid #dcdcdc;
+            margin: 8px auto 2px auto;
 
-    padding:8px;
+            width: auto;
 
-    font-size:11px;
+            height: 62px;
 
-}
+            max-width: 100px;
 
-.status-approved{
+            object-fit: contain;
+        }
 
-    color:#0a8b37;
+        .signature-placeholder {
+            height: 62px;
+        }
 
-    font-weight:bold;
+        .signature-line {
+            width: 88%;
 
-}
+            margin: 0 auto;
 
-.status-rejected{
+            border-bottom: 1px dotted #000;
 
-    color:#c62828;
+            height: 1px;
+        }
 
-    font-weight:bold;
+        .signature-name {
+            margin-top: 5px;
 
-}
+            font-size: 10.5pt;
 
-.status-pending{
+            min-height: 16px;
+        }
 
-    color:#f39c12;
 
-    font-weight:bold;
+        /* =========================================================
+           NOTE
+        ========================================================= */
 
-}
+        .note {
+            margin-top: 18px;
 
-.note-box{
+            font-size: 9.5pt;
 
-    margin-top:30px;
+            font-style: italic;
 
-    border:1px solid #ddd;
+            font-weight: bold;
 
-    background:#fafafa;
+            text-align: left;
+        }
 
-    padding:15px;
+        .note-title {
+            text-decoration: underline;
+        }
 
-    font-size:11px;
 
-}
+        /* =========================================================
+           HELPERS
+        ========================================================= */
 
-.note-box ul{
+        .no-border {
+            border: none !important;
+        }
 
-    margin-top:10px;
+        .black {
+            color: #000 !important;
+        }
 
-    margin-left:18px;
-
-}
-
-.note-box li{
-
-    margin-bottom:6px;
-
-}
-
-.footer-sign{
-
-    width:100%;
-
-    margin-top:45px;
-
-    border-top:1px solid #ddd;
-
-    padding-top:12px;
-
-}
-
-.footer-sign small{
-
-    color:#666;
-
-    font-size:10px;
-
-}
-
-.watermark{
-
-    position:fixed;
-
-    top:42%;
-
-    left:16%;
-
-    transform:rotate(-35deg);
-
-    font-size:92px;
-
-    font-weight:900;
-
-    opacity:.08;
-
-    z-index:-1;
-
-    letter-spacing:8px;
-
-}
-
-.watermark.approved{
-
-    color:#0a8b37;
-
-}
-
-.watermark.rejected{
-
-    color:#d32f2f;
-
-}
-
-</style>
+    </style>
 
 </head>
 
+
 <body>
-
-<div class="header">
-
-    {{-- Logo Perusahaan --}}
-
-    {{-- Ganti logo sesuai perusahaan Anda --}}
-
-    {{-- Jika belum ada logo boleh dikosongkan --}}
-
-    {{--
-
-    <img
-        src="{{ public_path('images/logo.png') }}"
-        class="logo">
-
-    --}}
-
-    <div class="company">
-
-        <h2>PT. NAMA PERUSAHAAN</h2>
-
-        <h4>Sistem Informasi Pengajuan Cuti Karyawan</h4>
-
-        <p>
-
-            Jl. Contoh Alamat Perusahaan
-
-        </p>
-
-        <p>
-
-            Email : hrd@perusahaan.com
-
-        </p>
-
-    </div>
-
-    <div class="clear"></div>
-
-</div>
-
-<div class="title">
-
-    <h2>
-
-        SURAT PERSETUJUAN CUTI
-
-    </h2>
-
-    <p>
-
-        Nomor Pengajuan :
-        <strong>
-
-            {{ $leave->request_number }}
-
-        </strong>
-
-    </p>
-
-</div>
-
-{{-- ====================================================== --}}
-{{-- DATA KARYAWAN --}}
-{{-- ====================================================== --}}
-
-<div class="section">
-
-    <div class="section-title">
-
-        INFORMASI KARYAWAN
-
-    </div>
-
-    <table class="info">
-
-        <tr>
-
-            <td>Nama Lengkap</td>
-
-            <td>: {{ $leave->employee->user->name }}</td>
-
-        </tr>
-
-        <tr>
-
-            <td>NIK</td>
-
-            <td>: {{ $leave->employee->nik }}</td>
-
-        </tr>
-
-        <tr>
-
-            <td>Department</td>
-
-            <td>: {{ $leave->employee->department->name }}</td>
-
-        </tr>
-
-        <tr>
-
-            <td>Jabatan</td>
-
-            <td>: {{ $leave->employee->position->name }}</td>
-
-        </tr>
-
-        <tr>
-
-            <td>Email</td>
-
-            <td>: {{ $leave->employee->user->email }}</td>
-
-        </tr>
-
-        <tr>
-
-            <td>Status Pegawai</td>
-
-            <td>: {{ $leave->employee->status }}</td>
-
-        </tr>
-
-    </table>
-
-</div>
-
-<hr>
-
-{{-- ====================================================== --}}
-{{-- INFORMASI CUTI --}}
-{{-- ====================================================== --}}
-
-<div class="section">
-
-    <div class="section-title">
-
-        INFORMASI PENGAJUAN CUTI
-
-    </div>
-
-    <table class="info">
-
-        <tr>
-
-            <td>Nomor Pengajuan</td>
-
-            <td>
-
-                : {{ $leave->request_number }}
-
-            </td>
-
-        </tr>
-
-        <tr>
-
-            <td>Jenis Cuti</td>
-
-            <td>
-
-                : {{ $leave->leaveType->name }}
-
-            </td>
-
-        </tr>
-
-        <tr>
-
-            <td>Tanggal Pengajuan</td>
-
-            <td>
-
-                : {{ optional($leave->submitted_at)->format('d F Y') }}
-
-            </td>
-
-        </tr>
-
-        <tr>
-
-            <td>Tanggal Mulai</td>
-
-            <td>
-
-                : {{ $leave->start_date->format('d F Y') }}
-
-            </td>
-
-        </tr>
-
-        <tr>
-
-            <td>Tanggal Selesai</td>
-
-            <td>
-
-                : {{ $leave->end_date->format('d F Y') }}
-
-            </td>
-
-        </tr>
-
-        <tr>
-
-            <td>Total Hari</td>
-
-            <td>
-
-                : {{ $leave->total_days }} Hari
-
-            </td>
-
-        </tr>
-
-        <tr>
-
-            <td>Status Pengajuan</td>
-
-            <td>
-
-                :
-
-                @if($leave->status=='Approved')
-
-                    <span class="status-approved">
-
-                        DISETUJUI
-
-                    </span>
-
-                @elseif($leave->status=='Rejected')
-
-                    <span class="status-rejected">
-
-                        DITOLAK
-
-                    </span>
-
-                @else
-
-                    <span class="status-pending">
-
-                        MENUNGGU PERSETUJUAN
-
-                    </span>
-
-                @endif
-
-            </td>
-
-        </tr>
-
-    </table>
-
-</div>
-
-{{-- ====================================================== --}}
-{{-- ALASAN CUTI --}}
-{{-- ====================================================== --}}
-
-<div class="section">
-
-    <div class="section-title">
-
-        ALASAN PENGAJUAN CUTI
-
-    </div>
-
-    <div class="reason">
-
-        {{ $leave->reason }}
-
-    </div>
-
-</div>
-
-{{-- ====================================================== --}}
-{{-- RIWAYAT APPROVAL --}}
-{{-- ====================================================== --}}
 
 @php
 
-    $managerApproval = $leave->approvals
-        ->where('approval_level','Manager')
-        ->first();
+    /*
+    |--------------------------------------------------------------------------
+    | APPROVAL COLLECTION
+    |--------------------------------------------------------------------------
+    */
 
-    $hrdApproval = $leave->approvals
-        ->where('approval_level','HRD')
-        ->first();
+    $approvals = collect($leave->approvals ?? []);
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | FIND APPROVAL
+    |--------------------------------------------------------------------------
+    */
+
+    $findApproval = function ($levels) use ($approvals) {
+
+        return $approvals->first(function ($approval) use ($levels) {
+
+            $level = strtolower(
+                trim(
+                    (string) ($approval->approval_level ?? '')
+                )
+            );
+
+            foreach ($levels as $expectedLevel) {
+
+                if (
+                    $level ===
+                    strtolower(
+                        trim($expectedLevel)
+                    )
+                ) {
+                    return true;
+                }
+
+            }
+
+            return false;
+        });
+
+    };
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | EMPLOYEE APPROVAL
+    |--------------------------------------------------------------------------
+    */
+
+    $employeeApproval = $findApproval([
+        'Employee',
+        'Karyawan',
+        'Employee Approval',
+    ]);
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | SUPERVISOR
+    |--------------------------------------------------------------------------
+    */
+
+    $supervisorApproval = $findApproval([
+        'Supervisor',
+        'Supervisor Approval',
+    ]);
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | MANAGER
+    |--------------------------------------------------------------------------
+    */
+
+    $managerApproval = $findApproval([
+        'Manager',
+        'Manager/Snr Manager',
+        'Manager / Snr Manager',
+        'Senior Manager',
+        'Snr Manager',
+    ]);
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | DIRECTOR
+    |--------------------------------------------------------------------------
+    */
+
+    $directorApproval = $findApproval([
+        'Director',
+        'Direktur',
+        'Director Approval',
+    ]);
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | EMPLOYEE
+    |--------------------------------------------------------------------------
+    */
+
+    $employeeName =
+        data_get(
+            $leave,
+            'employee.user.name'
+        ) ?? '-';
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | EMPLOYEE SIGNATURE
+    |--------------------------------------------------------------------------
+    */
+
+    $employeeSignature =
+        data_get(
+            $leave,
+            'employee_signature_path'
+        );
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | FALLBACK EMPLOYEE APPROVAL
+    |--------------------------------------------------------------------------
+    */
+
+    if (
+        !$employeeSignature &&
+        $employeeApproval
+    ) {
+
+        $employeeSignature =
+            data_get(
+                $employeeApproval,
+                'signature_path'
+            );
+
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | EMPLOYEE SIGNATURE FULL PATH
+    |--------------------------------------------------------------------------
+    */
+
+    $employeeSignatureFullPath = null;
+
+    if ($employeeSignature) {
+
+        $employeeSignatureFullPath =
+            public_path(
+                'storage/' .
+                ltrim(
+                    $employeeSignature,
+                    '/'
+                )
+            );
+
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | SUPERVISOR SIGNATURE
+    |--------------------------------------------------------------------------
+    */
+
+    $supervisorSignature =
+        data_get(
+            $supervisorApproval,
+            'signature_path'
+        );
+
+
+    $supervisorSignatureFullPath = null;
+
+    if ($supervisorSignature) {
+
+        $supervisorSignatureFullPath =
+            public_path(
+                'storage/' .
+                ltrim(
+                    $supervisorSignature,
+                    '/'
+                )
+            );
+
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | MANAGER SIGNATURE
+    |--------------------------------------------------------------------------
+    */
+
+    $managerSignature =
+        data_get(
+            $managerApproval,
+            'signature_path'
+        );
+
+
+    $managerSignatureFullPath = null;
+
+    if ($managerSignature) {
+
+        $managerSignatureFullPath =
+            public_path(
+                'storage/' .
+                ltrim(
+                    $managerSignature,
+                    '/'
+                )
+            );
+
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | DIRECTOR SIGNATURE
+    |--------------------------------------------------------------------------
+    */
+
+    $directorSignature =
+        data_get(
+            $directorApproval,
+            'signature_path'
+        );
+
+
+    $directorSignatureFullPath = null;
+
+    if ($directorSignature) {
+
+        $directorSignatureFullPath =
+            public_path(
+                'storage/' .
+                ltrim(
+                    $directorSignature,
+                    '/'
+                )
+            );
+
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | APPROVER NAMES
+    |--------------------------------------------------------------------------
+    */
+
+    $supervisorName =
+        data_get(
+            $supervisorApproval,
+            'approver.name'
+        ) ?? '-';
+
+
+    $managerName =
+        data_get(
+            $managerApproval,
+            'approver.name'
+        ) ?? '-';
+
+
+    $directorName =
+        data_get(
+            $directorApproval,
+            'approver.name'
+        ) ?? '-';
 
 @endphp
 
-<div class="section">
 
-    <div class="section-title">
+<div class="page">
 
-        RIWAYAT PERSETUJUAN
+
+    {{-- =========================================================
+         HEADER
+    ========================================================== --}}
+
+    <div class="header">
+
+
+        {{-- LOGO --}}
+
+        <div class="logo-area">
+
+            @php
+
+                $logoPath =
+                    public_path(
+                        'assets/images/toa.png'
+                    );
+
+            @endphp
+
+            @if(file_exists($logoPath))
+
+                <img
+                    src="{{ $logoPath }}"
+                    class="logo"
+                    alt="Logo"
+                >
+
+            @endif
+
+        </div>
+
+
+        {{-- COMPANY NAME --}}
+
+        <div class="company-area">
+
+            <div class="company-name">
+                PT. TOA GALVA INDUSTRIES
+            </div>
+
+            <div class="company-location">
+                TAPOS - DEPOK
+            </div>
+
+        </div>
+
+
+        {{-- DOCUMENT NUMBER --}}
+
+        <div class="document-number">
+            No. Dok : FRM-PSN-035.Rev.03
+        </div>
+
 
     </div>
 
-    <table class="approval-table">
 
-        <thead>
+    {{-- =========================================================
+         TITLE
+    ========================================================== --}}
 
-            <tr>
+    <div class="document-title">
 
-                <th width="15%">Level</th>
+        <div class="main-title">
+            FORMULIR ISIAN
+        </div>
 
-                <th width="15%">Status</th>
+        <div class="subtitle">
+            PENGAJUAN CUTI PRIBADI
+        </div>
 
-                <th width="22%">Approver</th>
+    </div>
 
-                <th width="20%">Tanggal</th>
 
-                <th>Catatan</th>
+    {{-- =========================================================
+         RECIPIENT
+    ========================================================== --}}
 
-            </tr>
+    <div class="recipient">
 
-        </thead>
+        <p>Yang Terhormat,</p>
 
-        <tbody>
+        <p>Departemen Umum &amp; Personalia</p>
 
-            {{-- ========================= --}}
-            {{-- MANAGER --}}
-            {{-- ========================= --}}
+        <p>Di Tempat</p>
 
-            <tr>
+    </div>
 
-                <td>
 
-                    Manager
+    {{-- =========================================================
+         OPENING
+    ========================================================== --}}
 
-                </td>
+    <div class="opening">
 
-                <td>
+        <p>
+            Dengan hormat,
+        </p>
 
-                    @if($managerApproval)
+        <p>
+            Yang bertanda tangan dibawah ini,
+        </p>
 
-                        @if($managerApproval->status=='Approved')
+    </div>
 
-                            <span class="status-approved">
 
-                                APPROVED
+    {{-- =========================================================
+         EMPLOYEE DATA
+    ========================================================== --}}
 
-                            </span>
-
-                        @elseif($managerApproval->status=='Rejected')
-
-                            <span class="status-rejected">
-
-                                REJECTED
-
-                            </span>
-
-                        @else
-
-                            <span class="status-pending">
-
-                                PENDING
-
-                            </span>
-
-                        @endif
-
-                    @else
-
-                        -
-
-                    @endif
-
-                </td>
-
-                <td>
-
-                    {{ optional($managerApproval?->approver)->name ?? '-' }}
-
-                </td>
-
-                <td>
-
-                    {{ optional($managerApproval?->approved_at)->format('d F Y H:i') ?? '-' }}
-
-                </td>
-
-                <td>
-
-                    {{ $managerApproval->notes ?? '-' }}
-
-                </td>
-
-            </tr>
-
-            {{-- ========================= --}}
-            {{-- HRD --}}
-            {{-- ========================= --}}
-
-            <tr>
-
-                <td>
-
-                    HRD
-
-                </td>
-
-                <td>
-
-                    @if($hrdApproval)
-
-                        @if($hrdApproval->status=='Approved')
-
-                            <span class="status-approved">
-
-                                APPROVED
-
-                            </span>
-
-                        @elseif($hrdApproval->status=='Rejected')
-
-                            <span class="status-rejected">
-
-                                REJECTED
-
-                            </span>
-
-                        @else
-
-                            <span class="status-pending">
-
-                                PENDING
-
-                            </span>
-
-                        @endif
-
-                    @else
-
-                        -
-
-                    @endif
-
-                </td>
-
-                <td>
-
-                    {{ optional($hrdApproval?->approver)->name ?? '-' }}
-
-                </td>
-
-                <td>
-
-                    {{ optional($hrdApproval?->approved_at)->format('d F Y H:i') ?? '-' }}
-
-                </td>
-
-                <td>
-
-                    {{ $hrdApproval->notes ?? '-' }}
-
-                </td>
-
-            </tr>
-
-        </tbody>
-
-    </table>
-
-</div>
-
-<hr>
-
-{{-- ====================================================== --}}
-{{-- TANDA TANGAN DIGITAL --}}
-{{-- ====================================================== --}}
-
-<div class="section">
-
-    <table width="100%">
+    <table class="form-table">
 
         <tr>
 
-            {{-- ========================= --}}
-            {{-- MANAGER --}}
-            {{-- ========================= --}}
+            <td class="form-label">
+                Nama
+            </td>
 
-            <td align="center" width="50%">
+            <td class="form-colon">
+                :
+            </td>
 
-                <strong>
+            <td class="form-value">
 
-                    Manager
-
-                </strong>
-
-                <br><br>
-
-                @if($managerApproval && $managerApproval->signature_path)
-
-                    <img
-                        src="{{ public_path('storage/'.$managerApproval->signature_path) }}"
-                        style="height:90px;">
-
-                @else
-
-                    <div style="height:90px;"></div>
-
-                @endif
-
-                <br>
-
-                <strong>
-
-                    {{ optional($managerApproval?->approver)->name }}
-
-                </strong>
+                <span class="dotted-value">
+                    {{ $employeeName }}
+                </span>
 
             </td>
 
-            {{-- ========================= --}}
-            {{-- HRD --}}
-            {{-- ========================= --}}
+        </tr>
 
-            <td align="center" width="50%">
 
-                <strong>
+        <tr>
 
-                    Human Resource Department
+            <td class="form-label">
+                Jabatan
+            </td>
 
-                </strong>
+            <td class="form-colon">
+                :
+            </td>
 
-                <br><br>
+            <td class="form-value">
 
-                @if($hrdApproval && $hrdApproval->signature_path)
+                <span class="dotted-value">
+                    {{ data_get($leave, 'employee.position.name') ?? '-' }}
+                </span>
 
-                    <img
-                        src="{{ public_path('storage/'.$hrdApproval->signature_path) }}"
-                        style="height:90px;">
+            </td>
 
-                @else
+        </tr>
 
-                    <div style="height:90px;"></div>
 
-                @endif
+        <tr>
 
-                <br>
+            <td class="form-label">
+                Departemen / Bagian
+            </td>
 
-                <strong>
+            <td class="form-colon">
+                :
+            </td>
 
-                    {{ optional($hrdApproval?->approver)->name }}
+            <td class="form-value">
 
-                </strong>
+                <span class="dotted-value">
+                    {{ data_get($leave, 'employee.department.name') ?? '-' }}
+                </span>
 
             </td>
 
@@ -1000,142 +1008,404 @@ hr{
 
     </table>
 
-</div>
 
-{{-- ====================================================== --}}
-{{-- LAMPIRAN --}}
-{{-- ====================================================== --}}
+    {{-- =========================================================
+         LEAVE REQUEST
+         SESUAI DENGAN FORM ASLI
+    ========================================================== --}}
 
-@if($leave->attachment)
+    <div class="leave-request">
 
-<div class="section">
+        <span class="leave-request-text">
+            Mengajukan permohonan cuti pribadi sejumlah
+        </span>
 
-    <div class="section-title">
+        <span class="leave-days">
 
-        DOKUMEN LAMPIRAN
+            <span class="leave-days-value">
+                {{ $leave->total_days }}
+            </span>
+
+        </span>
+
+        <span class="leave-request-text">
+            hari kerja, pada :
+        </span>
 
     </div>
 
-    <p>
 
-        Dokumen pendukung telah dilampirkan oleh karyawan pada saat
-        pengajuan cuti.
+    {{-- =========================================================
+         DATE / REASON / REMAINING LEAVE
+    ========================================================== --}}
 
-    </p>
+    <table class="leave-detail-table">
 
-    <table class="info">
+
+        {{-- HARI / TANGGAL --}}
 
         <tr>
 
-            <td width="180">
+            <td class="leave-detail-label">
+                Hari/tanggal
+            </td>
 
-                Nama File
+            <td class="leave-detail-colon">
+                :
+            </td>
+
+            <td class="leave-detail-value">
+
+                <span class="leave-detail-line">
+
+                    {{ $leave->start_date->translatedFormat('d F Y') }}
+
+                    @if(
+                        $leave->end_date &&
+                        $leave->end_date->ne($leave->start_date)
+                    )
+
+                        s/d
+
+                        {{ $leave->end_date->translatedFormat('d F Y') }}
+
+                    @endif
+
+                </span>
 
             </td>
 
+        </tr>
+
+
+        {{-- ALASAN --}}
+
+        <tr>
+
+            <td class="leave-detail-label">
+                Alasan
+            </td>
+
+            <td class="leave-detail-colon">
+                :
+            </td>
+
+            <td class="leave-detail-value">
+
+                <span class="leave-detail-line">
+
+                    {{ $leave->reason ?? '-' }}
+
+                </span>
+
+            </td>
+
+        </tr>
+
+
+        {{-- SISA CUTI --}}
+
+        <tr>
+
+            <td class="leave-detail-label">
+                Sisa cuti
+            </td>
+
+            <td class="leave-detail-colon">
+                :
+            </td>
+
+            <td class="leave-detail-value">
+
+                <span class="leave-detail-line">
+
+                    {{
+                        data_get(
+                            $leave,
+                            'leaveBalance.remaining'
+                        )
+                        ??
+                        data_get(
+                            $leave,
+                            'remaining_leave'
+                        )
+                        ??
+                        '-'
+                    }}
+
+                </span>
+
+            </td>
+
+        </tr>
+
+    </table>
+
+
+    {{-- =========================================================
+         CLOSING
+    ========================================================== --}}
+
+    <div class="closing">
+
+        Permohonan cuti ini saya sampaikan, atas perhatian
+        Bapak/Ibu saya ucapkan terima kasih.
+
+    </div>
+
+
+    {{-- =========================================================
+         SIGNATURE DATE
+    ========================================================== --}}
+
+    <table class="signature-date">
+
+        <tr>
+
+            <td align="left">
+
+                Depok,
+
+                {{
+                    optional($leave->submitted_at)
+                        ->translatedFormat('d F Y')
+                    ??
+                    now()->translatedFormat('d F Y')
+                }}
+
+            </td>
+
+        </tr>
+
+    </table>
+
+    {{-- =========================================================
+         SIGNATURE TABLE
+    ========================================================== --}}
+    
+    <table class="signature-table">
+    
+        {{-- APPROVAL HEADER --}}
+
+        <tr>
+
+            {{-- KARYAWAN --}}
+
+            <td class="signature-approval-heading">
+                Yang mengajukan,
+            </td>
+
+
+            {{-- SUPERVISOR --}}
+
+            <td class="signature-approval-heading">
+            </td>
+
+
+            {{-- MANAGER + DIREKTUR --}}
+
+            <td
+                colspan="2"
+                class="signature-approval-heading"
+            >
+                Menyetujui,
+            </td>
+
+        </tr>
+    
+        <tr>
+    
+    
+            {{-- =====================================================
+                 EMPLOYEE
+            ====================================================== --}}
+    
             <td>
 
-                :
+                <div class="signature-role"></div>
 
-                {{ basename($leave->attachment) }}
-
+                <div class="signature-space">
+    
+                    @if(
+                        $employeeSignatureFullPath &&
+                        file_exists($employeeSignatureFullPath)
+                    )
+    
+                        <img
+                            src="{{ $employeeSignatureFullPath }}"
+                            class="signature-image"
+                            alt="Tanda tangan karyawan"
+                        >
+    
+                    @else
+    
+                        <div class="signature-placeholder"></div>
+    
+                    @endif
+    
+                </div>
+    
+    
+                <div class="signature-line"></div>
+    
+    
+                <div class="signature-name">
+                    {{ $employeeName }}
+                </div>
+    
             </td>
-
+    
+    
+            {{-- =====================================================
+                 SUPERVISOR
+            ====================================================== --}}
+    
+            <td>
+    
+                <div class="signature-role"></div>
+    
+    
+                <div class="signature-space">
+    
+                    @if(
+                        $supervisorApproval &&
+                        $supervisorApproval->status === 'Approved' &&
+                        $supervisorSignatureFullPath &&
+                        file_exists($supervisorSignatureFullPath)
+                    )
+    
+                        <img
+                            src="{{ $supervisorSignatureFullPath }}"
+                            class="signature-image"
+                            alt="Tanda tangan Supervisor"
+                        >
+    
+                    @else
+    
+                        <div class="signature-placeholder"></div>
+    
+                    @endif
+    
+                </div>
+    
+    
+                <div class="signature-line"></div>
+    
+    
+                <div class="signature-name">
+                    Supervisor
+                </div>
+    
+            </td>
+    
+    
+            {{-- =====================================================
+                 MANAGER
+            ====================================================== --}}
+    
+            <td>
+    
+                <div class="signature-role"></div>
+    
+    
+                <div class="signature-space">
+    
+                    @if(
+                        $managerApproval &&
+                        $managerApproval->status === 'Approved' &&
+                        $managerSignatureFullPath &&
+                        file_exists($managerSignatureFullPath)
+                    )
+    
+                        <img
+                            src="{{ $managerSignatureFullPath }}"
+                            class="signature-image"
+                            alt="Tanda tangan Manager"
+                        >
+    
+                    @else
+    
+                        <div class="signature-placeholder"></div>
+    
+                    @endif
+    
+                </div>
+    
+    
+                <div class="signature-line"></div>
+    
+    
+                <div class="signature-name manager-name">
+                    Manager/Snr Manager
+                </div>
+    
+            </td>
+    
+    
+            {{-- =====================================================
+                 DIRECTOR
+            ====================================================== --}}
+    
+            <td>
+    
+                <div class="signature-role"></div>
+    
+    
+                <div class="signature-space">
+    
+                    @if(
+                        $directorApproval &&
+                        $directorApproval->status === 'Approved' &&
+                        $directorSignatureFullPath &&
+                        file_exists($directorSignatureFullPath)
+                    )
+    
+                        <img
+                            src="{{ $directorSignatureFullPath }}"
+                            class="signature-image"
+                            alt="Tanda tangan Direktur"
+                        >
+    
+                    @else
+    
+                        <div class="signature-placeholder"></div>
+    
+                    @endif
+    
+                </div>
+    
+    
+                <div class="signature-line"></div>
+    
+    
+                <div class="signature-name">
+                    Direktur
+                </div>
+    
+            </td>
+    
         </tr>
-
+    
     </table>
 
-</div>
+    {{-- =========================================================
+         NOTE
+    ========================================================== --}}
 
-@endif
+    <div class="note">
 
+        <span class="note-title">
+            Catatan :
+        </span>
 
-{{-- ====================================================== --}}
-{{-- CATATAN --}}
-{{-- ====================================================== --}}
+        Disetujui oleh Direktur untuk jabatan
+        Supervisor 3/Manager/Senior Manager
 
-<div class="note-box">
+    </div>
 
-    <strong>Catatan :</strong>
-
-    <ul>
-
-        <li>
-            Dokumen ini dihasilkan secara otomatis oleh Sistem Informasi Pengajuan Cuti.
-        </li>
-
-        <li>
-            Dokumen ini sah apabila telah memiliki persetujuan Manager dan HRD.
-        </li>
-
-        <li>
-            Seluruh tanda tangan yang tercantum merupakan tanda tangan digital yang tersimpan pada sistem.
-        </li>
-
-        <li>
-            Dilarang melakukan perubahan isi dokumen tanpa persetujuan perusahaan.
-        </li>
-
-    </ul>
 
 </div>
 
+</body>
 
-{{-- ====================================================== --}}
-{{-- FOOTER SIGN --}}
-{{-- ====================================================== --}}
-
-<table class="footer-sign">
-
-    <tr>
-
-        <td align="left">
-
-            <small>
-
-                Dicetak :
-
-                {{ now()->format('d F Y H:i:s') }}
-
-            </small>
-
-        </td>
-
-        <td align="right">
-
-            <small>
-
-                Generated by
-
-                Sistem Informasi Pengajuan Cuti
-
-            </small>
-
-        </td>
-
-    </tr>
-
-</table>
-
-
-{{-- ====================================================== --}}
-{{-- WATERMARK --}}
-{{-- ====================================================== --}}
-
-@if($leave->status=='Approved')
-
-<div class="watermark approved">
-
-    APPROVED
-
-</div>
-
-@elseif($leave->status=='Rejected')
-
-<div class="watermark rejected">
-
-    REJECTED
-
-</div>
-
-@endif
+</html>

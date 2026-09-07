@@ -19,12 +19,13 @@
     @vite([
         'resources/css/navbar.css',
         'resources/css/footer.css',
-        'resources/css/manager.css',
+        'resources/css/manager/manager.css',
+        'resources/css/manager/sidebar.css',
         'resources/css/app.css',
-        'resources/css/approval.css',
-        'resources/css/approval-show.css',
-        'resources/css/manager-profile.css',
-        'resources/css/manager-history.css'
+        'resources/css/manager/approval.css',
+        'resources/css/manager/approval-show.css',
+        'resources/css/manager/manager-profile.css',
+        'resources/css/manager/manager-history.css'
     ])
 
     <meta name="csrf-token"

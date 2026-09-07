@@ -34,19 +34,19 @@
             <div class="footer-social">
 
                 <a href="#">
-                    <i class="fab fa-facebook-f"></i>
+                    <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/facebook-new.png" alt="facebook-new"/>
                 </a>
 
                 <a href="#">
-                    <i class="fab fa-instagram"></i>
+                    <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/instagram-new.png" alt="instagram-new"/>
                 </a>
 
                 <a href="#">
-                    <i class="fab fa-linkedin-in"></i>
+                    <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/linkedin-2.png" alt="linkedin-2"/>
                 </a>
 
                 <a href="#">
-                    <i class="fab fa-github"></i>
+                    <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/github.png" alt="github"/>
                 </a>
 
             </div>
@@ -96,17 +96,17 @@
             <ul class="contact-list">
 
                 <li>
-                    <i class="fa-solid fa-envelope"></i>
+                    <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/email.png" alt="email"/>
                     hrd@company.co.id
                 </li>
 
                 <li>
-                    <i class="fa-solid fa-phone"></i>
+                    <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/phone.png" alt="phone"/>
                     (021) 12345678
                 </li>
 
                 <li>
-                    <i class="fa-solid fa-location-dot"></i>
+                    <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/marker.png" alt="marker"/>
                     Jakarta, Indonesia
                 </li>
 

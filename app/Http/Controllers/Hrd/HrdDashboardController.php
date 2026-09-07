@@ -3,135 +3,202 @@
 namespace App\Http\Controllers\HRD;
 
 use App\Http\Controllers\Controller;
+use App\Models\Department;
 use App\Models\Employee;
-use App\Models\LeaveApproval;
 use App\Models\LeaveRequest;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Position;
+use App\Models\LeaveBalance;
 
 class HrdDashboardController extends Controller
 {
+    /**
+     * Display HRD dashboard.
+     */
     public function index()
     {
         /*
         |--------------------------------------------------------------------------
-        | HRD Login
+        | CURRENT YEAR
         |--------------------------------------------------------------------------
         */
 
-        $hrd = Employee::with([
-                'user',
-                'department',
-                'position',
-            ])
-            ->where('user_id', Auth::id())
-            ->firstOrFail();
+        $currentYear = now()->year;
 
         /*
         |--------------------------------------------------------------------------
-        | Dashboard Summary
-        |--------------------------------------------------------------------------
-        */
-
-        $pending = LeaveApproval::where(
-                'approval_level',
-                LeaveApproval::LEVEL_HRD
-            )
-            ->where('approver_id', Auth::id())
-            ->where('status', LeaveApproval::STATUS_PENDING)
-            ->count();
-
-        $approved = LeaveApproval::where(
-                'approval_level',
-                LeaveApproval::LEVEL_HRD
-            )
-            ->where('approver_id', Auth::id())
-            ->where('status', LeaveApproval::STATUS_APPROVED)
-            ->count();
-
-        $rejected = LeaveApproval::where(
-                'approval_level',
-                LeaveApproval::LEVEL_HRD
-            )
-            ->where('approver_id', Auth::id())
-            ->where('status', LeaveApproval::STATUS_REJECTED)
-            ->count();
-
-        /*
-        |--------------------------------------------------------------------------
-        | Employee
+        | EMPLOYEE STATISTICS
         |--------------------------------------------------------------------------
         */
 
         $totalEmployees = Employee::count();
 
+        $activeEmployees = Employee::where(
+            'status',
+            'active'
+        )->count();
+
+        $inactiveEmployees = Employee::where(
+            'status',
+            '!=',
+            'active'
+        )->count();
+
         /*
         |--------------------------------------------------------------------------
-        | Leave Today
+        | MASTER DATA
         |--------------------------------------------------------------------------
         */
 
-        $leaveToday = LeaveRequest::whereDate(
-                'start_date',
-                today()
+        $totalDepartments = Department::count();
+
+        $totalPositions = Position::count();
+
+        /*
+        |--------------------------------------------------------------------------
+        | LEAVE REQUEST STATISTICS
+        |--------------------------------------------------------------------------
+        */
+
+        $totalLeaveRequests = LeaveRequest::count();
+
+        $pendingLeaveRequests = LeaveRequest::where(
+            'status',
+            LeaveRequest::STATUS_PENDING
+        )->count();
+
+        $approvedLeaveRequests = LeaveRequest::where(
+            'status',
+            LeaveRequest::STATUS_APPROVED
+        )->count();
+
+        $rejectedLeaveRequests = LeaveRequest::where(
+            'status',
+            LeaveRequest::STATUS_REJECTED
+        )->count();
+
+        /*
+        |--------------------------------------------------------------------------
+        | LEAVE DAYS STATISTICS
+        |--------------------------------------------------------------------------
+        |
+        | IMPORTANT:
+        |
+        | approvedLeaveDays menggunakan total_days,
+        | bukan count().
+        |
+        */
+
+        $approvedLeaveDays = LeaveRequest::where(
+            'status',
+            LeaveRequest::STATUS_APPROVED
+        )->sum('total_days');
+
+        $pendingLeaveDays = LeaveRequest::where(
+            'status',
+            LeaveRequest::STATUS_PENDING
+        )->sum('total_days');
+
+        /*
+        |--------------------------------------------------------------------------
+        | CURRENT YEAR LEAVE BALANCE
+        |--------------------------------------------------------------------------
+        */
+
+        $totalLeaveQuota = LeaveBalance::query()
+            ->where(
+                'year',
+                $currentYear
             )
-            ->where('status', LeaveRequest::STATUS_APPROVED)
-            ->count();
+            ->where(
+                'is_active',
+                true
+            )
+            ->sum('quota');
+
+        $totalUsedLeave = LeaveBalance::query()
+            ->where(
+                'year',
+                $currentYear
+            )
+            ->where(
+                'is_active',
+                true
+            )
+            ->sum('used');
+
+        $totalRemainingLeave = LeaveBalance::query()
+            ->where(
+                'year',
+                $currentYear
+            )
+            ->where(
+                'is_active',
+                true
+            )
+            ->sum('remaining');
 
         /*
         |--------------------------------------------------------------------------
-        | Recent Request
-        |--------------------------------------------------------------------------
-        | Hanya yang sudah di-approve Manager
-        | dan sedang menunggu HRD
+        | RECENT LEAVE REQUESTS
         |--------------------------------------------------------------------------
         */
 
-        $recentApprovals = LeaveRequest::with([
-                'employee.user',
-                'employee.department',
-                'employee.position',
-                'leaveType',
-                'approvals',
-            ])
-            ->whereHas('approvals', function ($query) {
-
-                $query->where(
-                        'approval_level',
-                        LeaveApproval::LEVEL_MANAGER
-                    )
-                    ->where(
-                        'status',
-                        LeaveApproval::STATUS_APPROVED
-                    );
-
-            })
-            ->whereHas('approvals', function ($query) {
-
-                $query->where(
-                        'approval_level',
-                        LeaveApproval::LEVEL_HRD
-                    )
-                    ->whereIn('status', [
-                        LeaveApproval::STATUS_PENDING,
-                        LeaveApproval::STATUS_APPROVED,
-                        LeaveApproval::STATUS_REJECTED,
-                    ]);
-
-            })
+        $recentLeaveRequests = LeaveRequest::with([
+            'employee.user',
+            'employee.department',
+            'leaveType',
+        ])
             ->latest()
+            ->take(8)
+            ->get();
+
+        /*
+        |--------------------------------------------------------------------------
+        | RECENT EMPLOYEES
+        |--------------------------------------------------------------------------
+        */
+
+        $recentEmployees = Employee::with([
+            'user',
+            'department',
+            'position',
+        ])
+            ->latest('id')
             ->take(5)
             ->get();
+
+        /*
+        |--------------------------------------------------------------------------
+        | RETURN VIEW
+        |--------------------------------------------------------------------------
+        */
 
         return view(
             'hrd.dashboard',
             compact(
-                'hrd',
-                'pending',
-                'approved',
-                'rejected',
+                'currentYear',
+
                 'totalEmployees',
-                'leaveToday',
-                'recentApprovals'
+                'activeEmployees',
+                'inactiveEmployees',
+
+                'totalDepartments',
+                'totalPositions',
+
+                'totalLeaveRequests',
+                'pendingLeaveRequests',
+                'approvedLeaveRequests',
+                'rejectedLeaveRequests',
+
+                'approvedLeaveDays',
+                'pendingLeaveDays',
+
+                'totalLeaveQuota',
+                'totalUsedLeave',
+                'totalRemainingLeave',
+
+                'recentLeaveRequests',
+                'recentEmployees'
             )
         );
     }

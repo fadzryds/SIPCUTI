@@ -24,39 +24,6 @@
 
     <div class="topbar-right">
 
-        {{-- Search --}}
-        <div class="search-box">
-
-            <i class="fa-solid fa-magnifying-glass"></i>
-
-            <input
-                type="text"
-                placeholder="Cari data...">
-
-        </div>
-
-        {{-- Notification --}}
-        <button class="notification-btn">
-
-            <i class="fa-regular fa-bell"></i>
-
-            @isset($pending)
-                @if($pending > 0)
-                    <span>{{ $pending }}</span>
-                @endif
-            @endisset
-
-        </button>
-
-        {{-- Clock --}}
-        <div class="clock-box">
-
-            <i class="fa-regular fa-clock"></i>
-
-            <span id="liveClock"></span>
-
-        </div>
-
         {{-- Profile --}}
         <div class="profile-dropdown">
 
@@ -85,8 +52,6 @@
                     </small>
 
                 </div>
-
-                <i class="fa-solid fa-chevron-down"></i>
 
             </button>
 

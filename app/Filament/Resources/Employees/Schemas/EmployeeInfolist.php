@@ -21,8 +21,14 @@ class EmployeeInfolist
 
                 TextEntry::make('position.name'),
 
+                TextEntry::make('supervisor.user.name')
+                    ->label('Supervisor'),
+
                 TextEntry::make('manager.user.name')
                     ->label('Manager'),
+
+                TextEntry::make('director.user.name')
+                    ->label('Direktur'),
 
                 TextEntry::make('join_date')
                     ->date(),

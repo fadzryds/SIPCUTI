@@ -276,22 +276,17 @@
 
                 </td>
 
-
                 <td>
-
-                    <a class="detail-btn">
+                    <a
+                        href="{{ route('manager.approval.show', $leave) }}"
+                        class="detail-btn"
+                    >
                         Detail
                     </a>
-
                 </td>
-
-
-
             </tr>
 
-
             @empty
-
 
             <tr>
 

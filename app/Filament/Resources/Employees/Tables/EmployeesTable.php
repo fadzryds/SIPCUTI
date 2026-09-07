@@ -29,8 +29,16 @@ class EmployeesTable
                 TextColumn::make('position.name')
                     ->sortable(),
 
+                TextColumn::make('supervisor.user.name')
+                    ->label('Supervisor')
+                    ->placeholder('-'),
+
                 TextColumn::make('manager.user.name')
                     ->label('Manager')
+                    ->placeholder('-'),
+                
+                TextColumn::make('director.user.name')
+                    ->label('Direktur')
                     ->placeholder('-'),
 
                 TextColumn::make('status')

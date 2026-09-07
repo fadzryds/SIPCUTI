@@ -12,6 +12,12 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        /*
+        |--------------------------------------------------------------------------
+        | EMPLOYEE
+        |--------------------------------------------------------------------------
+        */
+
         $employee = Employee::with([
             'user',
             'department',
@@ -23,40 +29,83 @@ class DashboardController extends Controller
 
         /*
         |--------------------------------------------------------------------------
-        | Statistik Dashboard
+        | CURRENT YEAR
         |--------------------------------------------------------------------------
         */
 
-        // Total hak cuti
-        $totalLeave = LeaveBalance::where('employee_id', $employee->id)
-            ->sum('remaining');
+        $currentYear = now()->year;
 
-        // Sisa cuti
-        $remainingLeave = LeaveBalance::where('employee_id', $employee->id)
-            ->sum('remaining');
+        $totalLeave = LeaveBalance::query()
+            ->where('employee_id', $employee->id)
+            ->where('year', $currentYear)
+            ->where('is_active', true)
+            ->sum('quota');
 
-        // Total pengajuan
-        $submitted = LeaveRequest::where('employee_id', $employee->id)
-            ->count();
-
-        // Pending
-        $pending = LeaveRequest::where('employee_id', $employee->id)
-            ->where('status', LeaveRequest::STATUS_PENDING)
-            ->count();
-
-        // Approved
-        $approved = LeaveRequest::where('employee_id', $employee->id)
+        $usedLeave = LeaveRequest::query()
+            ->where('employee_id', $employee->id)
             ->where('status', LeaveRequest::STATUS_APPROVED)
+            ->whereYear('start_date', $currentYear)
+            ->sum('total_days');
+
+        $remainingLeave = max(
+            $totalLeave - $usedLeave,
+            0
+        );
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | TOTAL PENGAJUAN
+        |--------------------------------------------------------------------------
+        */
+
+        $submitted = LeaveRequest::query()
+            ->where('employee_id', $employee->id)
+            ->whereYear('start_date', $currentYear)
             ->count();
 
-        // Rejected
-        $rejected = LeaveRequest::where('employee_id', $employee->id)
+
+        /*
+        |--------------------------------------------------------------------------
+        | PENDING
+        |--------------------------------------------------------------------------
+        */
+
+        $pending = LeaveRequest::query()
+            ->where('employee_id', $employee->id)
+            ->where('status', LeaveRequest::STATUS_PENDING)
+            ->whereYear('start_date', $currentYear)
+            ->count();
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | APPROVED
+        |--------------------------------------------------------------------------
+        */
+
+        $approved = LeaveRequest::query()
+            ->where('employee_id', $employee->id)
+            ->where('status', LeaveRequest::STATUS_APPROVED)
+            ->whereYear('start_date', $currentYear)
+            ->count();
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | REJECTED
+        |--------------------------------------------------------------------------
+        */
+
+        $rejected = LeaveRequest::query()
+            ->where('employee_id', $employee->id)
             ->where('status', LeaveRequest::STATUS_REJECTED)
+            ->whereYear('start_date', $currentYear)
             ->count();
 
         /*
         |--------------------------------------------------------------------------
-        | Riwayat Pengajuan Terbaru
+        | RIWAYAT PENGAJUAN TERBARU
         |--------------------------------------------------------------------------
         */
 
@@ -66,15 +115,25 @@ class DashboardController extends Controller
             ->take(5)
             ->get();
 
-        return view('karyawan.dashboard', compact(
-            'employee',
-            'totalLeave',
-            'remainingLeave',
-            'submitted',
-            'pending',
-            'approved',
-            'rejected',
-            'leaveRequests'
-        ));
+        /*
+        |--------------------------------------------------------------------------
+        | RETURN DASHBOARD
+        |--------------------------------------------------------------------------
+        */
+
+        return view(
+            'karyawan.dashboard',
+            compact(
+                'employee',
+                'totalLeave',
+                'remainingLeave',
+                'usedLeave',
+                'submitted',
+                'pending',
+                'approved',
+                'rejected',
+                'leaveRequests'
+            )
+        );
     }
 }

@@ -2,17 +2,31 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class LeaveRequest extends Model
 {
     use HasFactory;
 
-    public const STATUS_PENDING   = 'Pending';
-    public const STATUS_APPROVED  = 'Approved';
-    public const STATUS_REJECTED  = 'Rejected';
-    public const STATUS_CANCELLED = 'Cancelled';
+    /*
+    |--------------------------------------------------------------------------
+    | Status
+    |--------------------------------------------------------------------------
+    */
+
+    public const STATUS_PENDING = 'Pending';
+    public const STATUS_APPROVED = 'Approved';
+    public const STATUS_REJECTED = 'Rejected';
+
+    /*
+    |--------------------------------------------------------------------------
+    | Mass Assignment
+    |--------------------------------------------------------------------------
+    */
 
     protected $fillable = [
         'request_number',
@@ -23,110 +37,100 @@ class LeaveRequest extends Model
         'total_days',
         'reason',
         'attachment',
+        'employee_signature_path',
         'status',
         'submitted_at',
-    ];
-
-    protected $casts = [
-        'start_date'   => 'date',
-        'end_date'     => 'date',
-        'submitted_at' => 'datetime',
+        'current_approver_id',
     ];
 
     /*
     |--------------------------------------------------------------------------
-    | Relationships
+    | Casts
     |--------------------------------------------------------------------------
     */
 
-    public function employee()
+    protected function casts(): array
     {
-        return $this->belongsTo(Employee::class);
-    }
-
-    public function leaveType()
-    {
-        return $this->belongsTo(LeaveType::class);
-    }
-
-    public function approvals()
-    {
-        return $this->hasMany(LeaveApproval::class);
+        return [
+            'start_date' => 'date',
+            'end_date' => 'date',
+            'submitted_at' => 'datetime',
+            'total_days' => 'integer',
+        ];
     }
 
     /*
     |--------------------------------------------------------------------------
-    | Boot
+    | Employee
     |--------------------------------------------------------------------------
     */
 
-    protected static function booted(): void
+    public function employee(): BelongsTo
     {
-        static::creating(function (LeaveRequest $request) {
-
-            $year = now()->year;
-
-            $lastNumber = self::whereYear('created_at', $year)->count() + 1;
-
-            $request->request_number =
-                'CT-' . $year . '-' . str_pad($lastNumber, 6, '0', STR_PAD_LEFT);
-
-            $request->submitted_at = now();
-
-            $request->status = self::STATUS_PENDING;
-        });
-
-        static::created(function (LeaveRequest $request) {
-
-            $employee = Employee::with('manager.user')->find($request->employee_id);
-
-            /*
-            |--------------------------------------------------------------------------
-            | Approval Manager
-            |--------------------------------------------------------------------------
-            */
-
-            if ($employee && $employee->manager && $employee->manager->user_id) {
-
-                LeaveApproval::create([
-                    'leave_request_id' => $request->id,
-                    'approver_id'      => $employee->manager->user_id,
-                    'approval_level'   => LeaveApproval::LEVEL_MANAGER,
-                    'status'           => LeaveApproval::STATUS_PENDING,
-                ]);
-            }
-
-            /*
-            |--------------------------------------------------------------------------
-            | Approval HRD
-            |--------------------------------------------------------------------------
-            */
-
-            $hrd = Employee::with('user')
-                ->where('approval_level', 'HRD')
-                ->first();
-
-            if ($hrd && $hrd->user_id) {
-
-                LeaveApproval::create([
-                    'leave_request_id' => $request->id,
-                    'approver_id'      => $hrd->user_id,
-                    'approval_level'   => LeaveApproval::LEVEL_HRD,
-                    'status'           => LeaveApproval::STATUS_WAITING,
-                ]);
-            }
-        });
+        return $this->belongsTo(
+            Employee::class
+        );
     }
 
-    public function managerApproval()
+    /*
+    |--------------------------------------------------------------------------
+    | Leave Type
+    |--------------------------------------------------------------------------
+    */
+
+    public function leaveType(): BelongsTo
     {
-        return $this->hasOne(LeaveApproval::class)
-            ->where('approval_level', LeaveApproval::LEVEL_MANAGER);
+        return $this->belongsTo(
+            LeaveType::class
+        );
     }
-    
-    public function hrdApproval()
+
+    /*
+    |--------------------------------------------------------------------------
+    | Approvals
+    |--------------------------------------------------------------------------
+    */
+
+    public function approvals(): HasMany
     {
-        return $this->hasOne(LeaveApproval::class)
-            ->where('approval_level', LeaveApproval::LEVEL_HRD);
+        return $this->hasMany(
+            LeaveApproval::class
+        );
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Current Approver
+    |--------------------------------------------------------------------------
+    |
+    | current_approver_id menyimpan USER ID
+    | dari orang yang sedang harus melakukan approval.
+    |
+    */
+
+    public function currentApprover(): BelongsTo
+    {
+        return $this->belongsTo(
+            User::class,
+            'current_approver_id'
+        );
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | MANAGER APPROVAL
+    |--------------------------------------------------------------------------
+    */
+
+    public function managerApproval(): HasOne
+    {
+        return $this->hasOne(
+            LeaveApproval::class,
+            'leave_request_id'
+        )->where(
+            'approval_level',
+            LeaveApproval::LEVEL_MANAGER
+        );
+    }
+
 }

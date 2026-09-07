@@ -1,0 +1,1072 @@
+/* =========================================================
+   HRD EMPLOYEE IMPORT
+   resources/css/hrd/employee-import.css
+========================================================= */
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.hrd-page {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 28px 32px 40px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.hrd-page .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.hrd-page .page-header-content {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    min-width: 0;
+}
+
+.hrd-page .page-header-icon {
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background: linear-gradient(
+        135deg,
+        #1d4ed8,
+        #2563eb
+    );
+
+    color: #ffffff;
+
+    font-size: 23px;
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.20);
+}
+
+.hrd-page .page-header-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #64748b;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.hrd-page .page-header h1 {
+    margin: 0;
+
+    color: #0f172a;
+
+    font-size: 28px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+.hrd-page .page-header p {
+    margin: 6px 0 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.hrd-page .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    min-height: 44px;
+
+    padding: 0 18px;
+
+    border: 0;
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+.hrd-page .btn-primary:hover {
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 26px rgba(37, 99, 235, 0.28);
+
+    filter: brightness(1.04);
+}
+
+.hrd-page .btn-primary:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   RESET / BACK BUTTON
+========================================================= */
+
+.hrd-page .btn-reset {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 42px;
+
+    padding: 0 16px;
+
+    border: 1px solid #dbe2ea;
+    border-radius: 11px;
+
+    background: #ffffff;
+
+    color: #64748b;
+
+    text-decoration: none;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.hrd-page .btn-reset:hover {
+    background: #f8fafc;
+
+    border-color: #cbd5e1;
+
+    color: #334155;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 14px rgba(15, 23, 42, 0.06);
+}
+
+
+/* =========================================================
+   ALERT
+========================================================= */
+
+.hrd-page .alert {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 14px;
+
+    margin-bottom: 24px;
+
+    padding: 15px 17px;
+
+    border-radius: 14px;
+
+    border: 1px solid transparent;
+}
+
+.hrd-page .alert-success {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+    color: #166534;
+}
+
+.hrd-page .alert-error {
+    background: #fef2f2;
+    border-color: #fecaca;
+    color: #991b1b;
+}
+
+.hrd-page .alert-icon {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    font-size: 17px;
+}
+
+.hrd-page .alert-success .alert-icon {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.hrd-page .alert-error .alert-icon {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.hrd-page .alert-content {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.hrd-page .alert-content strong {
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.hrd-page .alert-content span {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.hrd-page .alert-content ul {
+    margin: 7px 0 0;
+    padding-left: 18px;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+.hrd-page .alert-close {
+    width: 32px;
+    height: 32px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: currentColor;
+
+    font-size: 21px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    opacity: 0.65;
+
+    transition:
+        background 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.hrd-page .alert-close:hover {
+    opacity: 1;
+
+    background: rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================================
+   IMPORT CARD
+========================================================= */
+
+.hrd-page .employee-import-card {
+    width: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 28px rgba(15, 23, 42, 0.055);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   IMPORT CARD HEADER
+========================================================= */
+
+.hrd-page .import-card-header {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 24px;
+
+    border-bottom: 1px solid #eef2f7;
+}
+
+.hrd-page .import-card-icon {
+    width: 52px;
+    height: 52px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    font-size: 21px;
+}
+
+.hrd-page .import-card-header h2 {
+    margin: 0;
+
+    color: #0f172a;
+
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.hrd-page .import-card-header p {
+    margin: 5px 0 0;
+
+    color: #64748b;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   TEMPLATE BOX
+========================================================= */
+
+.hrd-page .import-template-box {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 24px;
+
+    padding: 18px;
+
+    border: 1px solid #dbeafe;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #f8fbff
+        );
+}
+
+.hrd-page .import-template-icon {
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    color: #2563eb;
+
+    font-size: 17px;
+
+    box-shadow:
+        0 4px 12px rgba(37, 99, 235, 0.08);
+}
+
+.hrd-page .import-template-content {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.hrd-page .import-template-content strong {
+    color: #1e3a8a;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.hrd-page .import-template-content span {
+    color: #64748b;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   DOWNLOAD TEMPLATE BUTTON
+========================================================= */
+
+.hrd-page .btn-template {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 40px;
+
+    padding: 0 15px;
+
+    flex-shrink: 0;
+
+    border: 1px solid #bfdbfe;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #1d4ed8;
+
+    text-decoration: none;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.hrd-page .btn-template:hover {
+    background: #2563eb;
+
+    border-color: #2563eb;
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 7px 16px rgba(37, 99, 235, 0.18);
+}
+
+.hrd-page .btn-template:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   IMPORT FORM
+========================================================= */
+
+.hrd-page .employee-import-form {
+    padding: 0 24px 24px;
+}
+
+
+/* =========================================================
+   UPLOAD AREA
+========================================================= */
+
+.hrd-page .import-upload-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 300px;
+
+    padding: 35px 25px;
+
+    border: 2px dashed #cbd5e1;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f8fafc,
+            #ffffff
+        );
+
+    text-align: center;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.hrd-page .import-upload-area:hover {
+    border-color: #93c5fd;
+
+    background:
+        linear-gradient(
+            180deg,
+            #eff6ff,
+            #ffffff
+        );
+
+    box-shadow:
+        inset 0 0 0 1px rgba(59, 130, 246, 0.04);
+}
+
+
+/* =========================================================
+   UPLOAD ICON
+========================================================= */
+
+.hrd-page .upload-icon {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 17px;
+
+    border-radius: 20px;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    font-size: 28px;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.10);
+}
+
+
+/* =========================================================
+   UPLOAD TITLE
+========================================================= */
+
+.hrd-page .import-upload-area h3 {
+    margin: 0;
+
+    color: #0f172a;
+
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.hrd-page .import-upload-area > p {
+    margin: 7px 0 18px;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   SELECT FILE BUTTON
+========================================================= */
+
+.hrd-page .upload-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 43px;
+
+    padding: 0 18px;
+
+    border-radius: 11px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    box-shadow:
+        0 7px 17px rgba(37, 99, 235, 0.18);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.hrd-page .upload-button:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 22px rgba(37, 99, 235, 0.25);
+}
+
+.hrd-page .upload-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   SELECTED FILE
+========================================================= */
+
+.hrd-page .selected-file {
+    width: 100%;
+    max-width: 520px;
+
+    margin-top: 17px;
+}
+
+.hrd-page .selected-file:empty {
+    display: none;
+}
+
+.hrd-page .selected-file-content {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px 15px;
+
+    border: 1px solid #dbeafe;
+
+    border-radius: 12px;
+
+    background: #eff6ff;
+
+    text-align: left;
+}
+
+.hrd-page .selected-file-content > i {
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #16a34a;
+
+    font-size: 16px;
+}
+
+.hrd-page .selected-file-content > div {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.hrd-page .selected-file-content strong {
+    display: block;
+
+    overflow: hidden;
+
+    color: #1e3a8a;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+.hrd-page .selected-file-content span {
+    color: #64748b;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   SUPPORTED FORMAT
+========================================================= */
+
+.hrd-page .import-upload-area > small {
+    display: block;
+
+    margin-top: 13px;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+}
+
+.hrd-page .import-upload-area > small strong {
+    color: #64748b;
+}
+
+
+/* =========================================================
+   WARNING
+========================================================= */
+
+.hrd-page .import-warning {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 13px;
+
+    margin-top: 20px;
+
+    padding: 17px 18px;
+
+    border: 1px solid #fde68a;
+
+    border-radius: 14px;
+
+    background: #fffbeb;
+
+    color: #92400e;
+}
+
+.hrd-page .import-warning > i {
+    flex-shrink: 0;
+
+    margin-top: 2px;
+
+    color: #d97706;
+
+    font-size: 17px;
+}
+
+.hrd-page .import-warning > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.hrd-page .import-warning strong {
+    color: #78350f;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.hrd-page .import-warning ul {
+    margin: 8px 0 0;
+
+    padding-left: 18px;
+
+    color: #92400e;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+}
+
+.hrd-page .import-warning li {
+    padding-left: 2px;
+}
+
+
+/* =========================================================
+   FORM FOOTER
+========================================================= */
+
+.hrd-page .import-form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 20px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #eef2f7;
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
+
+.hrd-page .import-form-footer .btn-primary {
+    min-height: 44px;
+
+    padding-left: 19px;
+    padding-right: 19px;
+}
+
+
+/* =========================================================
+   DISABLED
+========================================================= */
+
+.hrd-page button:disabled,
+.hrd-page a.disabled {
+    opacity: 0.55;
+
+    cursor: not-allowed;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .hrd-page {
+        padding: 24px;
+    }
+
+    .hrd-page .import-template-box {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .hrd-page .import-template-content {
+        min-width: calc(100% - 60px);
+    }
+
+    .hrd-page .btn-template {
+        margin-left: 59px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .hrd-page {
+        padding: 18px 15px 30px;
+    }
+
+    .hrd-page .page-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .hrd-page .page-header-content {
+        width: 100%;
+    }
+
+    .hrd-page .page-header-icon {
+        width: 52px;
+        height: 52px;
+
+        border-radius: 14px;
+
+        font-size: 20px;
+    }
+
+    .hrd-page .page-header h1 {
+        font-size: 23px;
+    }
+
+    .hrd-page .page-header p {
+        font-size: 12px;
+    }
+
+    .hrd-page .page-header > .btn-reset {
+        width: 100%;
+    }
+
+    .hrd-page .employee-import-card {
+        border-radius: 16px;
+    }
+
+    .hrd-page .import-card-header {
+        padding: 18px;
+    }
+
+    .hrd-page .import-template-box {
+        margin: 18px;
+
+        padding: 15px;
+
+        flex-direction: column;
+    }
+
+    .hrd-page .import-template-content {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .hrd-page .btn-template {
+        width: 100%;
+
+        margin-left: 0;
+    }
+
+    .hrd-page .employee-import-form {
+        padding: 0 18px 18px;
+    }
+
+    .hrd-page .import-upload-area {
+        min-height: 270px;
+
+        padding: 28px 18px;
+    }
+
+    .hrd-page .import-warning {
+        padding: 15px;
+    }
+
+    .hrd-page .import-form-footer {
+        flex-direction: column-reverse;
+
+        align-items: stretch;
+    }
+
+    .hrd-page .import-form-footer .btn-reset,
+    .hrd-page .import-form-footer .btn-primary {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .hrd-page {
+        padding: 15px 12px 25px;
+    }
+
+    .hrd-page .import-card-header {
+        align-items: flex-start;
+    }
+
+    .hrd-page .import-card-icon {
+        width: 46px;
+        height: 46px;
+
+        border-radius: 12px;
+
+        font-size: 18px;
+    }
+
+    .hrd-page .import-card-header h2 {
+        font-size: 16px;
+    }
+
+    .hrd-page .import-upload-area h3 {
+        font-size: 15px;
+    }
+
+    .hrd-page .upload-icon {
+        width: 60px;
+        height: 60px;
+
+        border-radius: 17px;
+
+        font-size: 24px;
+    }
+
+    .hrd-page .import-warning ul {
+        font-size: 10px;
+    }
+}

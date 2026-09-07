@@ -3,7 +3,7 @@
 @section('title', 'Profile-Page')
 
 @vite([
-    'resources/css/profile.css'
+'resources/css/karyawan/profile.css',
 ])
 
 @section('content')
@@ -137,139 +137,130 @@
 
     <section class="profile-statistics">
 
-        <div class="summary-card">
+    {{-- Sisa Cuti --}}
+    <div class="summary-card">
 
-            <div class="summary-icon summary-green">
+        <div class="summary-icon summary-green">
 
-                <img
+            <img
                 width="42"
-                src="https://img.icons8.com/ios-filled/50/FFFFFF/today.png">
-
-            </div>
-
-            <div class="summary-content">
-
-                <span>Sisa Cuti</span>
-
-                <h2>
-
-                    {{ $remainingLeave }}
-
-                </h2>
-
-                <small>
-
-                    Hari cuti tersedia
-
-                </small>
-
-            </div>
+                src="https://img.icons8.com/ios-filled/50/FFFFFF/today.png"
+                alt="Sisa Cuti">
 
         </div>
 
-        <div class="summary-card">
+        <div class="summary-content">
 
-            <div class="summary-icon summary-yellow">
+            <span>
+                Sisa Cuti
+            </span>
 
-                <img
-                width="42"
-                src="https://img.icons8.com/ios/50/FFFFFF/clock--v1.png">
+            <h2>
+                {{ $remainingLeave }}
+            </h2>
 
-            </div>
-
-            <div class="summary-content">
-
-                <span>
-
-                    Pending
-
-                </span>
-
-                <h2>
-
-                    {{ $pending }}
-
-                </h2>
-
-                <small>
-
-                    Menunggu Approval
-
-                </small>
-
-            </div>
+            <small>
+                Hari cuti tersedia
+            </small>
 
         </div>
 
-        <div class="summary-card">
+    </div>
 
-            <div class="summary-icon summary-blue">
 
-                <img
+    {{-- Pending --}}
+    <div class="summary-card">
+
+        <div class="summary-icon summary-yellow">
+
+            <img
                 width="42"
-                src="https://img.icons8.com/ios/50/FFFFFF/instagram-check-mark.png">
-
-            </div>
-
-            <div class="summary-content">
-
-                <span>
-
-                    Approved
-
-                </span>
-
-                <h2>
-
-                    {{ $approved }}
-
-                </h2>
-
-                <small>
-
-                    Pengajuan Disetujui
-
-                </small>
-
-            </div>
+                src="https://img.icons8.com/ios/50/FFFFFF/clock--v1.png"
+                alt="Pending">
 
         </div>
 
-        <div class="summary-card">
+        <div class="summary-content">
 
-            <div class="summary-icon summary-red">
+            <span>
+                Pending
+            </span>
 
-                <img
-                width="42"
-                src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/24/FFFFFF/external-rejected-approved-and-rejected-tanah-basah-basic-outline-tanah-basah-10.png">
+            <h2>
+                {{ $pending }}
+            </h2>
 
-            </div>
-
-            <div class="summary-content">
-
-                <span>
-
-                    Rejected
-
-                </span>
-
-                <h2>
-
-                    {{ $rejected }}
-
-                </h2>
-
-                <small>
-
-                    Pengajuan Ditolak
-
-                </small>
-
-            </div>
+            <small>
+                Menunggu Approval
+            </small>
 
         </div>
 
-    </section>
+    </div>
+
+
+    {{-- Approved --}}
+    <div class="summary-card">
+
+        <div class="summary-icon summary-blue">
+
+            <img
+                width="42"
+                src="https://img.icons8.com/ios/50/FFFFFF/instagram-check-mark.png"
+                alt="Approved">
+
+        </div>
+
+        <div class="summary-content">
+
+            <span>
+                Approved
+            </span>
+
+            <h2>
+                {{ $approved }}
+            </h2>
+
+            <small>
+                Pengajuan Disetujui
+            </small>
+
+        </div>
+
+    </div>
+
+
+    {{-- Rejected --}}
+    <div class="summary-card">
+
+        <div class="summary-icon summary-red">
+
+            <img
+                width="42"
+                src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/24/FFFFFF/external-rejected-approved-and-rejected-tanah-basah-basic-outline-tanah-basah-10.png"
+                alt="Rejected">
+
+        </div>
+
+        <div class="summary-content">
+
+            <span>
+                Rejected
+            </span>
+
+            <h2>
+                {{ $rejected }}
+            </h2>
+
+            <small>
+                Pengajuan Ditolak
+            </small>
+
+        </div>
+
+    </div>
+
+</section>
 
 
     {{-- ========================================================= --}}
@@ -573,69 +564,89 @@
 
             <div class="profile-card">
 
-                <div class="card-header">
+    <div class="card-header">
 
-                    <div>
+        <div>
 
-                        <h3>Progress Cuti</h3>
+            <h3>Progress Cuti</h3>
 
-                        <span>Ringkasan penggunaan</span>
+            <span>Ringkasan penggunaan</span>
 
-                    </div>
+        </div>
 
-                    <img width="48" height="48" src="https://img.icons8.com/doodle/48/positive-dynamic--v1.png" alt="positive-dynamic--v1"/>
+        <img
+            width="48"
+            height="48"
+            src="https://img.icons8.com/doodle/48/positive-dynamic--v1.png"
+            alt="Progress Cuti">
 
-                </div>
+    </div>
 
-                @php
 
-                    $used = $approved;
+    @php
 
-                    $total = max($remainingLeave + $approved,1);
+        /*
+        |--------------------------------------------------------------------------
+        | PROGRESS CUTI
+        |--------------------------------------------------------------------------
+        |
+        | $totalLeave    = total hak cuti dari quota
+        | $usedLeave     = total hari cuti yang sudah Approved
+        | $remainingLeave = sisa hari cuti
+        |
+        */
 
-                    $percentage = ($used / $total) * 100;
+        $used = (int) $usedLeave;
 
-                @endphp
+        $total = max((int) $totalLeave, 1);
 
-                <div class="leave-progress">
+        $percentage = min(
+            ($used / $total) * 100,
+            100
+        );
 
-                    <div class="progress-circle">
+    @endphp
 
-                        {{ round($percentage) }}%
 
-                    </div>
+    <div class="leave-progress">
 
-                    <h4>
+        <div class="progress-circle">
 
-                        Penggunaan Hak Cuti
+            {{ round($percentage) }}%
 
-                    </h4>
+        </div>
 
-                    <p>
 
-                        {{ $approved }}
+        <h4>
+            Penggunaan Hak Cuti
+        </h4>
 
-                        Hari telah digunakan dari
 
-                        {{ $total }}
+        <p>
 
-                        Hari.
+            {{ $usedLeave }}
 
-                    </p>
+            Hari telah digunakan dari
 
-                    <div class="progress-bar">
+            {{ $totalLeave }}
 
-                        <div class="progress-fill"
+            Hari.
 
-                             style="width:{{ $percentage }}%">
+        </p>
 
-                        </div>
 
-                    </div>
+        <div class="progress-bar">
 
-                </div>
-
+            <div
+                class="progress-fill"
+                style="width:{{ $percentage }}%">
             </div>
+
+        </div>
+
+    </div>
+
+</div>
 
         </div>
 

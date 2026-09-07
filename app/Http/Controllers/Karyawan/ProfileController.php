@@ -12,44 +12,113 @@ use Illuminate\Support\Facades\Auth;
 class ProfileController extends Controller
 {
     public function index()
-    {
-        $employee = Employee::with([
-            'user',
-            'department',
-            'position',
-            'manager.user',
-        ])->where('user_id', Auth::id())
-          ->firstOrFail();
+{
+    $employee = Employee::with([
+        'user',
+        'department',
+        'position',
+        'manager.user',
+    ])
+    ->where('user_id', Auth::id())
+    ->firstOrFail();
 
-        /*
-        |--------------------------------------------------------------------------
-        | Statistik Cuti
-        |--------------------------------------------------------------------------
-        */
+    /*
+    |--------------------------------------------------------------------------
+    | TAHUN BERJALAN
+    |--------------------------------------------------------------------------
+    */
 
-        $remainingLeave = LeaveBalance::where('employee_id', $employee->id)
-            ->sum('remaining');
+    $currentYear = now()->year;
 
-        $pending = LeaveRequest::where('employee_id', $employee->id)
-            ->where('status', LeaveRequest::STATUS_PENDING)
-            ->count();
+    /*
+    |--------------------------------------------------------------------------
+    | TOTAL HAK CUTI
+    |--------------------------------------------------------------------------
+    |
+    | Total hak cuti diambil dari QUOTA.
+    | Bukan dari remaining.
+    |
+    */
 
-        $approved = LeaveRequest::where('employee_id', $employee->id)
-            ->where('status', LeaveRequest::STATUS_APPROVED)
-            ->count();
+    $totalLeave = LeaveBalance::query()
+        ->where('employee_id', $employee->id)
+        ->where('year', $currentYear)
+        ->where('is_active', true)
+        ->sum('quota');
 
-        $rejected = LeaveRequest::where('employee_id', $employee->id)
-            ->where('status', LeaveRequest::STATUS_REJECTED)
-            ->count();
+    /*
+    |--------------------------------------------------------------------------
+    | CUTI YANG SUDAH DIGUNAKAN
+    |--------------------------------------------------------------------------
+    |
+    | Yang mengurangi hak cuti adalah jumlah hari dari
+    | pengajuan yang sudah APPROVED.
+    |
+    */
 
-        return view('karyawan.profile', compact(
+    $usedLeave = LeaveRequest::query()
+        ->where('employee_id', $employee->id)
+        ->where('status', LeaveRequest::STATUS_APPROVED)
+        ->whereYear('start_date', $currentYear)
+        ->sum('total_days');
+
+    /*
+    |--------------------------------------------------------------------------
+    | SISA CUTI
+    |--------------------------------------------------------------------------
+    |
+    | Sisa = Total Hak Cuti - Total Hari Cuti Approved
+    |
+    */
+
+    $remainingLeave = max(
+        (int) $totalLeave - (int) $usedLeave,
+        0
+    );
+
+    /*
+    |--------------------------------------------------------------------------
+    | STATISTIK PENGAJUAN
+    |--------------------------------------------------------------------------
+    */
+
+    // Jumlah pengajuan yang masih menunggu approval
+    $pending = LeaveRequest::query()
+        ->where('employee_id', $employee->id)
+        ->where('status', LeaveRequest::STATUS_PENDING)
+        ->count();
+
+    // Jumlah pengajuan yang sudah disetujui
+    $approved = LeaveRequest::query()
+        ->where('employee_id', $employee->id)
+        ->where('status', LeaveRequest::STATUS_APPROVED)
+        ->count();
+
+    // Jumlah pengajuan yang ditolak
+    $rejected = LeaveRequest::query()
+        ->where('employee_id', $employee->id)
+        ->where('status', LeaveRequest::STATUS_REJECTED)
+        ->count();
+
+    /*
+    |--------------------------------------------------------------------------
+    | VIEW
+    |--------------------------------------------------------------------------
+    */
+
+    return view(
+        'karyawan.profile',
+        compact(
             'employee',
+            'totalLeave',
+            'usedLeave',
             'remainingLeave',
             'pending',
             'approved',
             'rejected'
-        ));
-    }
+        )
+    );
+}
 
     /*
     |--------------------------------------------------------------------------

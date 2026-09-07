@@ -7,11 +7,17 @@
 @php
 
 $managerApproval = $leave->approvals
-    ->where('approval_level', \App\Models\LeaveApproval::LEVEL_MANAGER)
+    ->where(
+        'approval_level',
+        \App\Models\LeaveApproval::LEVEL_MANAGER
+    )
     ->first();
 
-$hrdApproval = $leave->approvals
-    ->where('approval_level', \App\Models\LeaveApproval::LEVEL_HRD)
+$directorApproval = $leave->approvals
+    ->where(
+        'approval_level',
+        \App\Models\LeaveApproval::LEVEL_DIRECTOR
+    )
     ->first();
 
 @endphp
@@ -676,88 +682,79 @@ $hrdApproval = $leave->approvals
 
     <section class="approval-card">
 
-        <div class="approval-card-header">
+    <div class="approval-card-header">
 
-            <div>
+        <div>
 
-                <h2>
+            <h2>
+                <i class="fa-solid fa-signature"></i>
+                Tanda Tangan Digital
+            </h2>
 
-                    <i class="fa-solid fa-signature"></i>
-
-                    Tanda Tangan Digital
-
-                </h2>
-
-                <p>
-
-                    Status tanda tangan Manager dan HRD.
-
-                </p>
-
-            </div>
+            <p>
+                Status tanda tangan Manager dan Director.
+            </p>
 
         </div>
 
-        <div class="signature-grid">
+    </div>
 
-            <div class="signature-card">
+    <div class="signature-grid">
 
-                <h4>
+        {{-- MANAGER --}}
 
-                    Manager
+        <div class="signature-card">
 
-                </h4>
+            <h4>
+                Manager
+            </h4>
 
-                @if($managerApproval?->signature_path)
+            @if($managerApproval?->signature_path)
 
-                    <img
-                        src="{{ asset('storage/'.$managerApproval->signature_path) }}"
-                        class="signature-image">
+                <img
+                    src="{{ asset('storage/'.$managerApproval->signature_path) }}"
+                    class="signature-image">
 
-                @else
+            @else
 
-                    <div class="signature-empty">
+                <div class="signature-empty">
+                    Belum Ditandatangani
+                </div>
 
-                        Belum Ditandatangani
+            @endif
 
-                    </div>
-
-                @endif
-
-            </div>
-
-            <div class="signature-card">
-
-                <h4>
-
-                    HRD
-
-                </h4>
-
-                @if($hrdApproval?->signature_path)
-
-                    <img
-                        src="{{ asset('storage/'.$hrdApproval->signature_path) }}"
-                        class="signature-image">
-
-                @else
-
-                    <div class="signature-empty">
-
-                        Menunggu Approval Manager
-
-                    </div>
-
-                @endif
-
-            </div>
-
-        
         </div>
 
-    </section>
 
-    {{-- ========================================================= --}}
+        {{-- DIRECTOR --}}
+
+        <div class="signature-card">
+
+            <h4>
+                Director
+            </h4>
+
+            @if($directorApproval?->signature_path)
+
+                <img
+                    src="{{ asset('storage/'.$directorApproval->signature_path) }}"
+                    class="signature-image">
+
+            @else
+
+                <div class="signature-empty">
+                    Menunggu Approval Director
+                </div>
+
+            @endif
+
+        </div>
+
+    </div>
+
+</section>
+
+{{-- ========================================================= --}}
 {{-- MANAGER APPROVAL --}}
 {{-- ========================================================= --}}
 

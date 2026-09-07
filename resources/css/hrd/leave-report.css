@@ -1,0 +1,1728 @@
+/* =========================================================
+   LEAVE REPORT PAGE
+========================================================= */
+
+.leave-report-page {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 28px 30px 50px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.leave-report-page .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 22px;
+}
+
+.leave-report-page .page-header-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-width: 0;
+}
+
+.leave-report-page .page-header-icon {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: linear-gradient(
+        135deg,
+        #eef2ff,
+        #e8e7ff
+    );
+
+    color: #4f46e5;
+
+    font-size: 20px;
+}
+
+.leave-report-page .page-header-text {
+    min-width: 0;
+}
+
+.leave-report-page .page-header-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+
+    color: #6366f1;
+}
+
+.leave-report-page .page-header h1 {
+    margin: 0;
+
+    font-size: 25px;
+    line-height: 1.2;
+    font-weight: 750;
+
+    color: #111827;
+}
+
+.leave-report-page .page-header p {
+    margin: 6px 0 0;
+
+    font-size: 12px;
+    line-height: 1.6;
+
+    color: #64748b;
+}
+
+.leave-report-page .page-header-actions {
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   EXPORT BUTTON
+========================================================= */
+
+.leave-report-page .leave-export-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 40px;
+    padding: 0 17px;
+
+    border: 0;
+    border-radius: 10px;
+
+    background: #4f46e5;
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    box-shadow: 0 5px 14px rgba(79, 70, 229, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.leave-report-page .leave-export-button:hover {
+    background: #4338ca;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(79, 70, 229, 0.22);
+}
+
+
+/* =========================================================
+   STATISTICS — EXACTLY 4 CARD
+========================================================= */
+
+.leave-report-page .leave-report-statistics {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin-bottom: 20px;
+}
+
+.leave-report-page .leave-report-stat-card {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 18px;
+
+    background: #ffffff;
+
+    border: 1px solid #e7ebf2;
+    border-radius: 15px;
+
+    box-shadow:
+        0 2px 8px rgba(15, 23, 42, 0.035);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.leave-report-page .leave-report-stat-card:hover {
+    transform: translateY(-2px);
+
+    border-color: #dce2ed;
+
+    box-shadow:
+        0 8px 22px rgba(15, 23, 42, 0.07);
+}
+
+.leave-report-page .leave-report-stat-icon {
+    width: 46px;
+    height: 46px;
+
+    flex: 0 0 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    font-size: 18px;
+}
+
+.leave-report-page .leave-report-stat-icon.total {
+    background: #eef2ff;
+    color: #4f46e5;
+}
+
+.leave-report-page .leave-report-stat-icon.approved {
+    background: #ecfdf5;
+    color: #059669;
+}
+
+.leave-report-page .leave-report-stat-icon.pending {
+    background: #fff7ed;
+    color: #ea580c;
+}
+
+.leave-report-page .leave-report-stat-icon.rejected {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.leave-report-page .leave-report-stat-content {
+    min-width: 0;
+}
+
+.leave-report-page .leave-report-stat-content > span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #64748b;
+
+    font-size: 11px;
+    font-weight: 650;
+}
+
+.leave-report-page .leave-report-stat-content h2 {
+    margin: 0;
+
+    color: #111827;
+
+    font-size: 23px;
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.leave-report-page .leave-report-stat-content small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   FILTER CARD
+========================================================= */
+
+.leave-report-page .leave-report-filter-card {
+    margin-bottom: 20px;
+
+    padding: 21px;
+
+    background: #ffffff;
+
+    border: 1px solid #e7ebf2;
+    border-radius: 16px;
+
+    box-shadow:
+        0 2px 8px rgba(15, 23, 42, 0.035);
+}
+
+.leave-report-page .leave-report-filter-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+.leave-report-page .report-card-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #6366f1;
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+}
+
+.leave-report-page .leave-report-filter-header h2 {
+    margin: 0;
+
+    color: #111827;
+
+    font-size: 16px;
+    line-height: 1.3;
+    font-weight: 750;
+}
+
+.leave-report-page .leave-report-filter-header p {
+    margin: 5px 0 0;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+}
+
+.leave-report-page .filter-header-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #f5f3ff;
+    color: #6366f1;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   FILTER FORM
+========================================================= */
+
+.leave-report-page .leave-report-filter-form {
+    display: grid;
+
+    grid-template-columns:
+        minmax(230px, 1.5fr)
+        repeat(2, minmax(150px, 1fr))
+        repeat(4, minmax(150px, 1fr));
+
+    gap: 14px;
+
+    align-items: end;
+}
+
+.leave-report-page .report-filter-group {
+    min-width: 0;
+}
+
+.leave-report-page .report-filter-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #334155;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.leave-report-page .report-input-wrapper {
+    position: relative;
+}
+
+.leave-report-page .report-input-wrapper > i {
+    position: absolute;
+
+    top: 50%;
+    left: 12px;
+
+    z-index: 2;
+
+    transform: translateY(-50%);
+
+    color: #94a3b8;
+
+    font-size: 11px;
+
+    pointer-events: none;
+}
+
+.leave-report-page .report-input-wrapper input,
+.leave-report-page .report-input-wrapper select {
+    width: 100%;
+    height: 38px;
+
+    padding: 0 12px 0 33px;
+
+    border: 1px solid #dfe4ec;
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #334155;
+
+    font-family: inherit;
+    font-size: 10px;
+
+    outline: none;
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.leave-report-page .report-input-wrapper input:focus,
+.leave-report-page .report-input-wrapper select:focus {
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.08);
+}
+
+.leave-report-page .report-input-wrapper input::placeholder {
+    color: #a3acbb;
+}
+
+.leave-report-page .report-input-wrapper select {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   FILTER ACTIONS
+========================================================= */
+
+.leave-report-page .report-filter-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    height: 38px;
+}
+
+.leave-report-page .btn-filter,
+.leave-report-page .btn-reset {
+    height: 38px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    padding: 0 13px;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+}
+
+.leave-report-page .btn-filter {
+    border: 1px solid #4f46e5;
+
+    background: #4f46e5;
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 10px rgba(79, 70, 229, 0.14);
+}
+
+.leave-report-page .btn-filter:hover {
+    background: #4338ca;
+}
+
+.leave-report-page .btn-reset {
+    border: 1px solid #dfe4ec;
+
+    background: #ffffff;
+    color: #64748b;
+}
+
+.leave-report-page .btn-reset:hover {
+    border-color: #cbd5e1;
+    background: #f8fafc;
+    color: #334155;
+}
+
+
+/* =========================================================
+   RECAP GRID
+   3 CARD SEJAJAR
+========================================================= */
+
+.leave-report-page .leave-report-recap-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+
+    align-items: stretch;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   GENERAL REPORT CARD
+========================================================= */
+
+.leave-report-page .leave-report-card {
+    min-width: 0;
+
+    background: #ffffff;
+
+    border: 1px solid #e7ebf2;
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 2px 8px rgba(15, 23, 42, 0.035);
+}
+
+.leave-report-page .leave-report-card-header {
+    min-height: 82px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 17px 18px;
+
+    border-bottom: 1px solid #edf0f5;
+
+    box-sizing: border-box;
+}
+
+.leave-report-page .leave-report-card-header > div:first-child {
+    min-width: 0;
+}
+
+.leave-report-page .leave-report-card-header h2 {
+    margin: 0;
+
+    color: #111827;
+
+    font-size: 14px;
+    line-height: 1.35;
+    font-weight: 750;
+}
+
+.leave-report-page .leave-report-card-header p {
+    margin: 5px 0 0;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+    line-height: 1.45;
+}
+
+.leave-report-page .report-card-header-icon {
+    width: 34px;
+    height: 34px;
+
+    flex: 0 0 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+}
+
+.leave-report-page .report-card-header-icon.employee {
+    background: #eef4ff;
+    color: #2563eb;
+}
+
+.leave-report-page .report-card-header-icon.department {
+    background: #f4f0ff;
+    color: #7c3aed;
+}
+
+.leave-report-page .report-card-header-icon.leave-type {
+    background: #ecfdf5;
+    color: #059669;
+}
+
+
+/* =========================================================
+   RECAP TABLE
+========================================================= */
+
+.leave-report-page .report-recap-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.leave-report-page .report-recap-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    table-layout: auto;
+}
+
+.leave-report-page .report-recap-table thead th {
+    height: 35px;
+
+    padding: 0 12px;
+
+    background: #f8fafc;
+
+    border-bottom: 1px solid #edf0f5;
+
+    color: #64748b;
+
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.55px;
+
+    text-align: left;
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+.leave-report-page .report-recap-table tbody td {
+    padding: 11px 12px;
+
+    border-bottom: 1px solid #f0f2f6;
+
+    color: #334155;
+
+    font-size: 10px;
+
+    vertical-align: middle;
+}
+
+.leave-report-page .report-recap-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.leave-report-page .report-recap-table tbody tr {
+    transition: background 0.15s ease;
+}
+
+.leave-report-page .report-recap-table tbody tr:hover {
+    background: #fafbff;
+}
+
+
+/* =========================================================
+   EMPLOYEE RECAP
+========================================================= */
+
+.leave-report-page .recap-person {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    min-width: 150px;
+}
+
+.leave-report-page .recap-avatar {
+    width: 29px;
+    height: 29px;
+
+    flex: 0 0 29px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: #f1f5f9;
+    color: #64748b;
+
+    font-size: 10px;
+}
+
+.leave-report-page .recap-person > div:last-child {
+    min-width: 0;
+}
+
+.leave-report-page .recap-person strong {
+    display: block;
+
+    overflow: hidden;
+
+    color: #1e293b;
+
+    font-size: 10px;
+    font-weight: 750;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.leave-report-page .recap-person span,
+.leave-report-page .recap-person small {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #94a3b8;
+
+    font-size: 8px;
+    line-height: 1.25;
+}
+
+.leave-report-page .recap-person small {
+    color: #64748b;
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.leave-report-page .recap-category {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    min-width: 120px;
+}
+
+.leave-report-page .recap-category-icon {
+    width: 29px;
+    height: 29px;
+
+    flex: 0 0 29px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: #eef4ff;
+    color: #2563eb;
+
+    font-size: 10px;
+}
+
+.leave-report-page .recap-category-icon.leave-type {
+    background: #f3efff;
+    color: #7c3aed;
+}
+
+.leave-report-page .recap-category > div:last-child {
+    min-width: 0;
+}
+
+.leave-report-page .recap-category strong {
+    display: block;
+
+    overflow: hidden;
+
+    color: #1e293b;
+
+    font-size: 10px;
+    font-weight: 750;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.leave-report-page .recap-category span {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #94a3b8;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   RECAP NUMBERS
+========================================================= */
+
+.leave-report-page .recap-count {
+    min-width: 25px;
+    height: 24px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 7px;
+
+    border-radius: 7px;
+
+    background: #f1f5f9;
+
+    color: #475569;
+
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.leave-report-page .recap-number {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1;
+}
+
+.leave-report-page .recap-number strong {
+    color: #1e293b;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.leave-report-page .recap-number span {
+    margin-top: 3px;
+
+    color: #94a3b8;
+
+    font-size: 7px;
+}
+
+.leave-report-page .recap-number.approved-days strong {
+    color: #059669;
+}
+
+
+/* =========================================================
+   DEPARTMENT EMPLOYEE COUNT
+========================================================= */
+
+.leave-report-page .employee-count {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+}
+
+.leave-report-page .employee-count-icon {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    background: #ecfdf5;
+    color: #059669;
+
+    font-size: 9px;
+}
+
+.leave-report-page .employee-count strong {
+    display: block;
+
+    color: #059669;
+
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.leave-report-page .employee-count span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #94a3b8;
+
+    font-size: 7px;
+}
+
+
+/* =========================================================
+   EMPTY RECAP
+========================================================= */
+
+.leave-report-page .recap-empty {
+    height: 100px;
+
+    text-align: center;
+
+    color: #94a3b8 !important;
+}
+
+.leave-report-page .recap-empty i {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #cbd5e1;
+
+    font-size: 19px;
+}
+
+.leave-report-page .recap-empty span {
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   DETAIL REPORT
+========================================================= */
+
+.leave-report-page .leave-detail-report-card {
+    width: 100%;
+
+    margin-bottom: 20px;
+}
+
+.leave-report-page .leave-detail-report-card .leave-report-card-header {
+    min-height: 88px;
+
+    align-items: center;
+}
+
+.leave-report-page .table-count {
+    flex-shrink: 0;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 7px 10px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+
+    background: #f8fafc;
+
+    color: #64748b;
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.leave-report-page .table-count i {
+    color: #6366f1;
+}
+
+
+/* =========================================================
+   DETAIL TABLE
+========================================================= */
+
+.leave-report-page .leave-report-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+.leave-report-page .leave-report-table {
+    width: 100%;
+
+    min-width: 980px;
+
+    border-collapse: collapse;
+}
+
+.leave-report-page .leave-report-table thead th {
+    height: 38px;
+
+    padding: 0 13px;
+
+    background: #f8fafc;
+
+    border-bottom: 1px solid #e8ebf0;
+
+    color: #64748b;
+
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+
+    text-align: left;
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+.leave-report-page .leave-report-table tbody td {
+    padding: 12px 13px;
+
+    border-bottom: 1px solid #f0f2f5;
+
+    vertical-align: middle;
+
+    font-size: 10px;
+}
+
+.leave-report-page .leave-report-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.leave-report-page .leave-report-table tbody tr:hover {
+    background: #fafbff;
+}
+
+
+/* =========================================================
+   ROW NUMBER
+========================================================= */
+
+.leave-report-page .row-number {
+    width: 24px;
+    height: 24px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    background: #f1f5f9;
+
+    color: #64748b;
+
+    font-size: 9px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   DETAIL EMPLOYEE
+========================================================= */
+
+.leave-report-page .report-employee-info {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    min-width: 145px;
+}
+
+.leave-report-page .report-employee-avatar {
+    width: 31px;
+    height: 31px;
+
+    flex: 0 0 31px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #eef2ff;
+    color: #6366f1;
+
+    font-size: 10px;
+}
+
+.leave-report-page .report-employee-info strong {
+    display: block;
+
+    color: #1e293b;
+
+    font-size: 10px;
+    font-weight: 750;
+}
+
+.leave-report-page .report-employee-info span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #94a3b8;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   REQUEST INFO
+========================================================= */
+
+.leave-report-page .report-request-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.leave-report-page .report-request-info strong {
+    color: #334155;
+
+    font-size: 9px;
+    font-weight: 750;
+}
+
+.leave-report-page .report-request-info span {
+    color: #94a3b8;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   DEPARTMENT
+========================================================= */
+
+.leave-report-page .report-department,
+.leave-report-page .report-leave-type {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    color: #475569;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.leave-report-page .report-department i {
+    color: #6366f1;
+}
+
+.leave-report-page .report-leave-type i {
+    color: #7c3aed;
+}
+
+
+/* =========================================================
+   PERIOD
+========================================================= */
+
+.leave-report-page .report-period {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    white-space: nowrap;
+}
+
+.leave-report-page .report-period span {
+    color: #475569;
+
+    font-size: 8px;
+}
+
+.leave-report-page .report-period i {
+    color: #94a3b8;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   DURATION
+========================================================= */
+
+.leave-report-page .report-duration {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+
+    white-space: nowrap;
+}
+
+.leave-report-page .report-duration strong {
+    color: #1e293b;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.leave-report-page .report-duration span {
+    color: #94a3b8;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   STATUS BADGE
+========================================================= */
+
+.leave-report-page .leave-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    min-height: 23px;
+
+    padding: 0 8px;
+
+    border-radius: 7px;
+
+    font-size: 8px;
+    font-weight: 750;
+
+    white-space: nowrap;
+}
+
+.leave-report-page .leave-status-dot {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+}
+
+.leave-report-page .leave-status-badge.approved {
+    background: #ecfdf5;
+    color: #047857;
+}
+
+.leave-report-page .leave-status-badge.approved .leave-status-dot {
+    background: #10b981;
+}
+
+.leave-report-page .leave-status-badge.pending {
+    background: #fff7ed;
+    color: #c2410c;
+}
+
+.leave-report-page .leave-status-badge.pending .leave-status-dot {
+    background: #f97316;
+}
+
+.leave-report-page .leave-status-badge.rejected {
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+.leave-report-page .leave-status-badge.rejected .leave-status-dot {
+    background: #ef4444;
+}
+
+
+/* =========================================================
+   EMPTY DETAIL
+========================================================= */
+
+.leave-report-page .report-empty-cell {
+    padding: 0 !important;
+}
+
+.leave-report-page .report-empty-state {
+    min-height: 250px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+}
+
+.leave-report-page .report-empty-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 12px;
+
+    border-radius: 13px;
+
+    background: #f1f5f9;
+
+    color: #94a3b8;
+
+    font-size: 18px;
+}
+
+.leave-report-page .report-empty-state h3 {
+    margin: 0;
+
+    color: #334155;
+
+    font-size: 13px;
+    font-weight: 750;
+}
+
+.leave-report-page .report-empty-state p {
+    max-width: 380px;
+
+    margin: 6px 0 15px;
+
+    color: #94a3b8;
+
+    font-size: 9px;
+
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+.leave-report-page .btn-reset-empty {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    height: 34px;
+
+    padding: 0 12px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+
+    background: #ffffff;
+    color: #64748b;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+.leave-report-page .btn-reset-empty:hover {
+    background: #f8fafc;
+    color: #334155;
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.leave-report-page .leave-report-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 14px 17px;
+
+    border-top: 1px solid #edf0f5;
+}
+
+.leave-report-page .pagination-info {
+    color: #94a3b8;
+
+    font-size: 9px;
+}
+
+.leave-report-page .pagination-info strong {
+    color: #475569;
+
+    font-weight: 750;
+}
+
+.leave-report-page .custom-pagination {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.leave-report-page .pagination-button {
+    width: 29px;
+    height: 29px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 7px;
+
+    background: #ffffff;
+    color: #64748b;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    box-sizing: border-box;
+}
+
+.leave-report-page .pagination-button:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+}
+
+.leave-report-page .pagination-button.active {
+    border-color: #4f46e5;
+
+    background: #4f46e5;
+    color: #ffffff;
+}
+
+.leave-report-page .pagination-button.disabled {
+    opacity: 0.45;
+
+    background: #f8fafc;
+
+    cursor: not-allowed;
+}
+
+.leave-report-page .pagination-dots {
+    width: 22px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   INFORMATION
+========================================================= */
+
+.leave-report-page .leave-report-information {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 12px;
+
+    padding: 15px 17px;
+
+    border: 1px solid #dbeafe;
+    border-radius: 13px;
+
+    background: #f8fbff;
+}
+
+.leave-report-page .report-information-icon {
+    width: 30px;
+    height: 30px;
+
+    flex: 0 0 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: #e0efff;
+    color: #2563eb;
+
+    font-size: 12px;
+}
+
+.leave-report-page .leave-report-information strong {
+    display: block;
+
+    color: #1e3a8a;
+
+    font-size: 10px;
+    font-weight: 750;
+}
+
+.leave-report-page .leave-report-information p {
+    margin: 4px 0 0;
+
+    color: #64748b;
+
+    font-size: 9px;
+    line-height: 1.6;
+}
+
+.leave-report-page .leave-report-information p strong {
+    display: inline;
+
+    color: #475569;
+
+    font-size: inherit;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1500px) {
+
+    .leave-report-page {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .leave-report-page .leave-report-recap-grid {
+        gap: 18px;
+    }
+
+    .leave-report-page .leave-report-statistics {
+        gap: 18px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .leave-report-page .leave-report-filter-form {
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr));
+    }
+
+    .leave-report-page .report-filter-search {
+        grid-column: span 2;
+    }
+
+    .leave-report-page .report-filter-actions {
+        grid-column: span 2;
+    }
+
+    .leave-report-page .leave-report-recap-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .leave-report-page .leave-report-recap-grid
+    .leave-report-card:last-child {
+        grid-column: 1 / -1;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .leave-report-page {
+        padding: 22px 20px 40px;
+    }
+
+    .leave-report-page .leave-report-statistics {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .leave-report-page .leave-report-filter-form {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .leave-report-page .report-filter-search,
+    .leave-report-page .report-filter-actions {
+        grid-column: 1 / -1;
+    }
+
+    .leave-report-page .leave-report-recap-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .leave-report-page .leave-report-recap-grid
+    .leave-report-card:last-child {
+        grid-column: auto;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+    .leave-report-page {
+        padding: 18px 14px 35px;
+    }
+
+    .leave-report-page .page-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .leave-report-page .page-header-content {
+        align-items: flex-start;
+    }
+
+    .leave-report-page .page-header h1 {
+        font-size: 21px;
+    }
+
+    .leave-report-page .page-header p {
+        font-size: 10px;
+    }
+
+    .leave-report-page .page-header-actions {
+        width: 100%;
+    }
+
+    .leave-report-page .leave-export-button {
+        width: 100%;
+    }
+
+
+    /* 4 STAT CARD -> 1 COLUMN */
+
+    .leave-report-page .leave-report-statistics {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+
+    /* FILTER */
+
+    .leave-report-page .leave-report-filter-card {
+        padding: 16px;
+    }
+
+    .leave-report-page .leave-report-filter-form {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .leave-report-page .report-filter-search,
+    .leave-report-page .report-filter-actions {
+        grid-column: auto;
+    }
+
+    .leave-report-page .report-filter-actions {
+        height: auto;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        margin-top: 2px;
+    }
+
+    .leave-report-page .btn-filter,
+    .leave-report-page .btn-reset {
+        width: 100%;
+    }
+
+
+    /* 3 RECAP CARD -> 1 COLUMN */
+
+    .leave-report-page .leave-report-recap-grid {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .leave-report-page .leave-report-recap-grid
+    .leave-report-card:last-child {
+        grid-column: auto;
+    }
+
+
+    /* CARD */
+
+    .leave-report-page .leave-report-card-header {
+        padding: 15px;
+    }
+
+    .leave-report-page .leave-report-card-header h2 {
+        font-size: 13px;
+    }
+
+    .leave-report-page .leave-report-card-header p {
+        font-size: 9px;
+    }
+
+
+    /* PAGINATION */
+
+    .leave-report-page .leave-report-pagination {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .leave-report-page .custom-pagination {
+        width: 100%;
+
+        overflow-x: auto;
+
+        padding-bottom: 2px;
+    }
+
+
+    /* INFORMATION */
+
+    .leave-report-page .leave-report-information {
+        padding: 13px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .leave-report-page .report-filter-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .leave-report-page .leave-report-stat-card {
+        padding: 15px;
+    }
+
+    .leave-report-page .leave-report-stat-content h2 {
+        font-size: 21px;
+    }
+
+}

@@ -45,12 +45,42 @@ class EmployeeForm
                     ->preload()
                     ->required(),
 
+                Select::make('supervisor_id')
+                    ->label('Supervisor')
+                    ->options(function () {
+                
+                return Employee::whereHas('user.roles', function ($query) {
+                    $query->where('name', 'Supervisor');
+                    })
+                        ->with('user')
+                        ->get()
+                        ->pluck('user.name', 'id');
+                
+                    })
+                    ->searchable()
+                    ->preload(),
+
                 Select::make('manager_id')
                     ->label('Manager')
                     ->options(function () {
                 
                 return Employee::whereHas('user.roles', function ($query) {
                     $query->where('name', 'Manager');
+                    })
+                        ->with('user')
+                        ->get()
+                        ->pluck('user.name', 'id');
+                
+                    })
+                    ->searchable()
+                    ->preload(),
+
+                Select::make('director_id')
+                    ->label('Direktur')
+                    ->options(function () {
+                
+                return Employee::whereHas('user.roles', function ($query) {
+                    $query->where('name', 'Director');
                     })
                         ->with('user')
                         ->get()

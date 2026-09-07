@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@vite([
+'resources/css/karyawan/dashboard.css',
+])
+
 @section('content')
 
 <div class="dashboard">
@@ -45,108 +49,136 @@
 
     </section>
 
-
-
     <!-- ==========================
             STATISTICS
-    =========================== -->
+=========================== -->
 
-    <div class="leave-summary">
+<div class="leave-summary">
 
-        {{-- Total Hak Cuti --}}
-        <div class="summary-card">
-    
-            <div class="summary-icon summary-orange">
-                <img width="40" height="40"
-                    src="https://img.icons8.com/ios-filled/50/FFFFFF/planner.png"
-                    alt="Total Hak Cuti">
-            </div>
-    
-            <div class="summary-content">
-                <span class="summary-title">
-                    Total Hak Cuti
-                </span>
-    
-                <h2>{{ $totalLeave }}</h2>
-    
-                <small>Hak cuti per tahun</small>
-    
-                <div class="summary-progress">
-                    <div class="summary-progress-bar summary-orange-bar" style="width:100%"></div>
+    {{-- Total Hak Cuti --}}
+    <div class="summary-card">
+
+        <div class="summary-icon summary-orange">
+            <img width="40" height="40"
+                src="https://img.icons8.com/ios-filled/50/FFFFFF/planner.png"
+                alt="Total Hak Cuti">
+        </div>
+
+        <div class="summary-content">
+
+            <span class="summary-title">
+                Total Hak Cuti
+            </span>
+
+            <h2>{{ $totalLeave }}</h2>
+
+            <small>
+                Total quota cuti tahun {{ now()->year }}
+            </small>
+
+            <div class="summary-progress">
+                <div class="summary-progress-bar summary-orange-bar"
+                    style="width:100%">
                 </div>
             </div>
-    
+
         </div>
-    
-        {{-- Diajukan --}}
-        <div class="summary-card">
-    
-            <div class="summary-icon summary-yellow">
-                <img width="40" height="40"
-                    src="https://img.icons8.com/ios-filled/50/FFFFFF/paper-plane.png"
-                    alt="Diajukan">
-            </div>
-    
-            <div class="summary-content">
-                <span class="summary-title">
-                    Diajukan
-                </span>
-    
-                <h2>{{ $submitted }}</h2>
-    
-                <small>Total pengajuan cuti</small>
-            </div>
-    
-        </div>
-    
-        {{-- Disetujui --}}
-        <div class="summary-card">
-    
-            <div class="summary-icon summary-blue">
-                <img width="40" height="40"
-                    src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png"
-                    alt="Approved">
-            </div>
-    
-            <div class="summary-content">
-                <span class="summary-title">
-                    Disetujui
-                </span>
-    
-                <h2>{{ $approved }}</h2>
-    
-                <small>Pengajuan disetujui</small>
-            </div>
-    
-        </div>
-    
-        {{-- Sisa Cuti --}}
-        <div class="summary-card">
-    
-            <div class="summary-icon summary-green">
-                <img width="40" height="40"
-                    src="https://img.icons8.com/ios-filled/50/FFFFFF/today.png"
-                    alt="Remaining">
-            </div>
-    
-            <div class="summary-content">
-                <span class="summary-title">
-                    Sisa Cuti
-                </span>
-    
-                <h2>{{ $remainingLeave }}</h2>
-    
-                <small>Hari cuti tersedia</small>
-    
-                <div class="summary-progress">
-                    <div class="summary-progress-bar" style="width:{{ ($remainingLeave / max($totalLeave,1))*100 }}%"></div>
-                </div>
-    
-            </div>
-    
-        </div>
-    
+
     </div>
+
+
+    {{-- Diajukan --}}
+    <div class="summary-card">
+
+        <div class="summary-icon summary-yellow">
+            <img width="40" height="40"
+                src="https://img.icons8.com/ios-filled/50/FFFFFF/paper-plane.png"
+                alt="Diajukan">
+        </div>
+
+        <div class="summary-content">
+
+            <span class="summary-title">
+                Diajukan
+            </span>
+
+            <h2>{{ $pending }}</h2>
+
+            <small>
+                Pengajuan cuti menunggu persetujuan
+            </small>
+
+        </div>
+
+    </div>
+
+
+    {{-- Disetujui --}}
+    <div class="summary-card">
+
+        <div class="summary-icon summary-blue">
+            <img width="40" height="40"
+                src="https://img.icons8.com/ios-filled/50/FFFFFF/checked--v1.png"
+                alt="Approved">
+        </div>
+
+        <div class="summary-content">
+
+            <span class="summary-title">
+                Disetujui
+            </span>
+
+            <h2>{{ $approved }}</h2>
+
+            <small>
+                Pengajuan cuti disetujui
+            </small>
+
+        </div>
+
+    </div>
+
+
+    {{-- Sisa Cuti --}}
+    <div class="summary-card">
+
+        <div class="summary-icon summary-green">
+            <img width="40" height="40"
+                src="https://img.icons8.com/ios-filled/50/FFFFFF/today.png"
+                alt="Remaining">
+        </div>
+
+        <div class="summary-content">
+
+            <span class="summary-title">
+                Sisa Cuti
+            </span>
+
+            <h2>{{ $remainingLeave }}</h2>
+
+            <small>
+                Hari cuti tersedia
+            </small>
+
+            <div class="summary-progress">
+
+                @php
+                    $leavePercentage = $totalLeave > 0
+                        ? min(($remainingLeave / $totalLeave) * 100, 100)
+                        : 0;
+                @endphp
+
+                <div class="summary-progress-bar"
+                    style="width:{{ $leavePercentage }}%">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
     <!-- ==========================
             QUICK MENU
@@ -172,7 +204,7 @@
 
                     <div class="quick-icon">
 
-                        <img width="60" height="60" src="https://img.icons8.com/fluency-systems-regular/48/clipboard-approve--v1.png" alt="clipboard-approve--v1"/>
+                        <img width="60" height="60" src="https://img.icons8.com/fluency-systems-regular/48/FFFFFF/clipboard-approve--v1.png" alt="clipboard-approve--v1"/>
 
                     </div>
 
@@ -198,7 +230,7 @@
 
                     <div class="quick-icon">
 
-                        <img width="60" height="60" src="https://img.icons8.com/ios/50/order-history.png" alt="order-history"/>
+                        <img width="60" height="60" src="https://img.icons8.com/ios/50/FFFFFF/order-history.png" alt="order-history"/>
 
                     </div>
 
@@ -224,7 +256,7 @@
 
                     <div class="quick-icon">
 
-                        <img width="80" height="80" src="https://img.icons8.com/dotty/80/edit-user-male.png" alt="edit-user-male"/>
+                        <img width="60" height="60" src="https://img.icons8.com/external-those-icons-fill-those-icons/24/FFFFFF/external-Edit-user-actions-those-icons-fill-those-icons.png" alt="external-Edit-user-actions-those-icons-fill-those-icons"/>
 
                     </div>
 
@@ -272,138 +304,179 @@
 
                 </div>
 
-                <table>
+                <div class="history-table">
 
-                    <thead>
-        
-                    <tr>
-        
-                        <th>No</th>
-        
-                        <th>No Request</th>
-        
-                        <th>Tanggal</th>
-        
-        
-                        <th>Status</th>
-        
-                    </tr>
-        
-                    </thead>
-        
-                    <tbody>
-        
-                    @forelse($leaveRequests as $leave)
-        
-                        <tr>
-        
-                            <td>{{ $loop->iteration }}</td>
-        
-                            <td>
-        
-                                {{ $leave->request_number }}
-        
-                            </td>
-        
-                            <td>
-        
-                                {{ $leave->start_date->format('d M Y') }}
-        
-                                -
-        
-                                {{ $leave->end_date->format('d M Y') }}
-        
-                            </td>
-        
-                            <td>
-        
-                                @switch($leave->status)
-        
-                                    @case('Pending')
-        
-                                        <span class="badge warning">
-        
-                                            Pending
-        
+                    <table class="leave-table">
+                
+                        <thead>
+                
+                            <tr>
+                
+                                <th width="70">No</th>
+                
+                                <th>No Request</th>
+                
+                                <th>Tanggal Cuti</th>
+                
+                                <th width="160">Status</th>
+                
+                            </tr>
+                
+                        </thead>
+                
+                        <tbody>
+                
+                        @forelse($leaveRequests as $leave)
+                
+                            <tr>
+                
+                                <td data-label="No">
+                
+                                    <div class="ticket-number">
+                
+                                        {{ $loop->iteration }}
+                
+                                    </div>
+                
+                                </td>
+                
+                                <td data-label="Nomor Request">
+                
+                                    <div class="ticket-request">
+                
+                                        <strong>
+                
+                                            {{ $leave->request_number }}
+                
+                                        </strong>
+                
+                                        <small>
+                
+                                            Leave Request
+                
+                                        </small>
+                
+                                    </div>
+                
+                                </td>
+                
+                                <td data-label="Periode">
+                
+                                    <div class="ticket-date">
+                
+                                        <strong>
+                
+                                            {{ $leave->start_date->format('d M Y') }}
+                
+                                        </strong>
+                
+                                        <span>
+                
+                                            sampai
+                
                                         </span>
-        
+                
+                                        <strong>
+                
+                                            {{ $leave->end_date->format('d M Y') }}
+                
+                                        </strong>
+                
+                                    </div>
+                
+                                </td>
+                
+                                <td data-label="Status">
+                
+                                    @switch($leave->status)
+                
+                                        @case('Pending')
+                
+                                            <span class="badge warning">
+                
+                                                <i class="fa-solid fa-clock"></i>
+                
+                                                Pending
+                
+                                            </span>
+                
                                         @break
-        
-                                    @case('Approved')
-        
-                                        <span class="badge success">
-        
-                                            Approved
-        
-                                        </span>
-        
+                
+                                        @case('Approved')
+                
+                                            <span class="badge success">
+                
+                                                <i class="fa-solid fa-circle-check"></i>
+                
+                                                Approved
+                
+                                            </span>
+                
                                         @break
-        
-                                    @case('Rejected')
-        
-                                        <span class="badge danger">
-        
-                                            Rejected
-        
-                                        </span>
-        
+                
+                                        @case('Rejected')
+                
+                                            <span class="badge danger">
+                
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                
+                                                Rejected
+                
+                                            </span>
+                
                                         @break
-        
-                                    @default
-        
-                                        <span class="badge">
-        
-                                            {{ $leave->status }}
-        
-                                        </span>
-        
-                                @endswitch
-        
-                            </td>
-        
-                            <td>
-        
-                            </td>
-        
-                        </tr>
-        
-                    @empty
-        
-                        <tr>
-        
-                            <td colspan="7">
-        
-                                <div class="empty-state">
-        
-                                    <img
-        
-                                        src="{{ asset('assets/images/empty.png') }}"
-        
-                                        width="150">
-        
-                                    <h4>
-        
-                                        Belum ada pengajuan cuti
-        
-                                    </h4>
-        
-                                    <p>
-        
-                                        Silakan buat pengajuan cuti pertama Anda.
-        
-                                    </p>
-        
-                                </div>
-        
-                            </td>
-        
-                        </tr>
-        
-                    @endforelse
-        
-                    </tbody>
-        
-                </table>        
+                
+                                        @default
+                
+                                            <span class="badge">
+                
+                                                {{ $leave->status }}
+                
+                                            </span>
+                
+                                    @endswitch
+                
+                                </td>
+                
+                            </tr>
+                
+                        @empty
+                
+                            <tr>
+                
+                                <td colspan="4">
+                
+                                    <div class="empty-state">
+                
+                                        <img
+                                            src="{{ asset('assets/images/empty.png') }}"
+                                            alt="Empty">
+                
+                                        <h4>
+                
+                                            Belum Ada Pengajuan Cuti
+                
+                                        </h4>
+                
+                                        <p>
+                
+                                            Silakan buat pengajuan cuti pertama Anda untuk mulai menggunakan sistem.
+                
+                                        </p>
+                
+                                    </div>
+                
+                                </td>
+                
+                            </tr>
+                
+                        @endforelse
+                
+                        </tbody>
+                
+                    </table>
+                
+                </div>  
 
             </div>
 
@@ -448,36 +521,45 @@
 
             <div class="card">
 
-                <div class="card-header">
+    <div class="card-header">
 
-                    <h2>
+        <h2>
+            Progress Hak Cuti
+        </h2>
 
-                        Progress Hak Cuti
+    </div>
 
-                    </h2>
+    @php
 
-                </div>
+        $used = (int) $usedLeave;
 
-                <div class="progress-box">
+        $total = max((int) $totalLeave, 1);
 
-                    <div class="progress-bar">
+        $percentage = min(
+            ($used / $total) * 100,
+            100
+        );
 
-                        <div
-                            class="progress-fill"
-                            style="width:75%">
-                        </div>
+    @endphp
 
-                    </div>
+    <div class="progress-box">
 
-                    <span>
+        <div class="progress-bar">
 
-                        9 / 12 Hari
-
-                    </span>
-
-                </div>
-
+            <div
+                class="progress-fill"
+                style="width:{{ $percentage }}%">
             </div>
+
+        </div>
+
+        <span>
+            {{ $usedLeave }} / {{ $totalLeave }}
+        </span>
+
+    </div>
+
+</div>
 
         </div>
 

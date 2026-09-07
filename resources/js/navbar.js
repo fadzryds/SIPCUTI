@@ -1,73 +1,76 @@
-/*
-|--------------------------------------------------------------------------
-| SIPCUTI Navbar
-|--------------------------------------------------------------------------
-*/
-
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
     const hamburger = document.getElementById("hamburger");
     const mobileMenu = document.getElementById("mobileMenu");
+    const overlay = document.getElementById("menuOverlay");
     const navbar = document.querySelector(".navbar");
 
-    /*
-    |--------------------------------------------------------------------------
-    | Toggle Mobile Menu
-    |--------------------------------------------------------------------------
-    */
+    if (!hamburger || !mobileMenu) return;
 
-    hamburger.addEventListener("click", function () {
+    function openMenu() {
 
-        hamburger.classList.toggle("active");
+        hamburger.classList.add("active");
+        mobileMenu.classList.add("show");
+        overlay.classList.add("show");
 
-        mobileMenu.classList.toggle("show");
+        document.body.classList.add("menu-open");
 
-    });
+    }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Close menu when click outside
-    |--------------------------------------------------------------------------
-    */
+    function closeMenu() {
 
-    document.addEventListener("click", function (e) {
+        hamburger.classList.remove("active");
+        mobileMenu.classList.remove("show");
+        overlay.classList.remove("show");
 
-        if (
-            !hamburger.contains(e.target) &&
-            !mobileMenu.contains(e.target)
-        ) {
+        document.body.classList.remove("menu-open");
 
-            hamburger.classList.remove("active");
+    }
 
-            mobileMenu.classList.remove("show");
+    hamburger.addEventListener("click", function (e) {
+
+        e.stopPropagation();
+
+        if (mobileMenu.classList.contains("show")) {
+
+            closeMenu();
+
+        } else {
+
+            openMenu();
 
         }
 
     });
 
-    /*
-    |--------------------------------------------------------------------------
-    | Navbar Scroll Effect
-    |--------------------------------------------------------------------------
-    */
+    overlay.addEventListener("click", closeMenu);
 
-    window.addEventListener("scroll", function () {
+    document.querySelectorAll("#mobileMenu a").forEach(link => {
 
-        if (window.scrollY > 20) {
+        link.addEventListener("click", closeMenu);
 
-            navbar.style.boxShadow =
-                "0 15px 40px rgba(15,23,42,.12)";
+    });
 
-            navbar.style.background =
-                "rgba(255,255,255,.96)";
+    window.addEventListener("resize", () => {
+
+        if (window.innerWidth > 900) {
+
+            closeMenu();
+
+        }
+
+    });
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 10) {
+
+            navbar.classList.add("scrolled");
 
         } else {
 
-            navbar.style.boxShadow =
-                "0 10px 35px rgba(15,23,42,.08)";
+            navbar.classList.remove("scrolled");
 
-            navbar.style.background =
-                "rgba(255,255,255,.90)";
         }
 
     });

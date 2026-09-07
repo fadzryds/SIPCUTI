@@ -25,32 +25,82 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
-    
+
         $request->session()->regenerate();
-        
+
         /** @var \App\Models\User $user */
-            $user = Auth::user();
-    
+        $user = Auth::user();
+
+        /*
+        |--------------------------------------------------------------------------
+        | SUPER ADMIN
+        |--------------------------------------------------------------------------
+        */
+
         if ($user->hasRole('Super Admin')) {
             return redirect('/admin');
         }
-    
+
+        /*
+        |--------------------------------------------------------------------------
+        | SUPERVISOR
+        |--------------------------------------------------------------------------
+        */
+
+        if ($user->hasRole('Supervisor')) {
+            return redirect()->route('supervisor.dashboard');
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | DIRECTOR
+        |--------------------------------------------------------------------------
+        */
+
+        if ($user->hasRole('Director')) {
+            return redirect()->route('director.dashboard');
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | HRD
+        |--------------------------------------------------------------------------
+        */
+
         if ($user->hasRole('HRD')) {
             return redirect()->route('hrd.dashboard');
         }
-    
+
+        /*
+        |--------------------------------------------------------------------------
+        | MANAGER
+        |--------------------------------------------------------------------------
+        */
+
         if ($user->hasRole('Manager')) {
             return redirect()->route('manager.dashboard');
         }
-    
+
+        /*
+        |--------------------------------------------------------------------------
+        | EMPLOYEE
+        |--------------------------------------------------------------------------
+        */
+
         if ($user->hasRole('Employee')) {
             return redirect()->route('employee.dashboard');
         }
-    
+
+        /*
+        |--------------------------------------------------------------------------
+        | ROLE TIDAK DIKENALI
+        |--------------------------------------------------------------------------
+        */
+
         Auth::logout();
-    
+
         return redirect('/login')->withErrors([
-            'email' => 'Role tidak dikenali.',
+            'login' => 'Role pengguna tidak dikenali.',
         ]);
     }
 

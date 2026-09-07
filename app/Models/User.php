@@ -2,25 +2,21 @@
 
 namespace App\Models;
 
-use Filament\Models\Contracts\FilamentUser;
-use Filament\Panel;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Spatie\Permission\Models\Role;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable implements FilamentUser
+class User extends Authenticatable
 {
-    use HasFactory, Notifiable, HasRoles;
+    use Notifiable;
+    use HasRoles;
 
     protected $fillable = [
         'name',
         'email',
-        'password',
         'phone',
+        'password',
     ];
 
     protected $hidden = [
@@ -38,59 +34,12 @@ class User extends Authenticatable implements FilamentUser
 
     /*
     |--------------------------------------------------------------------------
-    | Relationships
+    | Employee
     |--------------------------------------------------------------------------
     */
 
     public function employee(): HasOne
     {
         return $this->hasOne(Employee::class);
-    }
-
-    public function leaveApprovals(): HasMany
-    {
-        return $this->hasMany(LeaveApproval::class, 'approver_id');
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Filament
-    |--------------------------------------------------------------------------
-    */
-
-    public function canAccessPanel(Panel $panel): bool
-    {
-        return $this->hasRole('Super Admin');
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Helpers
-    |--------------------------------------------------------------------------
-    */
-
-    public function getRoleNameAttribute(): ?string
-    {
-        return $this->roles()->value('name');
-    }
-
-    public function isSuperAdmin(): bool
-    {
-        return $this->hasRole('Super Admin');
-    }
-
-    public function isManager(): bool
-    {
-        return $this->hasRole('Manager');
-    }
-
-    public function isEmployee(): bool
-    {
-        return $this->hasRole('Employee');
-    }
-
-    public function role()
-    {
-        return $this->belongsTo(Role::class);
     }
 }

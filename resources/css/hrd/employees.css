@@ -1,0 +1,2245 @@
+/* =========================================================
+   HRD EMPLOYEES
+   resources/css/hrd/employees.css
+========================================================= */
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.hrd-page {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 28px 32px 40px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.hrd-page .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 24px;
+
+    margin-bottom: 28px;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   PAGE HEADER CONTENT
+========================================================= */
+
+.hrd-page .page-header-content {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    min-width: 0;
+
+    flex: 1;
+}
+
+
+.hrd-page .page-header-icon {
+    width: 58px;
+    height: 58px;
+
+    flex-shrink: 0;
+
+    border-radius: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #1d4ed8,
+        #2563eb
+    );
+
+    color: #ffffff;
+
+    font-size: 23px;
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.20);
+}
+
+
+.hrd-page .page-header-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    color: #64748b;
+}
+
+
+.hrd-page .page-header h1 {
+    margin: 0;
+
+    color: #0f172a;
+
+    font-size: 28px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+
+.hrd-page .page-header p {
+    margin: 6px 0 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   PAGE HEADER ACTIONS
+========================================================= */
+
+.hrd-page .page-header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   IMPORT BUTTON
+========================================================= */
+
+.hrd-page .page-header-actions .btn-import {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    min-height: 44px;
+
+    padding: 0 18px;
+
+    border: 1px solid #dbe3ef;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #334155;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.hrd-page .page-header-actions .btn-import i {
+    font-size: 14px;
+}
+
+
+.hrd-page .page-header-actions .btn-import:hover {
+    background: #f8fafc;
+
+    border-color: #94a3b8;
+
+    color: #0f172a;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+
+.hrd-page .page-header-actions .btn-import:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.hrd-page .page-header-actions .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    min-height: 44px;
+
+    padding: 0 18px;
+
+    border: 0;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+
+.hrd-page .page-header-actions .btn-primary:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 26px rgba(37, 99, 235, 0.28);
+
+    filter: brightness(1.04);
+}
+
+
+.hrd-page .page-header-actions .btn-primary:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   ALERT
+========================================================= */
+
+.hrd-page .alert {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 24px;
+
+    padding: 15px 17px;
+
+    border-radius: 14px;
+
+    border: 1px solid transparent;
+
+    animation: employeeAlertIn 0.3s ease;
+}
+
+@keyframes employeeAlertIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hrd-page .alert-success {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+    color: #166534;
+}
+
+.hrd-page .alert-error {
+    background: #fef2f2;
+    border-color: #fecaca;
+    color: #991b1b;
+}
+
+.hrd-page .alert-icon {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    font-size: 17px;
+}
+
+.hrd-page .alert-success .alert-icon {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.hrd-page .alert-error .alert-icon {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.hrd-page .alert-content {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+.hrd-page .alert-content strong {
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.hrd-page .alert-content span {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.hrd-page .alert-close {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: currentColor;
+
+    font-size: 21px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    opacity: 0.65;
+
+    transition:
+        background 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.hrd-page .alert-close:hover {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.06);
+}
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .hrd-page {
+        padding: 18px 15px 30px;
+    }
+
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    .hrd-page .page-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+
+    .hrd-page .page-header-content {
+        width: 100%;
+    }
+
+
+    .hrd-page .page-header h1 {
+        font-size: 23px;
+    }
+
+
+    .hrd-page .page-header p {
+        font-size: 12px;
+    }
+
+
+    /* =====================================================
+       HEADER ACTIONS
+    ===================================================== */
+
+    .hrd-page .page-header-actions {
+        width: 100%;
+
+        display: flex;
+
+        align-items: stretch;
+
+        justify-content: flex-start;
+
+        gap: 10px;
+    }
+
+
+    .hrd-page .page-header-actions .btn-import,
+    .hrd-page .page-header-actions .btn-primary {
+        flex: 1;
+
+        width: auto;
+    }
+
+
+    /* =====================================================
+       STATISTICS
+    ===================================================== */
+
+    .hrd-page .employee-statistics {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .hrd-page .employee-stat-card {
+        min-height: 96px;
+
+        padding: 16px;
+    }
+
+    .hrd-page .employee-stat-content h2 {
+        font-size: 24px;
+    }
+
+
+    /* =====================================================
+       TABLE
+    ===================================================== */
+
+    .hrd-page .employee-table-card {
+        border-radius: 16px;
+    }
+
+    .hrd-page .table-card-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        padding: 18px;
+    }
+
+    .hrd-page .table-count {
+        align-self: flex-start;
+    }
+
+
+    /* =====================================================
+       FILTER
+    ===================================================== */
+
+    .hrd-page .employee-filter-wrapper {
+        padding: 15px;
+    }
+
+    .hrd-page .employee-filter-form {
+        grid-template-columns: 1fr;
+
+        gap: 9px;
+    }
+
+    .hrd-page .employee-search {
+        grid-column: auto;
+    }
+
+    .hrd-page .btn-filter,
+    .hrd-page .btn-reset {
+        width: 100%;
+    }
+
+
+    /* =====================================================
+       PAGINATION
+    ===================================================== */
+
+    .hrd-page .employee-pagination {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        padding: 16px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .hrd-page {
+        padding: 15px 12px 25px;
+    }
+
+
+    .hrd-page .page-header-icon {
+        width: 50px;
+        height: 50px;
+
+        border-radius: 14px;
+
+        font-size: 19px;
+    }
+
+
+    .hrd-page .page-header-label {
+        font-size: 9px;
+    }
+
+
+    .hrd-page .page-header h1 {
+        font-size: 20px;
+    }
+
+
+    .hrd-page .page-header-actions {
+        flex-direction: column;
+
+        width: 100%;
+
+        gap: 8px;
+    }
+
+
+    .hrd-page .page-header-actions .btn-import,
+    .hrd-page .page-header-actions .btn-primary {
+        width: 100%;
+
+        flex: none;
+    }
+
+
+    .hrd-page .employee-stat-card {
+        gap: 13px;
+    }
+
+
+    .hrd-page .employee-stat-icon {
+        width: 48px;
+        height: 48px;
+
+        border-radius: 13px;
+    }
+
+
+    .hrd-page .employee-stat-content h2 {
+        font-size: 22px;
+    }
+
+
+    .hrd-page .alert {
+        align-items: flex-start;
+    }
+
+
+    .hrd-page .alert-icon {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+.hrd-page .employee-statistics {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin-bottom: 24px;
+}
+
+.hrd-page .employee-stat-card {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    min-height: 116px;
+
+    padding: 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 5px 18px rgba(15, 23, 42, 0.045);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.hrd-page .employee-stat-card::after {
+    content: "";
+
+    position: absolute;
+
+    right: -35px;
+    bottom: -45px;
+
+    width: 110px;
+    height: 110px;
+
+    border-radius: 50%;
+
+    background: rgba(37, 99, 235, 0.035);
+
+    pointer-events: none;
+}
+
+.hrd-page .employee-stat-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #dbeafe;
+
+    box-shadow:
+        0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+.hrd-page .employee-stat-icon {
+    width: 54px;
+    height: 54px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    font-size: 21px;
+}
+
+.hrd-page .employee-stat-icon.total {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.hrd-page .employee-stat-icon.active {
+    background: #ecfdf5;
+    color: #16a34a;
+}
+
+.hrd-page .employee-stat-icon.inactive {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.hrd-page .employee-stat-content {
+    min-width: 0;
+}
+
+.hrd-page .employee-stat-content span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #64748b;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.hrd-page .employee-stat-content h2 {
+    margin: 0;
+
+    color: #0f172a;
+
+    font-size: 28px;
+    font-weight: 800;
+
+    line-height: 1.1;
+}
+
+.hrd-page .employee-stat-content small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   TABLE CARD
+========================================================= */
+
+.hrd-page .employee-table-card {
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 7px 25px rgba(15, 23, 42, 0.055);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+.hrd-page .table-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 23px 24px;
+
+    border-bottom: 1px solid #eef2f7;
+}
+
+.hrd-page .table-card-header h2 {
+    margin: 0;
+
+    color: #0f172a;
+
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.hrd-page .table-card-header span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+.hrd-page .table-count {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 8px 12px;
+
+    border-radius: 10px;
+
+    background: #f8fafc;
+
+    color: #64748b;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.hrd-page .table-count i {
+    color: #2563eb;
+}
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+.hrd-page .employee-filter-wrapper {
+    padding: 18px 24px;
+
+    background: #f8fafc;
+
+    border-bottom: 1px solid #eef2f7;
+}
+
+.hrd-page .employee-filter-form {
+    display: grid;
+
+    grid-template-columns:
+        minmax(260px, 1.7fr)
+        minmax(170px, 1fr)
+        minmax(170px, 1fr)
+        minmax(150px, 0.85fr)
+        auto
+        auto;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.hrd-page .employee-search {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.hrd-page .employee-search > i {
+    position: absolute;
+
+    left: 14px;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+
+    pointer-events: none;
+}
+
+.hrd-page .employee-search input {
+    width: 100%;
+    height: 42px;
+
+    padding: 0 40px 0 38px;
+
+    border: 1px solid #dbe2ea;
+
+    border-radius: 11px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #0f172a;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.hrd-page .employee-search input::placeholder {
+    color: #a0aec0;
+}
+
+.hrd-page .employee-search input:focus {
+    border-color: #93c5fd;
+
+    box-shadow:
+        0 0 0 3px rgba(59, 130, 246, 0.10);
+}
+
+.hrd-page .search-clear {
+    position: absolute;
+
+    right: 9px;
+
+    width: 27px;
+    height: 27px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    color: #94a3b8;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.hrd-page .search-clear:hover {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+
+/* =========================================================
+   SELECT FILTER
+========================================================= */
+
+.hrd-page .employee-filter {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.hrd-page .employee-filter > i {
+    position: absolute;
+
+    left: 13px;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+.hrd-page .employee-filter select {
+    width: 100%;
+    height: 42px;
+
+    padding: 0 32px 0 35px;
+
+    border: 1px solid #dbe2ea;
+
+    border-radius: 11px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #475569;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.hrd-page .employee-filter select:focus {
+    border-color: #93c5fd;
+
+    box-shadow:
+        0 0 0 3px rgba(59, 130, 246, 0.10);
+}
+
+
+/* =========================================================
+   FILTER BUTTON
+========================================================= */
+
+.hrd-page .btn-filter {
+    height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 0 15px;
+
+    border: 0;
+    border-radius: 11px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.hrd-page .btn-filter:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 7px 16px rgba(37, 99, 235, 0.20);
+}
+
+
+/* =========================================================
+   RESET BUTTON
+========================================================= */
+
+.hrd-page .btn-reset {
+    height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 0 14px;
+
+    border: 1px solid #dbe2ea;
+
+    border-radius: 11px;
+
+    background: #ffffff;
+
+    color: #64748b;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.hrd-page .btn-reset:hover {
+    background: #f8fafc;
+
+    border-color: #cbd5e1;
+
+    color: #334155;
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+========================================================= */
+
+.hrd-page .employee-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+.hrd-page .employee-table {
+    width: 100%;
+
+    min-width: 1100px;
+
+    border-collapse: collapse;
+
+    table-layout: auto;
+}
+
+
+/* =========================================================
+   TABLE HEAD
+========================================================= */
+
+.hrd-page .employee-table thead th {
+    height: 48px;
+
+    padding: 0 16px;
+
+    background: #f8fafc;
+
+    border-bottom: 1px solid #e2e8f0;
+
+    color: #64748b;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
+
+    text-align: left;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   TABLE BODY
+========================================================= */
+
+.hrd-page .employee-table tbody td {
+    padding: 15px 16px;
+
+    border-bottom: 1px solid #f1f5f9;
+
+    color: #334155;
+
+    font-size: 12px;
+
+    vertical-align: middle;
+}
+
+.hrd-page .employee-table tbody tr {
+    transition:
+        background 0.15s ease;
+}
+
+.hrd-page .employee-table tbody tr:hover {
+    background: #f8fbff;
+}
+
+.hrd-page .employee-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+
+/* =========================================================
+   ROW NUMBER
+========================================================= */
+
+.hrd-page .row-number {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 8px;
+
+    background: #f8fafc;
+
+    color: #64748b;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   EMPLOYEE INFO
+========================================================= */
+
+.hrd-page .employee-info {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    min-width: 210px;
+}
+
+.hrd-page .employee-avatar {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #dbeafe,
+        #bfdbfe
+    );
+
+    color: #1d4ed8;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+}
+
+.hrd-page .employee-details {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.hrd-page .employee-details strong {
+    display: block;
+
+    max-width: 190px;
+
+    overflow: hidden;
+
+    color: #0f172a;
+
+    font-size: 12px;
+    font-weight: 750;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+.hrd-page .employee-details span {
+    display: block;
+
+    max-width: 210px;
+
+    overflow: hidden;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   NIK
+========================================================= */
+
+.hrd-page .nik-text {
+    display: inline-flex;
+
+    padding: 6px 9px;
+
+    border-radius: 7px;
+
+    background: #f8fafc;
+
+    color: #475569;
+
+    font-family: "Consolas", "Courier New", monospace;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   RELATION INFO
+========================================================= */
+
+.hrd-page .relation-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+
+    min-width: 120px;
+}
+
+.hrd-page .relation-info span {
+    color: #334155;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.hrd-page .relation-info small {
+    color: #94a3b8;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.4px;
+}
+
+.hrd-page .empty-value {
+    color: #94a3b8;
+
+    font-size: 10px;
+    font-style: italic;
+}
+
+
+/* =========================================================
+   MANAGER
+========================================================= */
+
+.hrd-page .manager-info {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    min-width: 130px;
+}
+
+.hrd-page .manager-avatar {
+    width: 30px;
+    height: 30px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #f1f5f9;
+
+    color: #475569;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+}
+
+.hrd-page .manager-info > span {
+    max-width: 130px;
+
+    overflow: hidden;
+
+    color: #475569;
+
+    font-size: 11px;
+    font-weight: 650;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.hrd-page .status-badge {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 6px 10px;
+
+    border-radius: 999px;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+.hrd-page .status-badge.active {
+    background: #ecfdf5;
+
+    color: #15803d;
+}
+
+.hrd-page .status-badge.inactive {
+    background: #fef2f2;
+
+    color: #b91c1c;
+}
+
+.hrd-page .status-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: currentColor;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.hrd-page .employee-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+}
+
+.hrd-page .employee-actions form {
+    margin: 0;
+    padding: 0;
+}
+
+.hrd-page .employee-action {
+    width: 34px;
+    height: 34px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        color 0.18s ease;
+}
+
+.hrd-page .employee-action:hover {
+    transform: translateY(-2px);
+}
+
+.hrd-page .employee-action.view {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.hrd-page .employee-action.view:hover {
+    background: #dbeafe;
+}
+
+.hrd-page .employee-action.edit {
+    background: #fffbeb;
+    color: #d97706;
+}
+
+.hrd-page .employee-action.edit:hover {
+    background: #fef3c7;
+}
+
+.hrd-page .employee-action.delete {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.hrd-page .employee-action.delete:hover {
+    background: #fee2e2;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.hrd-page .empty-table-cell {
+    padding: 0 !important;
+}
+
+.hrd-page .employee-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 330px;
+
+    padding: 40px 20px;
+
+    text-align: center;
+}
+
+.hrd-page .empty-icon {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    border-radius: 20px;
+
+    background: #f8fafc;
+
+    color: #94a3b8;
+
+    font-size: 27px;
+}
+
+.hrd-page .employee-empty-state h3 {
+    margin: 0;
+
+    color: #334155;
+
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.hrd-page .employee-empty-state p {
+    max-width: 430px;
+
+    margin: 7px auto 18px;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+.hrd-page .btn-reset-empty {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    min-height: 40px;
+
+    padding: 0 15px;
+
+    border: 1px solid #dbe2ea;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #475569;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.hrd-page .btn-reset-empty:hover {
+    background: #f8fafc;
+
+    border-color: #cbd5e1;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.hrd-page .employee-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 18px 24px;
+
+    border-top: 1px solid #eef2f7;
+
+    background: #ffffff;
+}
+
+.hrd-page .pagination-info {
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+.hrd-page .pagination-info strong {
+    color: #334155;
+
+    font-weight: 800;
+}
+
+
+/* Laravel pagination */
+
+.hrd-page .employee-pagination nav {
+    display: flex;
+    align-items: center;
+}
+
+.hrd-page .employee-pagination nav > div {
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+}
+
+.hrd-page .employee-pagination a,
+.hrd-page .employee-pagination span {
+    min-width: 34px;
+    height: 34px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 9px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #64748b;
+
+    text-decoration: none;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease;
+}
+
+.hrd-page .employee-pagination a:hover {
+    background: #f8fafc;
+
+    border-color: #bfdbfe;
+
+    color: #2563eb;
+}
+
+.hrd-page .employee-pagination span[aria-current="page"] {
+    background: #2563eb;
+
+    border-color: #2563eb;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.hrd-page .employee-table-wrapper::-webkit-scrollbar {
+    height: 7px;
+}
+
+.hrd-page .employee-table-wrapper::-webkit-scrollbar-track {
+    background: #f8fafc;
+}
+
+.hrd-page .employee-table-wrapper::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+
+    border-radius: 999px;
+}
+
+.hrd-page .employee-table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .hrd-page {
+        padding: 24px;
+    }
+
+    .hrd-page .employee-filter-form {
+        grid-template-columns:
+            minmax(240px, 1.5fr)
+            repeat(2, minmax(150px, 1fr))
+            minmax(140px, 0.8fr)
+            auto
+            auto;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - SMALL TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .hrd-page .employee-statistics {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hrd-page .employee-filter-form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hrd-page .employee-search {
+        grid-column: span 2;
+    }
+
+    .hrd-page .btn-filter,
+    .hrd-page .btn-reset {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .hrd-page {
+        padding: 18px 15px 30px;
+    }
+
+
+    /* Header */
+
+    .hrd-page .page-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .hrd-page .page-header-content {
+        width: 100%;
+    }
+
+    .hrd-page .page-header h1 {
+        font-size: 23px;
+    }
+
+    .hrd-page .page-header p {
+        font-size: 12px;
+    }
+
+    .hrd-page .page-header .btn-primary {
+        width: 100%;
+    }
+
+
+    /* Statistics */
+
+    .hrd-page .employee-statistics {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .hrd-page .employee-stat-card {
+        min-height: 96px;
+
+        padding: 16px;
+    }
+
+    .hrd-page .employee-stat-content h2 {
+        font-size: 24px;
+    }
+
+
+    /* Table */
+
+    .hrd-page .employee-table-card {
+        border-radius: 16px;
+    }
+
+    .hrd-page .table-card-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        padding: 18px;
+    }
+
+    .hrd-page .table-count {
+        align-self: flex-start;
+    }
+
+
+    /* Filter */
+
+    .hrd-page .employee-filter-wrapper {
+        padding: 15px;
+    }
+
+    .hrd-page .employee-filter-form {
+        grid-template-columns: 1fr;
+
+        gap: 9px;
+    }
+
+    .hrd-page .employee-search {
+        grid-column: auto;
+    }
+
+    .hrd-page .btn-filter,
+    .hrd-page .btn-reset {
+        width: 100%;
+    }
+
+
+    /* Pagination */
+
+    .hrd-page .employee-pagination {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        padding: 16px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .hrd-page {
+        padding: 15px 12px 25px;
+    }
+
+    .hrd-page .page-header-icon {
+        width: 50px;
+        height: 50px;
+
+        border-radius: 14px;
+
+        font-size: 19px;
+    }
+
+    .hrd-page .page-header-label {
+        font-size: 9px;
+    }
+
+    .hrd-page .page-header h1 {
+        font-size: 20px;
+    }
+
+    .hrd-page .employee-stat-card {
+        gap: 13px;
+    }
+
+    .hrd-page .employee-stat-icon {
+        width: 48px;
+        height: 48px;
+
+        border-radius: 13px;
+    }
+
+    .hrd-page .employee-stat-content h2 {
+        font-size: 22px;
+    }
+
+    .hrd-page .alert {
+        align-items: flex-start;
+    }
+
+    .hrd-page .alert-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+}
+
+/* =========================================================
+   DELETE BUTTON
+========================================================= */
+
+.btn-delete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    min-height: 44px;
+    padding: 0 18px;
+
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: #dc2626;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.btn-delete:hover {
+    background: #fef2f2;
+    border-color: #fca5a5;
+    color: #b91c1c;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 14px rgba(220, 38, 38, 0.10);
+}
+
+.btn-delete:active {
+    transform: translateY(0);
+}
+
+.btn-delete-icon {
+    font-size: 14px;
+    line-height: 1;
+}
+
+
+/* =========================================================
+   SWEET ALERT DELETE MODAL
+========================================================= */
+
+.delete-swal-popup {
+    width: min(430px, calc(100% - 32px)) !important;
+
+    padding: 30px 30px 26px !important;
+
+    border-radius: 18px !important;
+
+    background: #ffffff !important;
+
+    box-shadow:
+        0 25px 70px rgba(15, 23, 42, 0.20) !important;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.delete-swal-title {
+    margin-top: 12px !important;
+    margin-bottom: 0 !important;
+
+    color: #172033 !important;
+
+    font-size: 22px !important;
+    font-weight: 750 !important;
+    letter-spacing: -0.02em;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.delete-swal-html {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* =========================================================
+   DELETE CONTENT
+========================================================= */
+
+.delete-alert-content {
+    text-align: center;
+    padding-top: 4px;
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.delete-alert-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 68px;
+    height: 68px;
+
+    margin: 0 auto 16px;
+
+    border-radius: 50%;
+
+    background: #fef2f2;
+
+    color: #dc2626;
+
+    font-size: 28px;
+
+    box-shadow:
+        inset 0 0 0 8px #fff5f5;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.delete-alert-text {
+    margin: 0 0 5px;
+
+    color: #64748b;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   EMPLOYEE NAME
+========================================================= */
+
+.delete-alert-name {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: #172033;
+
+    font-size: 16px;
+    font-weight: 750;
+}
+
+
+/* =========================================================
+   WARNING
+========================================================= */
+
+.delete-alert-warning {
+    margin: 0;
+
+    padding: 10px 12px;
+
+    border-radius: 8px;
+
+    background: #fff7ed;
+
+    color: #c2410c;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   SWEET ALERT BUTTON AREA
+========================================================= */
+
+.delete-swal-popup .swal2-actions {
+    display: flex !important;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    margin-top: 24px !important;
+}
+
+
+/* =========================================================
+   CONFIRM BUTTON
+========================================================= */
+
+.delete-swal-confirm {
+    min-width: 112px;
+
+    min-height: 42px;
+
+    padding: 0 18px;
+
+    border: 0 !important;
+    border-radius: 9px;
+
+    background: #dc2626 !important;
+
+    color: #ffffff !important;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 12px rgba(220, 38, 38, 0.20);
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.delete-swal-confirm:hover {
+    background: #b91c1c !important;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 7px 16px rgba(220, 38, 38, 0.25);
+}
+
+
+/* =========================================================
+   CANCEL BUTTON
+========================================================= */
+
+.delete-swal-cancel {
+    min-width: 90px;
+
+    min-height: 42px;
+
+    padding: 0 18px;
+
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 9px;
+
+    background: #ffffff !important;
+
+    color: #475569 !important;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.delete-swal-cancel:hover {
+    background: #f8fafc !important;
+
+    border-color: #cbd5e1 !important;
+
+    color: #1e293b !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .delete-swal-popup {
+        width: calc(100% - 24px) !important;
+
+        padding: 25px 20px 22px !important;
+    }
+
+    .delete-swal-title {
+        font-size: 20px !important;
+    }
+
+    .delete-swal-popup .swal2-actions {
+        flex-direction: column-reverse;
+
+        gap: 8px;
+
+        width: 100%;
+    }
+
+    .delete-swal-confirm,
+    .delete-swal-cancel {
+        width: 100%;
+    }
+
+}

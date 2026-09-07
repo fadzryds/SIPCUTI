@@ -1,0 +1,521 @@
+/* =========================================================
+   DIRECTOR SIDEBAR
+========================================================= */
+
+.director-sidebar {
+
+    position: fixed;
+
+    inset:
+        0 auto 0 0;
+
+    width:
+        var(--director-sidebar-width);
+
+    height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    z-index: 1000;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            180deg,
+            #111c3d 0%,
+            #0f172a 100%
+        );
+
+    box-shadow:
+        10px 0 35px rgba(15, 23, 42, .10);
+
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.director-brand {
+
+    height: 82px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding:
+        0 22px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.07);
+
+}
+
+
+.director-brand-logo {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,.10);
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+}
+
+
+.director-brand-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+}
+
+
+.director-brand-text strong {
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    letter-spacing: -.2px;
+
+}
+
+
+.director-brand-text span {
+
+    font-size: 10px;
+
+    color:
+        rgba(255,255,255,.55);
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.2px;
+
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.director-profile {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 18px 16px;
+
+    padding: 14px;
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
+    border-radius: 13px;
+
+    background:
+        rgba(255,255,255,.045);
+
+}
+
+
+.director-profile-avatar {
+
+    width: 42px;
+
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #1d4ed8
+        );
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+}
+
+
+.director-profile-info {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+}
+
+
+.director-profile-info strong {
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 13px;
+
+}
+
+
+.director-profile-info span {
+
+    font-size: 11px;
+
+    color:
+        rgba(255,255,255,.52);
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.director-navigation {
+
+    flex: 1;
+
+    padding:
+        4px 14px;
+
+    overflow-y: auto;
+
+}
+
+
+.director-nav-label {
+
+    margin:
+        15px 10px 9px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    color:
+        rgba(255,255,255,.38);
+
+    letter-spacing: 1.3px;
+
+}
+
+
+.director-nav-item {
+
+    width: 100%;
+
+    min-height: 46px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 5px;
+
+    padding:
+        0 12px;
+
+    border: 0;
+
+    border-radius: 11px;
+
+    background: transparent;
+
+    color:
+        rgba(255,255,255,.65);
+
+    font-size: 13px;
+
+    text-align: left;
+
+    transition:
+        var(--director-transition);
+
+}
+
+
+.director-nav-item:hover {
+
+    color: #ffffff;
+
+    background:
+        rgba(255,255,255,.07);
+
+}
+
+
+.director-nav-item.active {
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(37,99,235,.95),
+            rgba(30,64,175,.85)
+        );
+
+    box-shadow:
+        0 8px 20px rgba(37,99,235,.18);
+
+}
+
+
+.director-nav-icon {
+
+    width: 23px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 14px;
+
+}
+
+
+.director-nav-text {
+
+    flex: 1;
+
+    font-weight: 500;
+
+}
+
+
+.director-nav-badge {
+
+    min-width: 22px;
+
+    height: 22px;
+
+    padding:
+        0 6px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background: #ef4444;
+
+    color: #ffffff;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+}
+
+
+.director-nav-divider {
+
+    height: 1px;
+
+    margin:
+        18px 10px;
+
+    background:
+        rgba(255,255,255,.07);
+
+}
+
+
+.director-logout-form {
+
+    margin: 0;
+
+}
+
+
+.director-logout {
+
+    color:
+        rgba(255,255,255,.52);
+
+}
+
+
+.director-logout:hover {
+
+    color: #fca5a5;
+
+    background:
+        rgba(239,68,68,.08);
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.director-sidebar-footer {
+
+    padding:
+        16px 20px 20px;
+
+    border-top:
+        1px solid rgba(255,255,255,.07);
+
+}
+
+
+.director-system-status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    font-size: 11px;
+
+    color:
+        rgba(255,255,255,.58);
+
+}
+
+
+.status-dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    box-shadow:
+        0 0 0 4px rgba(34,197,94,.10);
+
+}
+
+
+.director-sidebar-footer small {
+
+    display: block;
+
+    margin-top: 7px;
+
+    color:
+        rgba(255,255,255,.28);
+
+    font-size: 9px;
+
+}
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.director-sidebar-overlay {
+
+    display: none;
+
+}
+
+
+@media (max-width: 1100px) {
+
+    .director-sidebar {
+
+        transform:
+            translateX(-100%);
+
+        transition:
+            transform .25s ease;
+
+    }
+
+    .director-sidebar.active {
+
+        transform:
+            translateX(0);
+
+    }
+
+    .director-sidebar-overlay {
+
+        display: block;
+
+        position: fixed;
+
+        inset: 0;
+
+        z-index: 999;
+
+        background:
+            rgba(15,23,42,.45);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transition:
+            all .25s ease;
+
+    }
+
+    .director-sidebar-overlay.active {
+
+        opacity: 1;
+
+        visibility: visible;
+
+    }
+
+}

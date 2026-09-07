@@ -28,13 +28,25 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
+            'login' => [
+                'required',
+                'string',
+                'max:255',
+            ],
+
+            'password' => [
+                'required',
+                'string',
+            ],
         ];
     }
 
     /**
      * Attempt to authenticate the request's credentials.
+     *
+     * Login dapat menggunakan:
+     * - Email
+     * - Nomor handphone
      *
      * @throws ValidationException
      */
@@ -42,13 +54,52 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+        $login = trim($this->string('login')->toString());
+
+        /*
+        |--------------------------------------------------------------------------
+        | Tentukan apakah login menggunakan email atau nomor handphone
+        |--------------------------------------------------------------------------
+        */
+
+        if (filter_var($login, FILTER_VALIDATE_EMAIL)) {
+
+            $credentials = [
+                'email' => $login,
+                'password' => $this->string('password')->toString(),
+            ];
+
+        } else {
+
+            $credentials = [
+                'phone' => $login,
+                'password' => $this->string('password')->toString(),
+            ];
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Attempt Login
+        |--------------------------------------------------------------------------
+        */
+
+        if (! Auth::attempt(
+            $credentials,
+            $this->boolean('remember')
+        )) {
+
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                'login' => 'Email, nomor handphone, atau password yang Anda masukkan salah.',
             ]);
         }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Login berhasil
+        |--------------------------------------------------------------------------
+        */
 
         RateLimiter::clear($this->throttleKey());
     }
@@ -69,10 +120,9 @@ class LoginRequest extends FormRequest
         $seconds = RateLimiter::availableIn($this->throttleKey());
 
         throw ValidationException::withMessages([
-            'email' => trans('auth.throttle', [
-                'seconds' => $seconds,
-                'minutes' => ceil($seconds / 60),
-            ]),
+            'login' => 'Terlalu banyak percobaan login. Silakan coba kembali dalam '
+                . ceil($seconds / 60)
+                . ' menit.',
         ]);
     }
 
@@ -81,6 +131,12 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->string('email')).'|'.$this->ip());
+        return Str::transliterate(
+            Str::lower(
+                trim($this->string('login')->toString())
+            )
+            . '|'
+            . $this->ip()
+        );
     }
 }
